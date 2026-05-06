@@ -4,21 +4,20 @@
 
 | Name | Role | Contact | Cadence |
 |------|------|---------|---------|
-| Shemily | SDR — outbound calls, DMs, lead gen | WhatsApp + Daily Scorecard | Daily |
 | George | Sales — calls, closing | WhatsApp + Daily Scorecard | Daily |
-| Ruth | Client Success — onboarding, retention, upsells | WhatsApp + Daily Scorecard | Daily |
-| Kamille | Content / Creator Outreach | WhatsApp + Daily Scorecard | Daily |
+| Kamille | Account Success + Talent Acquisition + Creator Partnerships | WhatsApp + Daily Scorecard | Daily |
 | JC | Technical / Website | WhatsApp | As needed |
 | Sue | Hiring / Talent sourcing | WhatsApp | As needed |
 
+> **Note:** Ruth departed 2026-05-06. Kamille is inheriting Ruth's full Account Success and Talent Acquisition seat. 15-day handover running until 2026-05-21. See `references/sops/ruth-to-camille-handover.md`.
+
 ### Daily Scorecard Targets
 
-**Shemily (SDR)**
-- Calls made: 100/day
-- Pickups: 30/day
-- Follow-ups sent: 25/day
-- Booked calls: 2/day
-- New leads added to GHL: 15/day
+**VA (LinkedIn Outbound)**
+- LinkedIn connections sent: 20/day
+- LinkedIn follow-up DMs sent: 10/day
+- VA email follow-ups sent (Mini Passion): 10/day
+- New leads added to GHL: 10/day
 
 **George (Sales)**
 - Sales calls completed: 10/week
@@ -26,22 +25,18 @@
 - Deals closed: 3/week
 - Follow-up calls: 10/week
 
-**Ruth (Client Success)**
+**Kamille (Account Success + Talent Acquisition + Creator Partnerships)**
 - New clients onboarded
-- Client check-ins done
+- Client check-ins done (weekly for new, biweekly for stable, monthly for long-term)
 - VA upsell conversations
 - Issues resolved
-- Referral asks sent + leads captured
+- Referral asks sent + leads captured (2/day target)
 - Onboarding emails sent
 - Client health scores updated
-
-**Kamille (Creator Outreach)**
+- VA sourcing, screening, hiring, training, deployment
 - IG comments on creator posts
-- Story replies
-- Outreach emails sent
-- DMs sent
-- Follow-ups sent
-- Replies / conversations started
+- Story replies + DMs
+- Creator outreach emails + follow-ups
 
 ### Reporting System
 - Everyone enters numbers into the Daily Scorecard (Excel) Mon–Fri
@@ -51,8 +46,8 @@
 
 ### Pain Points
 - Ball drops without constant follow-up — proactive reminders are non-negotiable
-- Low trust in lead quality and sales execution (George's calls, Shemily's outreach)
-- Not enough quality leads to sustain 10 calls/week
+- Not enough quality leads — cold calls killed, LinkedIn is the new outbound engine
+- Need to hire a VA specifically for LinkedIn outbound (replacing Shemily's role)
 
 ---
 
