@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How Fitness Coaches Get Their Operations Running Without Them | Jarvis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Montserrat', sans-serif; background: #0D0D0D; color: #1A1A1A; -webkit-font-smoothing: antialiased; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ── HERO (DARK) ── */
+    .hero {
+      background: #0D0D0D;
+      padding: 52px 24px 24px;
+      text-align: center;
+    }
+
+    .hero .pre {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #888888;
+      text-transform: uppercase;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      font-size: clamp(26px, 4.8vw, 48px);
+      font-weight: 900;
+      line-height: 1.15;
+      color: #FFFFFF;
+      max-width: 820px;
+      margin: 0 auto 18px;
+    }
+
+    .hero h1 .neon { color: #CCFF00; }
+
+    .hero .sub {
+      font-size: clamp(14px, 2vw, 17px);
+      color: #CCCCCC;
+      max-width: 540px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+
+    /* ── ANIMATED CTA ── */
+    .btn-wrap { display: flex; flex-direction: column; align-items: center; gap: 10px; }
+
+    @keyframes pulse-glow {
+      0%   { box-shadow: 0 0 0 0 rgba(204,255,0,0.6); transform: scale(1); }
+      50%  { box-shadow: 0 0 0 18px rgba(204,255,0,0); transform: scale(1.03); }
+      100% { box-shadow: 0 0 0 0 rgba(204,255,0,0); transform: scale(1); }
+    }
+
+    .btn-cta {
+      display: inline-block;
+      background: #CCFF00;
+      color: #0D0D0D;
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(15px, 2.2vw, 19px);
+      font-weight: 900;
+      padding: 20px 48px;
+      border-radius: 6px;
+      cursor: pointer;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      animation: pulse-glow 2s ease-in-out infinite;
+    }
+
+    .btn-cta:hover { background: #BBEE00; }
+
+    .btn-subtext {
+      font-size: 11px;
+      font-weight: 700;
+      color: #888888;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    /* ── VIDEO (still dark bg, directly after hero) ── */
+    .video-section {
+      background: #0D0D0D;
+      padding: 0 24px 48px;
+      text-align: center;
+    }
+
+    .video-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: #888888;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+
+    .video-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+      border-radius: 10px;
+      overflow: hidden;
+      background: #111111;
+      aspect-ratio: 16 / 9;
+      position: relative;
+    }
+
+    .video-placeholder {
+      width: 100%;
+      height: 100%;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: 2px dashed #222222;
+      border-radius: 10px;
+    }
+
+    .play-ring {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      background: #CCFF00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      animation: pulse-glow 2.5s ease-in-out infinite;
+    }
+
+    .play-ring svg { width: 30px; height: 30px; margin-left: 5px; }
+    .video-note { font-size: 13px; color: #888888; font-weight: 600; }
+    .video-subtext { font-size: 11px; color: #888888; margin-top: 14px; letter-spacing: 0.5px; }
+
+    /* ════════════════════════════════════
+       EVERYTHING BELOW = WHITE BACKGROUND
+    ════════════════════════════════════ */
+
+    /* ── AS SEEN ON ── */
+    .seen-on {
+      background: #FFFFFF;
+      padding: 36px 24px;
+      text-align: center;
+      border-bottom: 1px solid #EEEEEE;
+    }
+
+    .seen-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #BBBBBB;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+
+    .logos {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px 40px;
+    }
+
+    .logo-item {
+      font-size: clamp(14px, 2vw, 17px);
+      font-weight: 800;
+      color: #CCCCCC;
+      letter-spacing: 0.5px;
+    }
+
+    /* ── WHAT YOU'LL LEARN ── */
+    .learn-section {
+      background: #FFFFFF;
+      padding: 60px 24px;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      color: #BBBBBB;
+      text-transform: uppercase;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+
+    .section-h {
+      font-size: clamp(22px, 3.5vw, 30px);
+      font-weight: 900;
+      color: #1A1A1A;
+      text-align: center;
+      margin-bottom: 36px;
+    }
+
+    .learn-list {
+      max-width: 700px;
+      margin: 0 auto;
+      list-style: none;
+    }
+
+    .learn-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      font-size: 16px;
+      color: #333333;
+      line-height: 1.6;
+      padding: 16px 0;
+      border-bottom: 1px solid #F0F0F0;
+    }
+
+    .learn-list li:last-child { border-bottom: none; }
+
+    .arrow-tag {
+      background: #0D0D0D;
+      color: #CCFF00;
+      font-size: 12px;
+      font-weight: 900;
+      padding: 3px 8px;
+      border-radius: 3px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+
+    /* ── CASE STUDY STRIP ── */
+    .case-strip {
+      background: #F5F5F5;
+      padding: 56px 24px;
+      text-align: center;
+    }
+
+    .result-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 28px auto;
+      max-width: 700px;
+    }
+
+    .stat-box {
+      text-align: center;
+    }
+
+    .stat-box .num {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      line-height: 1;
+      color: #1A1A1A;
+    }
+
+    .stat-box .num.muted { color: #BBBBBB; }
+    .stat-box .num.green { color: #2D7A3A; }
+
+    .stat-box .lbl {
+      font-size: 12px;
+      color: #AAAAAA;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-top: 4px;
+    }
+
+    .stat-arrow { font-size: 28px; color: #CCCCCC; align-self: center; }
+
+    .dm-card {
+      max-width: 600px;
+      margin: 0 auto 8px;
+      background: #FFFFFF;
+      border-radius: 12px;
+      border: 1px solid #EEEEEE;
+      padding: 28px 32px;
+      text-align: left;
+    }
+
+    .dm-card .dm-meta { font-size: 11px; color: #BBBBBB; font-weight: 700; margin-bottom: 10px; }
+    .dm-card .dm-text { font-size: 16px; color: #1A1A1A; line-height: 1.65; }
+    .dm-card .dm-name { font-size: 12px; color: #AAAAAA; font-weight: 700; margin-top: 16px; }
+
+    /* ── PHOTO TESTIMONIALS ── */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .pcard {
+      text-align: center;
+      padding: 8px 12px 16px;
+    }
+
+    .pphoto {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: #EEEEEE;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      font-weight: 900;
+      color: #CCCCCC;
+      margin: 0 auto 12px;
+      overflow: hidden;
+    }
+
+    /* When real photos are available:
+    .pphoto img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; } */
+
+    .pname {
+      font-size: 14px;
+      font-weight: 800;
+      color: #1A1A1A;
+      margin-bottom: 2px;
+    }
+
+    .ptitle {
+      font-size: 11px;
+      color: #AAAAAA;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .pquote {
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.6;
+    }
+
+    /* ── VIDEO TESTIMONIALS ── */
+    .testimonials-section {
+      background: #FFFFFF;
+      padding: 64px 24px;
+    }
+
+    .video-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      max-width: 900px;
+      margin: 0 auto 48px;
+    }
+
+    .vcard {
+      background: #F5F5F5;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid #EEEEEE;
+    }
+
+    /* Video thumbnail area */
+    .vcard .vthumb {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      background: #1A1A1A;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .vcard .vthumb .vplay {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: #CCFF00;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform 0.15s;
+    }
+
+    .vcard .vthumb:hover .vplay { transform: scale(1.1); }
+    .vcard .vthumb .vplay svg { width: 20px; height: 20px; margin-left: 3px; }
+
+    /* Replace vthumb content with iframe when videos are ready:
+    .vcard .vthumb iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    */
+
+    .vcard .vinfo {
+      padding: 16px 18px 18px;
+    }
+
+    .vcard .vinfo .vname {
+      font-size: 14px;
+      font-weight: 800;
+      color: #1A1A1A;
+      margin-bottom: 2px;
+    }
+
+    .vcard .vinfo .vtitle {
+      font-size: 12px;
+      color: #AAAAAA;
+      margin-bottom: 10px;
+    }
+
+    .vcard .vinfo .vresult {
+      display: inline-block;
+      background: #0D0D0D;
+      color: #CCFF00;
+      font-size: 11px;
+      font-weight: 800;
+      padding: 3px 9px;
+      border-radius: 3px;
+      margin-bottom: 10px;
+    }
+
+    .vcard .vinfo .vquote {
+      font-size: 13px;
+      color: #666666;
+      line-height: 1.6;
+    }
+
+    /* Trust numbers */
+    .trust-strip {
+      display: flex;
+      justify-content: center;
+      gap: 36px;
+      flex-wrap: wrap;
+      padding-top: 8px;
+    }
+
+    .trust-item { text-align: center; }
+    .trust-item .t-num { font-size: 34px; font-weight: 900; color: #1A1A1A; }
+    .trust-item .t-lbl { font-size: 11px; color: #AAAAAA; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-top: 4px; }
+
+    /* ── BOTTOM CTA (dark again for contrast) ── */
+    .cta-bottom {
+      background: #0D0D0D;
+      padding: 68px 24px;
+      text-align: center;
+    }
+
+    .cta-bottom h2 {
+      font-size: clamp(24px, 4vw, 38px);
+      font-weight: 900;
+      color: #FFFFFF;
+      line-height: 1.2;
+      margin-bottom: 10px;
+    }
+
+    .cta-bottom h2 .neon { color: #CCFF00; }
+    .cta-bottom .sub { font-size: 15px; color: #AAAAAA; margin-bottom: 36px; }
+
+    .guarantee-row {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-top: 20px;
+    }
+
+    .guarantee-row span { font-size: 13px; font-weight: 700; color: #2D7A3A; }
+
+    .btn-no-pitch { font-size: 11px; color: #888888; text-transform: uppercase; letter-spacing: 1px; margin-top: 10px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0A0A0A;
+      border-top: 1px solid #111111;
+      padding: 24px;
+      text-align: center;
+    }
+
+    footer .footer-links { font-size: 12px; color: #666666; margin-bottom: 8px; }
+    footer .footer-links a { color: #666666; margin: 0 10px; }
+    footer .footer-links a:hover { color: #999999; }
+    footer .copyright { font-size: 11px; color: #555555; }
+
+    /* ── MOBILE ── */
+    @media (max-width: 600px) {
+      .btn-cta { width: 100%; padding: 18px 20px; font-size: 15px; }
+      .video-grid { grid-template-columns: 1fr; }
+      .result-row { gap: 14px; }
+      .dm-card { padding: 22px 20px; }
+      .trust-strip { gap: 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ══ HERO (DARK) ══ -->
+  <section class="hero">
+    <p class="pre">Congrats, your case study is ready.</p>
+    <h1>
+      See How Jennifer Went From $18k to
+      <span class="neon">$34k/Month</span>
+      in 60 Days, Without Changing Her Offer
+    </h1>
+    <p class="sub">
+      Your VA handles the DMs, leads, and scheduling, then builds the automations so the repetitive work runs itself. No developer. No extra staff. No burnout.
+    </p>
+  </section>
+
+  <!-- ══ VIDEO (directly after hero, before CTA) ══ -->
+  <section class="video-section">
+    <p class="video-label">▶ &nbsp; Watch this 10-minute training first</p>
+    <div class="video-wrapper">
+
+      <!-- PLACEHOLDER — swap for Vimeo iframe after recording -->
+      <div class="video-placeholder">
+        <div class="play-ring">
+          <svg viewBox="0 0 24 24" fill="#0D0D0D"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+        <p class="video-note">Video coming soon</p>
+      </div>
+
+      <!--
+      REPLACE ABOVE WITH THIS when Vimeo is ready:
+      <iframe
+        src="https://player.vimeo.com/video/YOUR_VIDEO_ID?autoplay=0&title=0&byline=0&portrait=0"
+        style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;"
+        allow="autoplay; fullscreen" allowfullscreen>
+      </iframe>
+      -->
+
+    </div>
+    <p class="video-subtext">Turn on sound &nbsp;·&nbsp; Watch to the end</p>
+
+    <!-- CTA below video -->
+    <div class="btn-wrap" style="margin-top: 32px;">
+      <a href="YOUR_CALENDLY_LINK_HERE" class="btn-cta">
+        📅 &nbsp; Book a Free 15-Min Audit Call
+      </a>
+      <p class="btn-subtext">We'll see if you're ready for a VA</p>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════
+       WHITE SECTION STARTS HERE
+  ════════════════════════════════ -->
+
+  <!-- AS SEEN ON -->
+  <div class="seen-on">
+    <p class="seen-label">As Seen On</p>
+    <div class="logos">
+      <div class="logo-item">Yahoo!</div>
+      <div class="logo-item">MarketWatch</div>
+      <div class="logo-item">InvestorsObserver</div>
+      <div class="logo-item">Morningstar</div>
+      <div class="logo-item">Business Insider</div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS: Photos + Videos -->
+  <section class="testimonials-section">
+    <p class="section-label">Testimonials</p>
+    <h2 class="section-h">People We've Helped</h2>
+
+    <!-- Photo testimonials row -->
+    <div class="photo-grid">
+
+      <div class="pcard">
+        <div class="pphoto">J</div>
+        <!-- Replace with: <img src="jennifer.jpg" alt="Jennifer" /> -->
+        <div class="pname">Jennifer</div>
+        <div class="ptitle">Online Fitness Coach</div>
+        <p class="pquote">"$34k this month. My show rate doubled. I feel like a CEO for the first time."</p>
+      </div>
+
+      <div class="pcard">
+        <div class="pphoto">M</div>
+        <div class="pname">Marcus T.</div>
+        <div class="ptitle">Nutrition Coach · LA</div>
+        <p class="pquote">"My VA knew our industry before they even started. Night and day from every other hire."</p>
+      </div>
+
+      <div class="pcard">
+        <div class="pphoto">J</div>
+        <div class="pname">Jenna K.</div>
+        <div class="ptitle">Personal Trainer · Austin</div>
+        <p class="pquote">"I haven't touched my inbox in 3 weeks. My VA handles everything."</p>
+      </div>
+
+      <div class="pcard">
+        <div class="pphoto">R</div>
+        <div class="pname">Ryan C.</div>
+        <div class="ptitle">Fitness Coach · New York</div>
+        <p class="pquote">"Within 30 days my VA had taken over my entire ops. Best decision I made this year."</p>
+      </div>
+
+    </div>
+
+    <!-- Divider -->
+    <div style="max-width:900px; margin: 48px auto 44px; border-top: 1px solid #EEEEEE;"></div>
+
+    <!-- Video testimonials -->
+    <div class="video-grid">
+
+      <!-- TESTIMONIAL VIDEO 1 -->
+      <div class="vcard">
+        <div class="vthumb">
+          <!-- Replace with: <iframe src="https://player.vimeo.com/video/ID" ...></iframe> -->
+          <div class="vplay">
+            <svg viewBox="0 0 24 24" fill="#0D0D0D"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="vinfo">
+          <div class="vname">Jennifer</div>
+          <div class="vtitle">Online Fitness Coach</div>
+          <div class="vresult">$18k → $34k/mo</div>
+          <p class="vquote">"I feel like a CEO for the first time."</p>
+        </div>
+      </div>
+
+      <!-- TESTIMONIAL VIDEO 2 -->
+      <div class="vcard">
+        <div class="vthumb">
+          <div class="vplay">
+            <svg viewBox="0 0 24 24" fill="#0D0D0D"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="vinfo">
+          <div class="vname">Marcus T.</div>
+          <div class="vtitle">Nutrition Coach · Los Angeles</div>
+          <div class="vresult">+$22k/month</div>
+          <p class="vquote">"My VA knew our industry before they even started."</p>
+        </div>
+      </div>
+
+      <!-- TESTIMONIAL VIDEO 3 -->
+      <div class="vcard">
+        <div class="vthumb">
+          <div class="vplay">
+            <svg viewBox="0 0 24 24" fill="#0D0D0D"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="vinfo">
+          <div class="vname">Jenna K.</div>
+          <div class="vtitle">Personal Trainer · Austin TX</div>
+          <div class="vresult">Inbox at zero every day</div>
+          <p class="vquote">"I haven't touched my inbox in 3 weeks."</p>
+        </div>
+      </div>
+
+      <!-- TESTIMONIAL VIDEO 4 -->
+      <div class="vcard">
+        <div class="vthumb">
+          <div class="vplay">
+            <svg viewBox="0 0 24 24" fill="#0D0D0D"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="vinfo">
+          <div class="vname">Derek M.</div>
+          <div class="vtitle">Online Coach</div>
+          <div class="vresult">Show rate 67%</div>
+          <p class="vquote">"Leads were actually followed up. My show rate doubled."</p>
+        </div>
+      </div>
+
+      <!-- TESTIMONIAL VIDEO 5 -->
+      <div class="vcard">
+        <div class="vthumb">
+          <div class="vplay">
+            <svg viewBox="0 0 24 24" fill="#0D0D0D"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="vinfo">
+          <div class="vname">Ryan C.</div>
+          <div class="vtitle">Fitness Coach · New York</div>
+          <div class="vresult">$41k month</div>
+          <p class="vquote">"Within 30 days my VA had taken over my entire ops."</p>
+        </div>
+      </div>
+
+      <!-- TESTIMONIAL VIDEO 6 -->
+      <div class="vcard">
+        <div class="vthumb">
+          <div class="vplay">
+            <svg viewBox="0 0 24 24" fill="#0D0D0D"><path d="M8 5v14l11-7z"/></svg>
+          </div>
+        </div>
+        <div class="vinfo">
+          <div class="vname">Aisha P.</div>
+          <div class="vtitle">Mindset Coach</div>
+          <div class="vresult">Quit her 9-to-5</div>
+          <p class="vquote">"I just coach. That's it. Everything else is handled."</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Trust numbers -->
+    <div class="trust-strip">
+      <div class="trust-item">
+        <div class="t-num">200+</div>
+        <div class="t-lbl">Founders freed</div>
+      </div>
+      <div class="trust-item">
+        <div class="t-num">4.9★</div>
+        <div class="t-lbl">Average rating</div>
+      </div>
+      <div class="trust-item">
+        <div class="t-num">1 in 200</div>
+        <div class="t-lbl">VAs make the cut</div>
+      </div>
+      <div class="trust-item">
+        <div class="t-num">5 days</div>
+        <div class="t-lbl">To get started</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ BOTTOM CTA (DARK) ══ -->
+  <section class="cta-bottom">
+    <h2>Book a Free<br/><span class="neon">Operations Audit Call</span></h2>
+    <p class="sub">On the call, we'll go over your business and give you real advice on whether a VA is the right move — and exactly what they would take off your plate.</p>
+    <div class="btn-wrap">
+      <a href="YOUR_CALENDLY_LINK_HERE" class="btn-cta">
+        📅 &nbsp; Book a Free 15-Min Audit Call
+      </a>
+      <p class="btn-no-pitch">We'll tell you straight. We've turned people away.</p>
+    </div>
+    <div class="guarantee-row">
+      <span>✓ $0 upfront</span>
+      <span>✓ Starts within 5 days</span>
+      <span>✓ Unlimited replacement</span>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-links">
+      <a href="/privacy">Privacy Policy</a>
+      <a href="/terms">Terms of Service</a>
+    </div>
+    <p class="copyright">© 2026 Jarvis · gojarvis.ai · All rights reserved.</p>
+  </footer>
+
+</body>
+</html>

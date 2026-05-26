@@ -1,0 +1,49 @@
+{
+  "protocol_version": "1.0",
+  "rules": [
+    {
+      "rule_id": "seed-lock",
+      "description": "prompt_seed from actor card must be used for every image in the campaign",
+      "enforcement": "hard — seed mismatch invalidates shot"
+    },
+    {
+      "rule_id": "outfit-continuity",
+      "description": "outfit_id must remain identical within a single campaign unless shot_type is 'before-after' or explicitly flagged as outfit-change",
+      "enforcement": "hard"
+    },
+    {
+      "rule_id": "distinguishing-marks-presence",
+      "description": "All distinguishing_marks from actor card must appear in Layer 1 of every shot",
+      "enforcement": "hard"
+    },
+    {
+      "rule_id": "camera-profile-consistency",
+      "description": "Camera profile should remain consistent within a scene — switching profiles requires a new scene declaration",
+      "enforcement": "soft — warning on violation, not block"
+    },
+    {
+      "rule_id": "lighting-continuity",
+      "description": "time_of_day and ambient light must be consistent within a scene group",
+      "enforcement": "soft"
+    },
+    {
+      "rule_id": "realism-anchor-completeness",
+      "description": "All 10 realism anchors must appear in every prompt — no partial injection",
+      "enforcement": "hard — partial realism injection invalidates prompt"
+    },
+    {
+      "rule_id": "negative-prompt-passthrough",
+      "description": "actor.negative_anchors must be merged with global_negatives in every Layer 6 — never dropped",
+      "enforcement": "hard"
+    }
+  ],
+  "multi_shot_checklist": [
+    "same actor_id and prompt_seed",
+    "same outfit_id (unless flagged)",
+    "all distinguishing_marks present",
+    "all 10 realism anchors in Layer 5",
+    "camera profile declared for each shot",
+    "Layer 6 includes both global and actor negatives",
+    "video motion prompts use motion-only descriptors"
+  ]
+}

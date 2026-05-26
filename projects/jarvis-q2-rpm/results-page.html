@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Real Results | Jarvis VA</title>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Arimo',sans-serif;color:#242424;background:#fff}
+  .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
+
+  /* ── HERO ── */
+  .results-hero{padding:80px 24px 60px;text-align:center;background:#fff}
+  .results-hero h1{font-size:clamp(32px,4vw,52px);font-weight:400;line-height:1.1;margin-bottom:16px}
+  .results-hero h1 em{font-style:italic;color:#CAE600}
+  .results-hero p{font-size:18px;color:rgba(0,0,0,0.55);max-width:560px;margin:0 auto}
+
+  /* ── SECTION LABEL ── */
+  .section-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#CAE600;margin-bottom:12px}
+  .section-title{font-size:clamp(24px,3vw,36px);font-weight:400;margin-bottom:8px}
+  .section-sub{font-size:16px;color:rgba(0,0,0,0.5);margin-bottom:48px}
+
+  /* ── CLIENT WINS ── */
+  .client-wins{padding:72px 24px 80px;background:#f9f9f9}
+  .wins-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+
+  .win-card{background:#fff;border:1px solid #e8e8e8;border-radius:16px;padding:32px;display:flex;flex-direction:column;gap:24px;transition:box-shadow .2s}
+  .win-card:hover{box-shadow:0 8px 32px rgba(0,0,0,.08)}
+
+  .win-industry{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:600;text-transform:uppercase;letter-spacing:1.5px;color:#666}
+  .win-industry-dot{width:8px;height:8px;border-radius:50%;background:#CAE600;flex-shrink:0}
+
+  .win-problem{font-size:15px;color:rgba(0,0,0,0.55);line-height:1.6;border-left:3px solid #CAE600;padding-left:14px}
+
+  .win-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .metric{background:#f5f5f5;border-radius:10px;padding:14px 10px;text-align:center}
+  .metric-number{font-size:22px;font-weight:700;color:#242424;line-height:1}
+  .metric-number.green{color:#2a8a2a}
+  .metric-label{font-size:11px;color:#888;margin-top:4px;line-height:1.3}
+
+  .win-quote{font-size:14px;font-style:italic;color:rgba(0,0,0,0.6);line-height:1.65;padding-top:4px;border-top:1px solid #f0f0f0}
+
+  /* ── USE CASES ── */
+  .use-cases{padding:72px 24px 80px;background:#fff}
+  .industries-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
+
+  .industry-card{border:1px solid #e8e8e8;border-radius:14px;padding:28px 24px;display:flex;flex-direction:column;gap:12px;text-decoration:none;color:inherit;transition:border-color .2s,box-shadow .2s}
+  .industry-card:hover{border-color:#CAE600;box-shadow:0 4px 20px rgba(202,230,0,.15)}
+
+  .industry-icon{font-size:28px}
+  .industry-name{font-size:17px;font-weight:600}
+  .industry-desc{font-size:14px;color:rgba(0,0,0,0.5);line-height:1.55}
+  .industry-tasks{display:flex;flex-direction:column;gap:6px;margin-top:4px}
+  .industry-task{font-size:13px;color:rgba(0,0,0,0.55);display:flex;align-items:flex-start;gap:6px}
+  .industry-task::before{content:'→';color:#CAE600;flex-shrink:0}
+  .industry-cta{font-size:13px;font-weight:600;color:#CAE600;margin-top:8px}
+
+  /* ── BOTTOM CTA ── */
+  .results-cta{padding:80px 24px;background:#000;text-align:center}
+  .results-cta h2{font-size:clamp(28px,3.5vw,44px);font-weight:400;color:#fff;margin-bottom:16px}
+  .results-cta h2 em{font-style:italic;color:#CAE600}
+  .results-cta p{font-size:17px;color:#afafaf;max-width:480px;margin:0 auto 36px}
+  .btn-primary{display:inline-block;background:#CAE600;color:#000;font-size:16px;font-weight:600;padding:18px 36px;border-radius:100px;text-decoration:none;transition:background .2s}
+  .btn-primary:hover{background:#b5cc00}
+
+  @media(max-width:600px){
+    .win-metrics{grid-template-columns:repeat(3,1fr)}
+    .metric-number{font-size:18px}
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="results-hero">
+  <div class="wrap">
+    <p class="section-label">Real Results</p>
+    <h1>What happens when founders<br><em>stop doing everything themselves</em></h1>
+    <p>22 businesses. Pre-trained VAs. Before and after numbers that speak for themselves.</p>
+  </div>
+</section>
+
+<!-- CLIENT WINS -->
+<section class="client-wins">
+  <div class="wrap">
+    <p class="section-label">Client Wins</p>
+    <h2 class="section-title">Before → After</h2>
+    <p class="section-sub">Real clients. Real numbers. No rounding.</p>
+
+    <div class="wins-grid">
+
+      <!-- Construction -->
+      <div class="win-card">
+        <div class="win-industry"><span class="win-industry-dot"></span>General Contracting</div>
+        <p class="win-problem">Spent every Monday morning chasing subcontractors for insurance certificates and unpaid invoices. 3 hours. Every week. Before touching anything that grew the business.</p>
+        <div class="win-metrics">
+          <div class="metric">
+            <div class="metric-number green">150hrs</div>
+            <div class="metric-label">reclaimed per year</div>
+          </div>
+          <div class="metric">
+            <div class="metric-number green">+40%</div>
+            <div class="metric-label">revenue in 12 months</div>
+          </div>
+          <div class="metric">
+            <div class="metric-number">$4.2M</div>
+            <div class="metric-label">from $3M baseline</div>
+          </div>
+        </div>
+        <p class="win-quote">"He got 3 hours back every Monday. That's 150 hours a year he now spends closing new bids."</p>
+      </div>
+
+      <!-- Real Estate -->
+      <div class="win-card">
+        <div class="win-industry"><span class="win-industry-dot"></span>Real Estate</div>
+        <p class="win-problem">Zillow leads have a 5-minute window. She was losing deals while showing houses — new leads came in while she was with clients, and sat there unanswered for hours.</p>
+        <div class="win-metrics">
+          <div class="metric">
+            <div class="metric-number green">2 min</div>
+            <div class="metric-label">avg lead response time</div>
+          </div>
+          <div class="metric">
+            <div class="metric-number green">+40%</div>
+            <div class="metric-label">lead conversion rate</div>
+          </div>
+          <div class="metric">
+            <div class="metric-number green">+12</div>
+            <div class="metric-label">deals closed last year</div>
+          </div>
+        </div>
+        <p class="win-quote">"She closed 12 more deals last year without working more hours."</p>
+      </div>
+
+      <!-- Financial Advisor -->
+      <div class="win-card">
+        <div class="win-industry"><span class="win-industry-dot"></span>Financial Advisory</div>
+        <p class="win-problem">Every client review meeting took 2 hours to prep — pull account summaries, review last meeting notes, update the CMA. He was spending admin time on a job that paid for expertise.</p>
+        <div class="win-metrics">
+          <div class="metric">
+            <div class="metric-number green">2hrs</div>
+            <div class="metric-label">saved per meeting</div>
+          </div>
+          <div class="metric">
+            <div class="metric-number green">3→7</div>
+            <div class="metric-label">review meetings/week</div>
+          </div>
+          <div class="metric">
+            <div class="metric-number">$50M</div>
+            <div class="metric-label">AUM managed</div>
+          </div>
+        </div>
+        <p class="win-quote">"Same effort. More than double the client output."</p>
+      </div>
+
+      <!-- Coaching -->
+      <div class="win-card">
+        <div class="win-industry"><span class="win-industry-dot"></span>Business Coaching</div>
+        <p class="win-problem">400 unread Instagram DMs. She knew some were leads — she just had no time to find out. Every day the pile got bigger. Every day potential clients gave up waiting.</p>
+        <div class="win-metrics">
+          <div class="metric">
+            <div class="metric-number green">11</div>
+            <div class="metric-label">calls booked month 1</div>
+          </div>
+          <div class="metric">
+            <div class="metric-number green">3</div>
+            <div class="metric-label">new clients closed</div>
+          </div>
+          <div class="metric">
+            <div class="metric-number green">$15K</div>
+            <div class="metric-label">from ignored messages</div>
+          </div>
+        </div>
+        <p class="win-quote">"$15K from messages that were just sitting there."</p>
+      </div>
+
+      <!-- D2C -->
+      <div class="win-card">
+        <div class="win-industry"><span class="win-industry-dot"></span>D2C / E-Commerce</div>
+        <p class="win-problem">40-50 customer emails every morning — refunds, wrong orders, subscription cancellations. By noon she hadn't touched anything that grew the business. This was every day.</p>
+        <div class="win-metrics">
+          <div class="metric">
+            <div class="metric-number green">0hrs</div>
+            <div class="metric-label">in inbox (from 4/day)</div>
+          </div>
+          <div class="metric">
+            <div class="metric-number green">+$600K</div>
+            <div class="metric-label">revenue in 8 months</div>
+          </div>
+          <div class="metric">
+            <div class="metric-number">$1.8M</div>
+            <div class="metric-label">from $1.2M baseline</div>
+          </div>
+        </div>
+        <p class="win-quote">"She went from 4 hours a day in her inbox to zero. Used that time to launch two new products."</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES BY INDUSTRY -->
+<section class="use-cases">
+  <div class="wrap">
+    <p class="section-label">Use Cases</p>
+    <h2 class="section-title">Find your situation</h2>
+    <p class="section-sub">Your industry. Your bottleneck. Your VA.</p>
+
+    <div class="industries-grid">
+
+      <a href="/pages/virtual-assistant-for-ecommerce" class="industry-card">
+        <div class="industry-icon">🛍️</div>
+        <div class="industry-name">E-Commerce</div>
+        <div class="industry-desc">You're running a store and a customer service desk at the same time.</div>
+        <div class="industry-tasks">
+          <span class="industry-task">Customer inbox + refund processing</span>
+          <span class="industry-task">Order tracking + supplier follow-up</span>
+          <span class="industry-task">Review management + listing updates</span>
+        </div>
+        <div class="industry-cta">See how it works →</div>
+      </a>
+
+      <a href="/pages/virtual-assistant-for-franchise-owners" class="industry-card">
+        <div class="industry-icon">🏢</div>
+        <div class="industry-name">Franchises</div>
+        <div class="industry-desc">Multiple locations. Constant coordination. Not enough hours.</div>
+        <div class="industry-tasks">
+          <span class="industry-task">Vendor + compliance follow-up</span>
+          <span class="industry-task">Staff scheduling + reporting</span>
+          <span class="industry-task">Ops tracking across locations</span>
+        </div>
+        <div class="industry-cta">See how it works →</div>
+      </a>
+
+      <a href="/pages/virtual-assistant-for-beauty-salons" class="industry-card">
+        <div class="industry-icon">💅</div>
+        <div class="industry-name">Beauty & Wellness</div>
+        <div class="industry-desc">You're the service provider and the front desk and the marketing team.</div>
+        <div class="industry-tasks">
+          <span class="industry-task">Booking management + reminders</span>
+          <span class="industry-task">DM responses + lead follow-up</span>
+          <span class="industry-task">Review requests + social scheduling</span>
+        </div>
+        <div class="industry-cta">See how it works →</div>
+      </a>
+
+      <a href="/pages/real-estate-virtual-assistant" class="industry-card">
+        <div class="industry-icon">🏡</div>
+        <div class="industry-name">Real Estate</div>
+        <div class="industry-desc">Leads go cold in 5 minutes. You can't always be the one to answer.</div>
+        <div class="industry-tasks">
+          <span class="industry-task">Instant lead response + qualification</span>
+          <span class="industry-task">CRM updates + follow-up sequences</span>
+          <span class="industry-task">Transaction coordination</span>
+        </div>
+        <div class="industry-cta">See how it works →</div>
+      </a>
+
+      <a href="/pages/virtual-assistant-for-marketing-agencies" class="industry-card">
+        <div class="industry-icon">📣</div>
+        <div class="industry-name">Marketing Agencies</div>
+        <div class="industry-desc">Clients want reports. You want to do the actual work.</div>
+        <div class="industry-tasks">
+          <span class="industry-task">Client reporting + data pulls</span>
+          <span class="industry-task">Project tracking + deadline management</span>
+          <span class="industry-task">Onboarding + SOPs</span>
+        </div>
+        <div class="industry-cta">See how it works →</div>
+      </a>
+
+      <a href="/pages/virtual-assistant-for-investment-firms" class="industry-card">
+        <div class="industry-icon">📈</div>
+        <div class="industry-name">Finance & Advisory</div>
+        <div class="industry-desc">Your time is worth hundreds per hour. Your prep work isn't.</div>
+        <div class="industry-tasks">
+          <span class="industry-task">Meeting prep + CMA research</span>
+          <span class="industry-task">Client follow-up + scheduling</span>
+          <span class="industry-task">Compliance document tracking</span>
+        </div>
+        <div class="industry-cta">See how it works →</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- BOTTOM CTA -->
+<section class="results-cta">
+  <div class="wrap">
+    <h2>Your story could be<br><em>next on this page.</em></h2>
+    <p>15-minute call. We'll map out exactly what your VA would handle from day one.</p>
+    <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="btn-primary">Book a Free Call</a>
+  </div>
+</section>
+
+</body>
+</html>

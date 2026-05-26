@@ -1,0 +1,46 @@
+{
+  "engine_version": "1.0",
+  "mandatory_anchors": [
+    {
+      "id": "skin-pores",
+      "injection_phrase": "visible skin pores under natural light, slight texture variation across nose bridge and cheeks"
+    },
+    {
+      "id": "stray-hairs",
+      "injection_phrase": "2-3 stray baby hairs along hairline, single flyaway crossing forehead"
+    },
+    {
+      "id": "under-eye-texture",
+      "injection_phrase": "subtle under-eye creasing, faint bluish tint beneath lower lash line"
+    },
+    {
+      "id": "uneven-skin-tone",
+      "injection_phrase": "slight redness on nose tip, mild discoloration on chin, natural skin unevenness"
+    },
+    {
+      "id": "fabric-texture",
+      "injection_phrase": "fabric weave visible on clothing, natural wrinkle at elbow crease, slight lint"
+    },
+    {
+      "id": "environmental-noise",
+      "injection_phrase": "ambient dust particles in light beam, background grain consistent with location"
+    },
+    {
+      "id": "lighting-imperfection",
+      "injection_phrase": "soft shadow under chin, uneven highlight on forehead, one side slightly cooler lit"
+    },
+    {
+      "id": "camera-artifacts",
+      "injection_phrase": "slight chromatic aberration at frame edges, subtle lens barrel distortion"
+    },
+    {
+      "id": "nail-detail",
+      "injection_phrase": "natural nail with faint cuticle line, slight shine variation across nail surface"
+    },
+    {
+      "id": "jewelry-physics",
+      "injection_phrase": "necklace chain sitting naturally with slight sag, earring back visible behind lobe"
+    }
+  ],
+  "enforcement": "ALL 10 anchors must appear in Layer 5 (Realism Injection) of every prompt. Omission of any anchor invalidates the prompt."
+}

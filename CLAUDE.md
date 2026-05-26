@@ -46,6 +46,9 @@ Skills are built organically as recurring workflows emerge — don't create them
 - `morning-coffee` — daily RPM-based briefing
 - `research` — deep research with Perplexity
 - `social-creative-designer` — carousel and single social media graphics via Nano Banana MCP. Invoke with `/social-creative-designer`.
+- `linkedin-dms` — Conversation Design outreach: personalized LinkedIn first messages + reply generation for Shemily. Invoke with `/linkedin-dms`.
+- `sales` — Jarvis sales call framework: call prep, objection handling scripts, George/Shemily coaching. Invoke with `/sales`.
+- `jarvis-seo-blog-writer` — SEO-optimized blog articles for gojarvis.ai. Bulk mode, Shopify CSV export, 10 keyword clusters, quality gate. Invoke with `/jarvis-seo-blog-writer`.
 
 **Skills to Build (backlog):**
 - `weekly-review` — Monday CEO review: scorecard check, team accountability, pipeline snapshot
@@ -114,3 +117,4 @@ Key routing rules:
 - Architecture review → invoke plan-eng-review
 - Save progress, checkpoint, resume → invoke checkpoint
 - Code quality, health check → invoke health
+- Write blog for Jarvis, SEO article, Jarvis blog post, write 500 blogs → invoke jarvis-seo-blog-writer

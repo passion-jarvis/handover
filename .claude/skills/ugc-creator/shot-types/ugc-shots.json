@@ -1,0 +1,61 @@
+{
+  "shot_types": [
+    {
+      "shot_id": "unboxing",
+      "description": "Actor opens product packaging on camera, genuine reaction",
+      "required_framing": "medium shot, hands and face visible",
+      "camera_profile": "rear-cam",
+      "emotional_state": "surprise | delight | curious",
+      "product_placement": "packaging in foreground, actor centered"
+    },
+    {
+      "shot_id": "testimonial-talking-head",
+      "description": "Actor speaks directly to camera, as if recommending product",
+      "required_framing": "close-up to medium, face fills 60% of frame",
+      "camera_profile": "selfie-front-cam",
+      "emotional_state": "confident | enthusiastic | sincere",
+      "product_placement": "product visible in hand or background"
+    },
+    {
+      "shot_id": "lifestyle-ambient",
+      "description": "Actor uses product naturally in daily life setting",
+      "required_framing": "medium to wide, environment tells story",
+      "camera_profile": "rear-cam",
+      "emotional_state": "relaxed | natural | candid",
+      "product_placement": "integrated into activity, not forced"
+    },
+    {
+      "shot_id": "get-ready-with-me",
+      "description": "Actor applies or prepares product in mirror/vanity setting",
+      "required_framing": "medium, mirror visible or implied",
+      "camera_profile": "mirror-selfie",
+      "emotional_state": "focused | playful | confident",
+      "product_placement": "product actively being applied"
+    },
+    {
+      "shot_id": "before-after",
+      "description": "Split or sequential shots showing product transformation",
+      "required_framing": "consistent framing across both shots",
+      "camera_profile": "selfie-front-cam",
+      "emotional_state": "neutral (before) | glowing (after)",
+      "product_placement": "same position both shots, only state changes",
+      "consistency_note": "Actor seed and outfit_id must be identical across before/after pair"
+    },
+    {
+      "shot_id": "flatlay-product-feature",
+      "description": "Overhead product arrangement, actor hand interaction optional",
+      "required_framing": "90-degree top-down, full frame composition",
+      "camera_profile": "overhead-flatlay",
+      "emotional_state": "N/A — no face required",
+      "product_placement": "product as hero, props as supporting elements"
+    },
+    {
+      "shot_id": "pov-handoff",
+      "description": "Actor holds product toward camera as if offering to viewer",
+      "required_framing": "extreme close-up on hands and product, actor torso in bg",
+      "camera_profile": "rear-cam",
+      "emotional_state": "inviting | generous",
+      "product_placement": "product fully centered, held with both hands"
+    }
+  ]
+}

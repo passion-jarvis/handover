@@ -1,0 +1,1261 @@
+{% layout none %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Our Process | Jarvis VA</title>
+<meta name="description" content="Every Jarvis VA is hand-picked, tested, and trained before they ever touch your business. Here's exactly how we do it.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lime:#CAE600;
+  --bg:#fff;
+  --hero-bg:#0a0a0a;
+  --surface:#f7f7f7;
+  --border:#e8e8e8;
+  --text:#111;
+  --muted:rgba(0,0,0,.65);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* TOPBAR */
+.topbar{background:var(--hero-bg);padding:18px 48px;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.07)}
+.topbar-logo{color:#fff;font-family:'Bricolage Grotesque',sans-serif;font-size:18px;font-weight:800;text-decoration:none;letter-spacing:-.5px}
+.topbar-logo span{color:var(--lime)}
+.topbar-nav{display:flex;align-items:center;gap:32px}
+.topbar-link{font-size:13px;font-weight:600;color:rgba(255,255,255,.5);text-decoration:none;transition:color .15s}
+.topbar-link:hover{color:#fff}
+.topbar-cta{display:inline-block;background:var(--lime);color:#000;font-size:13px;font-weight:700;padding:10px 22px;border-radius:4px;text-decoration:none;transition:background .15s}
+.topbar-cta:hover{background:#b5cc00}
+
+/* HERO */
+.hero{background:var(--hero-bg);padding:100px 48px 0;position:relative;overflow:hidden;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(202,230,0,.1) 0%,transparent 70%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:800px;margin:0 auto;padding-bottom:72px}
+.eyebrow{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--lime);margin-bottom:20px}
+.hero h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(42px,6vw,78px);line-height:.95;letter-spacing:-3px;color:#fff;margin-bottom:28px}
+.hero h1 .h1-top{display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:.65em;color:rgba(255,255,255,.75);letter-spacing:-1px;margin-bottom:4px}
+.hero h1 em{font-family:'Bricolage Grotesque',sans-serif;font-style:normal;font-weight:800;color:var(--lime)}
+.hero-body{font-size:17px;line-height:1.8;color:rgba(255,255,255,.72);max-width:600px;margin:0 auto 36px}
+.hero-cta-btn{display:inline-block;background:var(--lime);color:#000;font-family:'Bricolage Grotesque',sans-serif;font-size:16px;font-weight:800;padding:18px 40px;border-radius:4px;text-decoration:none;transition:background .15s;letter-spacing:-.3px;margin-bottom:72px}
+.hero-cta-btn:hover{background:#b5cc00}
+
+/* HERO TRUST STRIP */
+.hero-trust{position:relative;z-index:1;background:rgba(255,255,255,.04);border-top:1px solid rgba(255,255,255,.08);display:grid;grid-template-columns:repeat(3,1fr)}
+.hero-trust-item{padding:36px 40px;display:flex;align-items:flex-start;gap:20px;border-right:1px solid rgba(255,255,255,.08)}
+.hero-trust-item:last-child{border-right:none}
+.hero-trust-icon{width:40px;height:40px;background:rgba(202,230,0,.1);border:1px solid rgba(202,230,0,.2);border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hero-trust-icon svg{width:18px;height:18px;stroke:var(--lime);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.hero-trust-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:14px;color:#fff;letter-spacing:-.2px;margin-bottom:5px;text-transform:uppercase;letter-spacing:.05em}
+.hero-trust-body{font-size:13px;color:rgba(255,255,255,.65);line-height:1.65}
+
+.hero-stat-n{font-family:'Bricolage Grotesque',sans-serif;font-size:36px;font-weight:800;color:var(--lime);letter-spacing:-1px;line-height:1}
+.hero-stat-d{font-size:12px;color:rgba(255,255,255,.65);margin-top:4px;line-height:1.4}
+.hero-stat-divider{width:1px;height:40px;background:rgba(255,255,255,.1)}
+
+/* SECTION WRAPPER */
+.section{padding:88px 48px}
+.section-inner{max-width:1120px;margin:0 auto}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--lime);margin-bottom:14px}
+.section-headline{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,44px);line-height:1.08;letter-spacing:-1.5px;color:#111;margin-bottom:16px}
+.section-headline em{font-family:'Bricolage Grotesque',sans-serif;font-style:normal;font-weight:800;color:var(--lime)}
+.section-sub{font-size:16px;color:var(--muted);line-height:1.75;max-width:560px}
+
+/* DARK SECTION */
+.dark-section{background:var(--hero-bg);padding:88px 48px;position:relative;overflow:hidden}
+.dark-section::before{content:'';position:absolute;top:-300px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,rgba(202,230,0,.05) 0%,transparent 65%);pointer-events:none}
+.dark-section .section-headline{color:#fff}
+.dark-section .section-sub{color:rgba(255,255,255,.68)}
+
+/* STANDARD GRID */
+.standard-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center}
+.standard-grid.reverse .grid-visual{order:-1}
+
+/* QUOTE BLOCK */
+.quote-block{background:rgba(202,230,0,.07);border-left:3px solid var(--lime);padding:24px 28px;margin:32px 0}
+.quote-block p{font-family:'Manrope',sans-serif;font-style:normal;font-size:18px;color:#fff;line-height:1.65}
+
+/* VETTING STATS ROW */
+.vetting-row{display:flex;gap:0;border:1.5px solid rgba(255,255,255,.1);border-radius:4px;overflow:hidden;margin-top:40px}
+.vetting-stat{flex:1;padding:28px 32px;border-right:1.5px solid rgba(255,255,255,.1)}
+.vetting-stat:last-child{border-right:none}
+.vetting-n{font-family:'Bricolage Grotesque',sans-serif;font-size:40px;font-weight:800;color:var(--lime);letter-spacing:-1.5px;line-height:1}
+.vetting-d{font-size:13px;color:rgba(255,255,255,.68);margin-top:6px;line-height:1.45}
+
+/* PILLAR GRID */
+.pillar-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:var(--border);border:1.5px solid var(--border);border-radius:4px;overflow:hidden;margin-top:48px}
+.pillar{background:#fff;padding:32px 32px 28px}
+.pillar-num{font-family:'Bricolage Grotesque',sans-serif;font-size:11px;font-weight:800;color:var(--lime);letter-spacing:.1em;margin-bottom:12px}
+.pillar-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;color:#111;letter-spacing:-.3px;margin-bottom:10px}
+.pillar-body{font-size:14px;color:var(--muted);line-height:1.75}
+.pillar-list{list-style:none;display:flex;flex-direction:column;gap:7px;margin-top:14px}
+.pillar-list li{font-size:13.5px;color:#444;display:flex;align-items:flex-start;gap:8px;line-height:1.5}
+.pillar-list li::before{content:'→';color:var(--lime);flex-shrink:0;font-size:12px;margin-top:2px}
+
+/* JOURNEY SECTION */
+.journey-section{background:#f5f5f5;padding:88px 48px 72px}
+.journey-section-inner{max-width:1360px;margin:0 auto}
+.journey-head{text-align:center;margin-bottom:56px}
+
+.journey-cards{display:flex;gap:10px;align-items:flex-end;overflow-x:auto;padding-bottom:0;scrollbar-width:none}
+.journey-cards::-webkit-scrollbar{display:none}
+
+.j-card{flex:1;min-width:160px;background:#fff;border-radius:10px;overflow:hidden;display:flex;flex-direction:column;border:1.5px solid #e4e4e4;transition:transform .22s ease,box-shadow .22s ease}
+.j-card:hover{transform:translateY(-8px);box-shadow:0 20px 48px rgba(0,0,0,.1)}
+.j-card.featured{border-color:var(--lime);margin-top:-40px;box-shadow:0 8px 32px rgba(202,230,0,.12)}
+.j-card.featured:hover{box-shadow:0 24px 56px rgba(202,230,0,.18);transform:translateY(-8px)}
+
+.j-card-top{background:#0d0d0d;padding:24px 20px 22px;display:flex;flex-direction:column;align-items:flex-start}
+.j-card.featured .j-card-top{border-bottom:2px solid var(--lime)}
+.j-card.featured .j-icon-box{background:var(--lime);border-color:var(--lime)}
+.j-card.featured .j-icon-box svg{stroke:#000}
+.j-card-body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1;background:#fff}
+
+.j-icon-box{width:48px;height:48px;background:rgba(202,230,0,.08);border:1.5px solid rgba(202,230,0,.18);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.j-icon-box svg{width:20px;height:20px;stroke:var(--lime);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+
+.j-stage{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--lime);margin-bottom:6px}
+.j-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:15px;color:#111;letter-spacing:-.3px;line-height:1.25;margin-bottom:8px}
+.j-sub{font-family:'Manrope',sans-serif;font-style:normal;font-size:13px;font-weight:500;color:rgba(0,0,0,.55);line-height:1.6;margin-bottom:12px;border-bottom:1px solid #eee;padding-bottom:12px}
+.j-list{list-style:none;display:flex;flex-direction:column;gap:6px;flex:1}
+.j-list li{font-size:13.5px;color:rgba(0,0,0,.65);display:flex;align-items:flex-start;gap:8px;line-height:1.45}
+.j-list li::before{content:'';width:5px;height:5px;border-radius:50%;background:var(--lime);flex-shrink:0;margin-top:5px}
+.j-passrate{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:800;margin-top:16px;padding-top:12px;border-top:1px solid #eee}
+.j-passrate .pct{font-size:17px;letter-spacing:-.5px}
+.pct-mid{color:#d97b2a}
+.pct-fail{color:#c94f4f}
+.pct-pass{color:var(--lime)}
+.j-passrate .lbl{font-size:10px;color:rgba(0,0,0,.4);font-weight:600;display:block;margin-top:2px;letter-spacing:.03em}
+
+.journey-result-strip{background:var(--lime);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;gap:32px;max-width:1360px;margin:0 auto;border-radius:8px}
+.journey-result-left .jr-eyebrow{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(0,0,0,.62);margin-bottom:8px}
+.journey-result-left .jr-headline{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(18px,2vw,26px);color:#000;letter-spacing:-.6px;line-height:1.2}
+.journey-result-left .jr-sub{font-size:13.5px;color:rgba(0,0,0,.68);line-height:1.65;margin-top:8px;max-width:520px}
+.journey-result-right{text-align:right;flex-shrink:0}
+.jr-n{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(52px,6vw,80px);font-weight:800;color:#000;letter-spacing:-3px;line-height:1}
+.jr-d{font-size:11px;font-weight:700;color:rgba(0,0,0,.62);text-transform:uppercase;letter-spacing:.1em;margin-top:4px}
+
+/* LIVE ASSESSMENT CHECKLIST */
+.checklist-section{background:var(--hero-bg);padding:88px 48px;position:relative;overflow:hidden}
+.checklist-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 50%,rgba(202,230,0,.04) 0%,transparent 70%);pointer-events:none}
+.checklist-inner{max-width:1120px;margin:0 auto;position:relative;z-index:1}
+.checklist-head{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:end;margin-bottom:56px}
+.checklist-head-right{display:flex;flex-direction:column;gap:12px}
+.cl-stat{display:flex;align-items:baseline;gap:10px;padding:18px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.cl-stat:first-child{border-top:1px solid rgba(255,255,255,.07)}
+.cl-stat-n{font-family:'Bricolage Grotesque',sans-serif;font-size:28px;font-weight:800;color:var(--lime);letter-spacing:-1px;line-height:1;flex-shrink:0}
+.cl-stat-d{font-size:13px;color:rgba(255,255,255,.68);line-height:1.5}
+
+.checklist-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.cl-card{background:#fff;border:1.5px solid #e4e4e4;border-radius:8px;overflow:hidden;display:flex;flex-direction:column;text-align:center;transition:transform .22s ease,box-shadow .22s ease}
+.cl-card:hover{transform:translateY(-6px);box-shadow:0 16px 36px rgba(0,0,0,.1)}
+.cl-card-top{background:#0d0d0d;padding:24px 20px 20px;display:flex;flex-direction:column;align-items:center;position:relative}
+.cl-card-body{padding:14px 16px 18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.cl-check{position:absolute;top:10px;right:10px;width:18px;height:18px;background:rgba(202,230,0,.15);border:1px solid rgba(202,230,0,.3);border-radius:3px;display:flex;align-items:center;justify-content:center}
+.cl-check svg{width:9px;height:9px;stroke:var(--lime);fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}
+.cl-icon{width:48px;height:48px;background:rgba(202,230,0,.08);border:1px solid rgba(202,230,0,.18);border-radius:8px;display:flex;align-items:center;justify-content:center}
+.cl-icon svg{width:20px;height:20px;stroke:var(--lime);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.cl-label{font-size:14px;font-weight:700;color:#111;line-height:1.35}
+
+/* WHAT WE LOOK FOR */
+.look-section{background:#fff;padding:88px 48px}
+.look-section-inner{max-width:1120px;margin:0 auto}
+.look-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:var(--border);border:1.5px solid var(--border);margin-top:52px}
+.look-card{background:#fff;padding:44px 44px 40px}
+.look-icon{width:44px;height:44px;border:1.5px solid var(--border);display:flex;align-items:center;justify-content:center;margin-bottom:24px}
+.look-icon svg{width:20px;height:20px;stroke:var(--lime);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.look-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:#111;margin-bottom:20px;padding-bottom:16px;border-bottom:1.5px solid var(--border)}
+.look-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.look-list li{font-size:14.5px;color:rgba(0,0,0,.6);display:flex;align-items:flex-start;gap:12px;line-height:1.55}
+.look-list li::before{content:'→';color:var(--lime);flex-shrink:0;font-size:13px;margin-top:1px;font-weight:700}
+
+@media(max-width:1100px){
+  .j-card{min-width:200px}
+}
+@media(max-width:860px){
+  .checklist-head{grid-template-columns:1fr}
+  .checklist-grid{grid-template-columns:repeat(2,1fr)}
+  .look-grid{grid-template-columns:1fr}
+  .look-card{padding:32px 28px}
+  .journey-section{padding:60px 24px 0}
+  .journey-cards{flex-direction:column;overflow-x:visible}
+  .j-card{min-width:unset}
+  .j-card.featured{margin-top:0;box-shadow:none}
+  .journey-result-strip{flex-direction:column;text-align:left;padding:32px 24px}
+  .journey-result-right{text-align:left}
+}
+
+/* DARK PILLAR GRID */
+.dark-pillar-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.08);border-radius:4px;overflow:hidden;margin-top:48px}
+.dark-pillar{background:var(--hero-bg);padding:32px 32px 28px}
+.dark-pillar-num{font-family:'Bricolage Grotesque',sans-serif;font-size:11px;font-weight:800;color:var(--lime);letter-spacing:.1em;margin-bottom:12px}
+.dark-pillar-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:19px;color:#fff;letter-spacing:-.3px;margin-bottom:10px}
+.dark-pillar-body{font-size:14px;color:rgba(255,255,255,.68);line-height:1.75}
+
+/* PROCESS TIMELINE */
+.process-timeline{margin-top:56px;display:flex;flex-direction:column;gap:0;border:1.5px solid var(--border);border-radius:4px;overflow:hidden}
+.timeline-row{display:grid;grid-template-columns:160px 1fr;border-bottom:1.5px solid var(--border)}
+.timeline-row:last-child{border-bottom:none}
+.timeline-left{padding:28px 32px;background:var(--hero-bg);display:flex;flex-direction:column;justify-content:flex-start;gap:6px}
+.timeline-tag{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:800;color:var(--lime);letter-spacing:-.3px}
+.timeline-label{font-size:11px;color:rgba(255,255,255,.6);font-weight:600;letter-spacing:.05em}
+.timeline-right{padding:28px 36px;background:#fff;display:flex;flex-direction:column;gap:6px}
+.timeline-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:17px;color:#111;letter-spacing:-.3px}
+.timeline-body{font-size:14px;color:var(--muted);line-height:1.7}
+
+/* GUARANTEE STRIP */
+.guarantee-strip{background:var(--surface);border:1.5px solid var(--border);border-radius:4px;display:grid;grid-template-columns:repeat(3,1fr);overflow:hidden;margin-top:56px}
+.guarantee-item{padding:32px 32px 28px;border-right:1.5px solid var(--border)}
+.guarantee-item:last-child{border-right:none}
+.guarantee-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:17px;color:#111;letter-spacing:-.3px;margin-bottom:8px}
+.guarantee-body{font-size:14px;color:var(--muted);line-height:1.7}
+.guarantee-badge{display:inline-block;font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--lime);color:#000;padding:3px 9px;border-radius:2px;margin-bottom:12px}
+
+/* TESTIMONIALS */
+.testimonial-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:48px}
+.testimonial-card{background:var(--surface);border:1.5px solid var(--border);border-radius:4px;padding:28px 28px 24px}
+.testimonial-stars{color:var(--lime);font-size:13px;margin-bottom:12px;letter-spacing:2px}
+.testimonial-body{font-size:14.5px;color:#333;line-height:1.75;margin-bottom:20px}
+.testimonial-author{font-size:13px;font-weight:700;color:#111}
+.testimonial-role{font-size:12px;color:#aaa;margin-top:2px}
+
+/* FINAL CTA */
+.final-cta{background:var(--hero-bg);padding:100px 48px;text-align:center;position:relative;overflow:hidden}
+.final-cta::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 70% 60% at 50% 100%,rgba(202,230,0,.08) 0%,transparent 70%);pointer-events:none}
+.final-cta-inner{position:relative;z-index:1;max-width:640px;margin:0 auto}
+.final-cta h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(32px,4vw,52px);color:#fff;line-height:1.05;letter-spacing:-1.5px;margin-bottom:16px}
+.final-cta h2 em{font-family:'Bricolage Grotesque',sans-serif;font-style:normal;font-weight:800;color:var(--lime)}
+.final-cta p{font-size:16px;color:rgba(255,255,255,.7);max-width:440px;margin:0 auto 36px;line-height:1.7}
+.btn-primary{display:inline-block;background:var(--lime);color:#000;font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:800;padding:18px 36px;border-radius:4px;text-decoration:none;transition:background .15s;letter-spacing:-.2px}
+.btn-primary:hover{background:#b5cc00}
+.final-note{font-size:13px;color:rgba(255,255,255,.5);margin-top:16px}
+
+@media(max-width:860px){
+  .topbar-nav{display:none}
+  .standard-grid{grid-template-columns:1fr;gap:40px}
+  .pillar-grid,.dark-pillar-grid{grid-template-columns:1fr}
+  .vetting-row{flex-direction:column}
+  .vetting-stat{border-right:none;border-bottom:1.5px solid rgba(255,255,255,.1)}
+  .vetting-stat:last-child{border-bottom:none}
+  .testimonial-grid{grid-template-columns:1fr}
+  .guarantee-strip{grid-template-columns:1fr}
+  .guarantee-item{border-right:none;border-bottom:1.5px solid var(--border)}
+  .guarantee-item:last-child{border-bottom:none}
+  .timeline-row{grid-template-columns:1fr}
+  .timeline-left{padding:20px 24px}
+  .timeline-right{padding:20px 24px}
+  .section{padding:60px 24px}
+  .dark-section{padding:60px 24px}
+  .hero{padding:72px 24px 0}
+  .hero-inner{padding-bottom:48px}
+  .hero-trust{grid-template-columns:1fr}
+  .hero-trust-item{border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}
+  .hero-trust-item:last-child{border-bottom:none}
+  .hero-stat-divider{display:none}
+  .topbar{padding:16px 24px}
+  .final-cta{padding:72px 24px}
+}
+</style>
+</head>
+<body>
+
+<!-- TOPBAR -->
+<nav class="topbar">
+  <a href="https://gojarvis.ai" class="topbar-logo">Jarvis<span>.</span></a>
+  <div class="topbar-nav">
+    <a href="https://gojarvis.ai/pages/how-it-works" class="topbar-link">How It Works</a>
+    <a href="https://gojarvis.ai/pages/use-cases" class="topbar-link">Use Cases</a>
+    <a href="https://gojarvis.ai/pages/pricing" class="topbar-link">Pricing</a>
+    <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="topbar-cta">Book a Free Call</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Our Process</div>
+    <h1>
+      <span class="h1-top">The Top 1% Of</span>
+      Virtual Assistants<br><em>On The Planet</em>
+    </h1>
+    <p class="hero-body">Forget the resume-and-prayer approach. Every Jarvis VA has cleared a 67 point vetting process built by operators who know exactly what a great hire looks like. The VA will also automate your repetitive tasks using AI.</p>
+    <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="hero-cta-btn">Meet Your Perfect VA, Guaranteed →</a>
+  </div>
+  <div class="hero-trust">
+    <div class="hero-trust-item">
+      <div class="hero-trust-icon">
+        <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+      </div>
+      <div>
+        <div class="hero-trust-title">Thousands Apply</div>
+        <div class="hero-trust-body">Over 1,000 applicants reviewed every month. Only a tiny fraction clear all 67 checkpoints to reach our active placement roster.</div>
+      </div>
+    </div>
+    <div class="hero-trust-item">
+      <div class="hero-trust-icon">
+        <svg viewBox="0 0 24 24"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+      </div>
+      <div>
+        <div class="hero-trust-title">67 Point Vetting Process</div>
+        <div class="hero-trust-body">Personality tests, typing assessments, live mock tasks, internet speed checks, background verification, and a final interview, before placement.</div>
+      </div>
+    </div>
+    <div class="hero-trust-item">
+      <div class="hero-trust-icon">
+        <svg viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      </div>
+      <div>
+        <div class="hero-trust-title">Ongoing Performance Monitoring</div>
+        <div class="hero-trust-body">Placement isn't the finish line. We track output, run monthly reviews, and proactively flag drops before they become your problem.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 2: THE JARVIS VETTING JOURNEY -->
+<section class="journey-section">
+  <div class="journey-section-inner">
+    <div class="journey-head">
+      <div class="section-eyebrow" style="color:#888">How Jarvis Vets Talent</div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,46px);color:#111;letter-spacing:-1.5px;line-height:1.05;margin-top:12px">7 Stages. 67 Checkpoints. 1% Pass Rate.</h2>
+    </div>
+
+    <div class="journey-cards">
+
+      <div class="j-card">
+        <div class="j-card-top">
+          <div class="j-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg>
+          </div>
+        </div>
+        <div class="j-card-body">
+          <div class="j-stage">Stage 01</div>
+          <div class="j-title">Application & HR Screening</div>
+          <div class="j-sub">Thousands apply. Only a fraction make the cut. We assess:</div>
+          <ul class="j-list">
+            <li>Professionalism and communication quality</li>
+            <li>Relevant work experience</li>
+            <li>English fluency</li>
+            <li>Reliability and responsiveness</li>
+          </ul>
+          <div class="j-passrate"><span class="pct pct-mid">~40%</span><span class="lbl">pass to Stage 02</span></div>
+        </div>
+      </div>
+
+      <div class="j-card">
+        <div class="j-card-top">
+          <div class="j-icon-box">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+        </div>
+        <div class="j-card-body">
+          <div class="j-stage">Stage 02</div>
+          <div class="j-title">Personality, Background & Aptitude</div>
+          <div class="j-sub">Character, culture, and clean record. We verify:</div>
+          <ul class="j-list">
+            <li>Work ethic and reliability under pressure</li>
+            <li>Problem-solving and initiative</li>
+            <li>Full understanding of US culture</li>
+            <li>Ability to work US business hours</li>
+            <li>Employment history and background check</li>
+            <li>2 professional references confirmed</li>
+            <li>NDA and confidentiality signed</li>
+          </ul>
+          <div class="j-passrate"><span class="pct pct-mid">~25%</span><span class="lbl">pass this stage</span></div>
+        </div>
+      </div>
+
+      <div class="j-card">
+        <div class="j-card-top">
+          <div class="j-icon-box">
+            <svg viewBox="0 0 24 24"><polyline points="4 17 10 11 4 5"/><line x1="12" y1="19" x2="20" y2="19"/></svg>
+          </div>
+        </div>
+        <div class="j-card-body">
+          <div class="j-stage">Stage 03</div>
+          <div class="j-title">Typing Speed & Writing Test</div>
+          <div class="j-sub">Slow typers and unclear writers don't touch your inbox. We require:</div>
+          <ul class="j-list">
+            <li>Minimum 50 WPM at 98% accuracy</li>
+            <li>Business email drafting</li>
+            <li>Client-facing tone and clarity</li>
+            <li>Proofreading and formatting</li>
+          </ul>
+          <div class="j-passrate"><span class="pct pct-mid">~15%</span><span class="lbl">pass this stage</span></div>
+        </div>
+      </div>
+
+      <div class="j-card featured">
+        <div class="j-card-top">
+          <div class="j-icon-box">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="1"/></svg>
+          </div>
+        </div>
+        <div class="j-card-body">
+          <div class="j-stage">Stage 04 — Core Test</div>
+          <div class="j-title">67 Point Live Skills Assessment</div>
+          <div class="j-sub">A real-world task simulation across 67 skill checks:</div>
+          <ul class="j-list">
+            <li>Inbox triage and response drafting</li>
+            <li>CRM data entry and navigation</li>
+            <li>Research and summarization brief</li>
+            <li>Scheduling and calendar management</li>
+            <li>Spreadsheet, reporting, and AI tool use</li>
+          </ul>
+          <div class="j-passrate"><span class="pct pct-fail">~10%</span><span class="lbl">pass this stage</span></div>
+        </div>
+      </div>
+
+      <div class="j-card">
+        <div class="j-card-top">
+          <div class="j-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M1 6l11 7L23 6"/><rect x="1" y="4" width="22" height="16" rx="2"/></svg>
+          </div>
+        </div>
+        <div class="j-card-body">
+          <div class="j-stage">Stage 05</div>
+          <div class="j-title">Internet & Equipment Check</div>
+          <div class="j-sub">Connectivity issues end here, not on your clock. We verify:</div>
+          <ul class="j-list">
+            <li>Min. 25 Mbps download speed</li>
+            <li>Min. 10 Mbps upload speed</li>
+            <li>Latency under 80ms</li>
+            <li>Backup internet connection confirmed</li>
+          </ul>
+          <div class="j-passrate"><span class="pct pct-fail">~8%</span><span class="lbl">pass this stage</span></div>
+        </div>
+      </div>
+
+      <div class="j-card">
+        <div class="j-card-top">
+          <div class="j-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+        </div>
+        <div class="j-card-body">
+          <div class="j-stage">Stage 06</div>
+          <div class="j-title">Final Interview</div>
+          <div class="j-sub">Live video call with Jarvis leadership. We evaluate:</div>
+          <ul class="j-list">
+            <li>Communication and professional presence</li>
+            <li>Problem-solving under live pressure</li>
+            <li>Client-readiness and attitude</li>
+            <li>Cultural fit with US business expectations</li>
+          </ul>
+          <div class="j-passrate"><span class="pct pct-mid">~3%</span><span class="lbl">pass this stage</span></div>
+        </div>
+      </div>
+
+      <div class="j-card">
+        <div class="j-card-top">
+          <div class="j-icon-box">
+            <svg viewBox="0 0 24 24"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+          </div>
+        </div>
+        <div class="j-card-body">
+          <div class="j-stage">Stage 07</div>
+          <div class="j-title">Jarvis Training</div>
+          <div class="j-sub">Before they touch your business, they know it. We cover:</div>
+          <ul class="j-list">
+            <li>Brand tone, voice, and communication style</li>
+            <li>Tools and workflows they will use daily</li>
+            <li>Client standards and escalation protocol</li>
+            <li>AI tool certification</li>
+          </ul>
+          <div class="j-passrate"><span class="pct pct-pass">Top 1%</span><span class="lbl">placed with clients</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="journey-result-strip" style="margin-top:32px">
+    <div class="journey-result-left">
+      <div class="jr-eyebrow">The result</div>
+      <div class="jr-headline">The VA you get has already proven themselves<br>before they ever meet you.</div>
+      <div class="jr-sub">No trial and error on your clock. No learning curve at your expense. Every Jarvis VA on our roster has cleared all 67 checkpoints and completed Jarvis onboarding training. You get someone ready to work on day one.</div>
+    </div>
+    <div class="journey-result-right">
+      <div class="jr-n">Top 1%</div>
+      <div class="jr-d">of applicants placed</div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE ASSESSMENT CHECKLIST -->
+<section class="checklist-section">
+  <div class="checklist-inner">
+    <div class="checklist-head">
+      <div>
+        <div class="section-eyebrow" style="color:rgba(202,230,0,.6)">Stage 04 — The Core Test</div>
+        <h2 class="section-headline" style="color:#fff;margin-top:12px">The 67 Point<br>Test Project</h2>
+        <p style="font-family:'Manrope',sans-serif;font-size:15px;font-weight:400;color:rgba(255,255,255,.68);line-height:1.7;margin-top:16px;max-width:420px">A timed, unassisted simulation across 12 skill categories. No scripts. No hints. Real tools, real tasks, real judgment calls.</p>
+      </div>
+      <div class="checklist-head-right">
+        <div class="cl-stat">
+          <span class="cl-stat-n">67</span>
+          <span class="cl-stat-d">individual checkpoints tested in a single live simulation</span>
+        </div>
+        <div class="cl-stat">
+          <span class="cl-stat-n">~90</span>
+          <span class="cl-stat-d">minutes — timed, unassisted, on real tools</span>
+        </div>
+        <div class="cl-stat">
+          <span class="cl-stat-n">Top 10%</span>
+          <span class="cl-stat-d">of candidates pass this stage and advance to background checks</span>
+        </div>
+      </div>
+    </div>
+
+    <div style="position:relative">
+    <div class="checklist-grid">
+
+      <div class="cl-card">
+        <div class="cl-card-top">
+          <div class="cl-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <div class="cl-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></div>
+        </div>
+        <div class="cl-card-body"><div class="cl-label">Problem Solving</div></div>
+      </div>
+
+      <div class="cl-card">
+        <div class="cl-card-top">
+          <div class="cl-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <div class="cl-icon"><svg viewBox="0 0 24 24"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg></div>
+        </div>
+        <div class="cl-card-body"><div class="cl-label">Brand Fit</div></div>
+      </div>
+
+      <div class="cl-card">
+        <div class="cl-card-top">
+          <div class="cl-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <div class="cl-icon"><svg viewBox="0 0 24 24"><path d="M2 20h.01M7 20v-4"/><path d="M12 20v-8"/><path d="M17 20v-12"/><path d="M22 4l-5 5-4-4-8 8"/></svg></div>
+        </div>
+        <div class="cl-card-body"><div class="cl-label">Strategy</div></div>
+      </div>
+
+      <div class="cl-card">
+        <div class="cl-card-top">
+          <div class="cl-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <div class="cl-icon"><svg viewBox="0 0 24 24"><circle cx="13.5" cy="6.5" r="2.5"/><path d="M17 21v-1a4 4 0 0 0-4-4h-1a4 4 0 0 0-4 4v1"/><path d="M9 11l2 2 4-4"/></svg></div>
+        </div>
+        <div class="cl-card-body"><div class="cl-label">Creative Direction</div></div>
+      </div>
+
+      <div class="cl-card">
+        <div class="cl-card-top">
+          <div class="cl-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <div class="cl-icon"><svg viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg></div>
+        </div>
+        <div class="cl-card-body"><div class="cl-label">Troubleshooting</div></div>
+      </div>
+
+      <div class="cl-card">
+        <div class="cl-card-top">
+          <div class="cl-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <div class="cl-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><polyline points="23 11 17 11"/><line x1="20" y1="8" x2="20" y2="14"/></svg></div>
+        </div>
+        <div class="cl-card-body"><div class="cl-label">Professionalism</div></div>
+      </div>
+
+      <div class="cl-card">
+        <div class="cl-card-top">
+          <div class="cl-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <div class="cl-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+        </div>
+        <div class="cl-card-body"><div class="cl-label">Inbox Management</div></div>
+      </div>
+
+      <div class="cl-card">
+        <div class="cl-card-top">
+          <div class="cl-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <div class="cl-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+        </div>
+        <div class="cl-card-body"><div class="cl-label">CRM Navigation</div></div>
+      </div>
+
+      <div class="cl-card" style="filter:blur(2px);opacity:.55;pointer-events:none">
+        <div class="cl-card-top">
+          <div class="cl-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <div class="cl-icon"><svg viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+        </div>
+        <div class="cl-card-body"><div class="cl-label">Client Communication</div></div>
+      </div>
+
+      <div class="cl-card" style="filter:blur(3px);opacity:.45;pointer-events:none">
+        <div class="cl-card-top">
+          <div class="cl-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <div class="cl-icon"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        </div>
+        <div class="cl-card-body"><div class="cl-label">Research &amp; Summarization</div></div>
+      </div>
+
+      <div class="cl-card" style="filter:blur(3px);opacity:.45;pointer-events:none">
+        <div class="cl-card-top">
+          <div class="cl-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <div class="cl-icon"><svg viewBox="0 0 24 24"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
+        </div>
+        <div class="cl-card-body"><div class="cl-label">Reporting &amp; Dashboards</div></div>
+      </div>
+
+      <div class="cl-card" style="filter:blur(3px);opacity:.45;pointer-events:none">
+        <div class="cl-card-top">
+          <div class="cl-check"><svg viewBox="0 0 12 12"><polyline points="2 6 5 9 10 3"/></svg></div>
+          <div class="cl-icon"><svg viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8"/><path d="M12 17v4"/></svg></div>
+        </div>
+        <div class="cl-card-body"><div class="cl-label">AI Tool Usage</div></div>
+      </div>
+
+    </div>
+
+    <!-- blur gradient overlay -->
+    <div style="position:absolute;bottom:0;left:0;right:0;height:260px;background:linear-gradient(to bottom, transparent 0%, #0a0a0a 70%);pointer-events:none"></div>
+    </div>
+
+    <!-- locked message -->
+    <div style="text-align:center;padding:36px 32px 0;max-width:480px;margin:0 auto">
+      <p style="font-size:14px;color:rgba(255,255,255,.55);line-height:1.8;margin-bottom:16px">We do not publish all 67 checkpoints publicly. What we can tell you is that every Jarvis VA must pass real, verifiable tasks, no scripts, no hints, no partial credit.</p>
+      <div style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:20px;color:var(--lime);letter-spacing:-.4px">Fewer than 1% make it through.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT HAPPENS AFTER THEY PASS -->
+<section style="background:#fff;padding:88px 48px">
+  <div style="max-width:1120px;margin:0 auto">
+    <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);color:#111;letter-spacing:-2px;line-height:1.05;text-align:center;margin-bottom:64px">What Happens After They Pass</h2>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:48px">
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="width:44px;height:44px;background:rgba(202,230,0,.1);border:1.5px solid rgba(202,230,0,.25);border-radius:8px;display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#CAE600;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#111">Ongoing Training</div>
+        <p style="font-size:15px;color:rgba(0,0,0,.6);line-height:1.75">Every Jarvis VA participates in continuous training to stay current on tools, workflows, and client standards. They don't just pass once — they keep earning it.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="width:44px;height:44px;background:rgba(202,230,0,.1);border:1.5px solid rgba(202,230,0,.25);border-radius:8px;display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#CAE600;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#111">Performance Monitoring</div>
+        <p style="font-size:15px;color:rgba(0,0,0,.6);line-height:1.75">Our team runs monthly quality reviews on every active VA. Output drops don't wait for you to notice — we catch them first and act before it becomes your problem.</p>
+      </div>
+
+      <div style="display:flex;flex-direction:column;gap:16px">
+        <div style="width:44px;height:44px;background:rgba(202,230,0,.1);border:1.5px solid rgba(202,230,0,.25);border-radius:8px;display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 24 24" style="width:20px;height:20px;stroke:#CAE600;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+        </div>
+        <div style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#111">Client Success System</div>
+        <p style="font-size:15px;color:rgba(0,0,0,.6);line-height:1.75">When your business grows, we consider it a win. Our client success team checks in proactively, surfaces upsell opportunities, and makes sure your VA is always keeping pace with where you're headed.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHY WE BUILT THIS -->
+<section style="background:#0a0a0a;padding:96px 48px;position:relative;overflow:hidden">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 30% 50%,rgba(202,230,0,.05) 0%,transparent 70%);pointer-events:none"></div>
+  <div style="max-width:1120px;margin:0 auto;position:relative;z-index:1">
+
+    <div style="text-align:center;margin-bottom:72px">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:rgba(202,230,0,.7);margin-bottom:16px">Why we exist</div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(32px,4vw,56px);color:#fff;letter-spacing:-2px;line-height:1.05;max-width:680px;margin:0 auto">We saw two people<br>who needed each other.</h2>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-bottom:64px">
+
+      <div style="background:rgba(255,255,255,.03);border:1.5px solid rgba(255,255,255,.06);border-radius:12px 0 0 12px;padding:44px 44px 40px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:20px">The Founder</div>
+        <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(18px,2vw,24px);color:#fff;line-height:1.35;letter-spacing:-.5px;margin-bottom:20px">"I'm billing $300 an hour and I'm spending my afternoon updating a spreadsheet."</p>
+        <p style="font-size:15px;color:rgba(255,255,255,.55);line-height:1.8">A business owner doing $50K a month, working 60 hours a week. Talented. Successful. But drowning in the work that doesn't need them — and not spending enough time on the work that does.</p>
+      </div>
+
+      <div style="background:rgba(202,230,0,.04);border:1.5px solid rgba(202,230,0,.1);border-radius:0 12px 12px 0;padding:44px 44px 40px">
+        <div style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(202,230,0,.6);margin-bottom:20px">The VA</div>
+        <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(18px,2vw,24px);color:#fff;line-height:1.35;letter-spacing:-.5px;margin-bottom:20px">"I have a degree. I work harder than anyone I know. I'm being paid $1 an hour."</p>
+        <p style="font-size:15px;color:rgba(255,255,255,.55);line-height:1.8">A professional in the Philippines. Skilled, reliable, and deeply committed to doing excellent work. Stuck in an industry where exploitation is standard — and dignity is rare.</p>
+      </div>
+
+    </div>
+
+    <div style="text-align:center;max-width:720px;margin:0 auto">
+      <div style="width:1px;height:48px;background:rgba(202,230,0,.3);margin:0 auto 40px"></div>
+      <p style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(20px,2.5vw,30px);color:#fff;line-height:1.4;letter-spacing:-.5px;margin-bottom:24px">Jarvis exists because these two people need each other — and nobody was connecting them the right way.</p>
+      <p style="font-size:16px;color:rgba(255,255,255,.5);line-height:1.8;max-width:560px;margin:0 auto">Every client we sign is a founder who gets their time back. Every VA we place is a professional who earns a fair wage, grows their skills, and builds a career they're proud of. That's what we're building. One placement at a time.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHAT HAPPENS AFTER THEY PAY -->
+<style>
+.uc-section{padding:88px 48px;background:#fff}
+.uc-inner{max-width:1120px;margin:0 auto}
+.uc-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:40px;margin-bottom:28px}
+.uc-pill{padding:9px 20px;border:1.5px solid #e4e4e4;border-radius:6px;background:#fff;cursor:pointer;font-family:'Manrope',sans-serif;font-size:13px;font-weight:600;color:#666;transition:all .15s}
+.uc-pill:hover{border-color:#999;color:#111}
+.uc-pill.active{background:var(--lime);border-color:var(--lime);color:#000}
+.uc-panel{display:none;border:1.5px solid #e4e4e4;border-radius:8px;overflow:hidden}
+.uc-panel.active{display:block}
+.uc-banner{background:#0a0a0a;padding:32px 48px;display:flex;gap:0;flex-wrap:wrap}
+.uc-stat{display:flex;flex-direction:column;gap:5px;flex:1;min-width:140px;padding:0 40px 0 0}
+.uc-stat:first-child{padding-left:0}
+.uc-stat-divider{width:1px;height:56px;background:rgba(255,255,255,.1);margin:0 8px;flex-shrink:0;align-self:center}
+.uc-stat-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.uc-stat-n{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(24px,3vw,38px);font-weight:800;color:var(--lime);line-height:1;letter-spacing:-1px}
+.uc-stat-n.white{color:#fff}
+.uc-stat-sub{font-size:12px;color:rgba(255,255,255,.38);line-height:1.4;margin-top:2px}
+.uc-body{padding:44px 48px 40px;display:grid;grid-template-columns:1fr 1fr;gap:52px}
+.uc-va-badge{display:inline-flex;align-items:center;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--lime);color:#000;padding:3px 9px;border-radius:2px;margin-bottom:10px}
+.uc-story-tag{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,0,0,.3);margin-bottom:10px}
+.uc-headline{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(16px,1.6vw,20px);line-height:1.4;color:#111;margin-bottom:14px;letter-spacing:-.2px}
+.uc-story{font-size:14.5px;color:rgba(0,0,0,.65);line-height:1.8}
+.uc-tasks-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#bbb;margin-bottom:14px}
+.uc-task-list{display:flex;flex-direction:column;gap:9px}
+.uc-task{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#333;line-height:1.5;font-weight:500}
+.uc-check{width:18px;height:18px;border-radius:2px;background:rgba(202,230,0,.15);border:1px solid rgba(202,230,0,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:10px;color:#7a9800;font-weight:700}
+.uc-bottom{display:flex;align-items:center;gap:20px;padding:20px 48px 24px;border-top:1.5px solid #f0f0f0;flex-wrap:wrap}
+.uc-metrics{display:flex;gap:10px;flex:1;flex-wrap:wrap}
+.uc-metric{background:#f7f7f7;border-radius:3px;padding:12px 16px;text-align:center;min-width:80px}
+.uc-metric-n{font-family:'Bricolage Grotesque',sans-serif;font-size:20px;font-weight:800;color:#111;line-height:1;letter-spacing:-.5px}
+.uc-metric-n.g{color:#1a7a1a}
+.uc-metric-d{font-size:11px;color:#aaa;margin-top:3px;line-height:1.3}
+.uc-cta{display:inline-block;background:var(--lime);color:#000;font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:700;padding:12px 24px;border-radius:4px;text-decoration:none;white-space:nowrap;transition:background .15s}
+.uc-cta:hover{background:#b5cc00}
+
+/* FAQ */
+.faq-section{padding:88px 48px;background:#f7f7f7}
+.faq-inner{max-width:800px;margin:0 auto}
+.faq-list{margin-top:48px;display:flex;flex-direction:column;gap:0;border:1.5px solid #e4e4e4;border-radius:8px;overflow:hidden}
+.faq-item{border-bottom:1.5px solid #e4e4e4;background:#fff}
+.faq-item:last-child{border-bottom:none}
+.faq-q{width:100%;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:16px;background:#fff;border:none;cursor:pointer;font-family:'Manrope',sans-serif;font-size:15px;font-weight:700;color:#111;text-align:left;line-height:1.4;transition:background .15s}
+.faq-q:hover{background:#fafafa}
+.faq-icon{width:28px;height:28px;border:1.5px solid #e4e4e4;border-radius:4px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:18px;color:#888;font-weight:400;line-height:1;transition:transform .2s,background .15s}
+.faq-item.open .faq-icon{background:var(--lime);border-color:var(--lime);color:#000;transform:rotate(45deg)}
+.faq-a{display:none;padding:0 28px 24px;font-size:14.5px;color:rgba(0,0,0,.65);line-height:1.8}
+.faq-item.open .faq-a{display:block}
+
+@media(max-width:860px){
+  .uc-body{grid-template-columns:1fr;gap:32px}
+  .uc-banner{padding:24px 28px}
+  .uc-body{padding:32px 28px 28px}
+  .uc-bottom{padding:16px 28px 20px}
+  .uc-section{padding:60px 24px}
+  .faq-section{padding:60px 24px}
+}
+</style>
+
+<section class="uc-section">
+  <div class="uc-inner">
+    <div style="max-width:600px">
+      <div class="section-eyebrow">After you sign</div>
+      <h2 class="section-headline">What happens when<br>your VA starts working?</h2>
+      <p class="section-sub">Here's what a Jarvis VA actually does across different industries. Real tasks, real results.</p>
+    </div>
+
+    <div class="uc-pills">
+      <button class="uc-pill active" onclick="showUC('ecom',this)">E-Commerce</button>
+      <button class="uc-pill" onclick="showUC('coach',this)">Coaching</button>
+      <button class="uc-pill" onclick="showUC('agency',this)">Agency</button>
+      <button class="uc-pill" onclick="showUC('realestate',this)">Real Estate</button>
+      <button class="uc-pill" onclick="showUC('finance',this)">Finance</button>
+      <button class="uc-pill" onclick="showUC('contractor',this)">Construction</button>
+    </div>
+
+    <!-- E-COMMERCE -->
+    <div class="uc-panel active" id="uc-ecom">
+      <div class="uc-body">
+        <div>
+          <div class="uc-va-badge">Customer Support VA</div>
+          <div class="uc-story-tag">A real client</div>
+          <div class="uc-headline">D2C skincare founder, $1.2M/year. Every morning until noon clearing her inbox. Nothing else got done.</div>
+          <p class="uc-story">40-50 customer emails every day: refunds, wrong orders, subscription changes. Her VA took over the entire inbox. She went from 4 hours a day in email to zero, launched two new products, and grew from $1.2M to $1.8M in 8 months.</p>
+        </div>
+        <div>
+          <div class="uc-tasks-label">What her VA handles</div>
+          <div class="uc-task-list">
+            <div class="uc-task"><div class="uc-check">✓</div>All customer emails — refunds, complaints, order questions</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Shopify order management and updates</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Supplier follow-ups and reorder coordination</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Review responses on Amazon and Shopify</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Weekly inventory and sales reports</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Influencer outreach and collab logistics</div>
+          </div>
+        </div>
+      </div>
+      <div class="uc-bottom">
+        <div class="uc-metrics">
+          <div class="uc-metric"><div class="uc-metric-n g">−20 hrs</div><div class="uc-metric-d">per week</div></div>
+          <div class="uc-metric"><div class="uc-metric-n g">+$600K</div><div class="uc-metric-d">revenue in 8 mo</div></div>
+          <div class="uc-metric"><div class="uc-metric-n">46×</div><div class="uc-metric-d">ROI</div></div>
+        </div>
+        <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="uc-cta">Get This for My Business</a>
+      </div>
+    </div>
+
+    <!-- COACHING -->
+    <div class="uc-panel" id="uc-coach">
+      <div class="uc-body">
+        <div>
+          <div class="uc-va-badge">Operations VA</div>
+          <div class="uc-story-tag">A real client</div>
+          <div class="uc-headline">Business coach, 400 unread DMs. Some of those were leads. He had no way to find out which ones.</div>
+          <p class="uc-story">His VA went through every DM, identified warm leads, drafted responses, booked discovery calls, and set up a follow-up system. Month one: 11 booked calls recovered from ignored messages. $15K in new revenue he almost left on the table.</p>
+        </div>
+        <div>
+          <div class="uc-tasks-label">What his VA handles</div>
+          <div class="uc-task-list">
+            <div class="uc-task"><div class="uc-check">✓</div>DM and email inbox triage and response</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Discovery call booking and calendar management</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Lead follow-up sequences and CRM updates</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Client onboarding and document prep</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Invoicing and payment tracking</div>
+          </div>
+        </div>
+      </div>
+      <div class="uc-bottom">
+        <div class="uc-metrics">
+          <div class="uc-metric"><div class="uc-metric-n g">11</div><div class="uc-metric-d">calls booked mo 1</div></div>
+          <div class="uc-metric"><div class="uc-metric-n g">$15K</div><div class="uc-metric-d">revenue recovered</div></div>
+        </div>
+        <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="uc-cta">Get This for My Business</a>
+      </div>
+    </div>
+
+    <!-- AGENCY -->
+    <div class="uc-panel" id="uc-agency">
+      <div class="uc-body">
+        <div>
+          <div class="uc-va-badge">Operations VA</div>
+          <div class="uc-story-tag">A real client</div>
+          <div class="uc-headline">Marketing agency owner. Running client accounts, writing reports, chasing approvals, and doing it all herself.</div>
+          <p class="uc-story">Her VA took over all client reporting, approval follow-ups, meeting scheduling, and CRM logging. She stopped being the bottleneck. In month one she used the recovered time to close two new retainers.</p>
+        </div>
+        <div>
+          <div class="uc-tasks-label">What her VA handles</div>
+          <div class="uc-task-list">
+            <div class="uc-task"><div class="uc-check">✓</div>Weekly and monthly client report compilation</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Client approval follow-ups and feedback tracking</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Meeting scheduling and agenda prep</div>
+            <div class="uc-task"><div class="uc-check">✓</div>CRM and pipeline updates after every touchpoint</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Proposal formatting and send logistics</div>
+          </div>
+        </div>
+      </div>
+      <div class="uc-bottom">
+        <div class="uc-metrics">
+          <div class="uc-metric"><div class="uc-metric-n g">−18 hrs</div><div class="uc-metric-d">per week</div></div>
+          <div class="uc-metric"><div class="uc-metric-n g">2</div><div class="uc-metric-d">new retainers mo 1</div></div>
+        </div>
+        <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="uc-cta">Get This for My Business</a>
+      </div>
+    </div>
+
+    <!-- REAL ESTATE -->
+    <div class="uc-panel" id="uc-realestate">
+      <div class="uc-body">
+        <div>
+          <div class="uc-va-badge">Lead Response VA</div>
+          <div class="uc-story-tag">A real client</div>
+          <div class="uc-headline">Real estate agent. Missing Zillow leads during showings. Every missed call was a deal that went to whoever picked up first.</div>
+          <p class="uc-story">His VA covers all lead response during showings and off-hours, books appointments, preps comparables before calls, and keeps the CRM updated. 12 additional closings in the first year.</p>
+        </div>
+        <div>
+          <div class="uc-tasks-label">What his VA handles</div>
+          <div class="uc-task-list">
+            <div class="uc-task"><div class="uc-check">✓</div>Instant lead response on Zillow, Realtor.com, and website</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Showing scheduling and confirmation</div>
+            <div class="uc-task"><div class="uc-check">✓</div>CRM updates after every lead and call</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Market comp research before client calls</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Follow-up sequences for cold and warm leads</div>
+          </div>
+        </div>
+      </div>
+      <div class="uc-bottom">
+        <div class="uc-metrics">
+          <div class="uc-metric"><div class="uc-metric-n g">&lt;2 min</div><div class="uc-metric-d">lead response</div></div>
+          <div class="uc-metric"><div class="uc-metric-n g">+12</div><div class="uc-metric-d">closings/year</div></div>
+        </div>
+        <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="uc-cta">Get This for My Business</a>
+      </div>
+    </div>
+
+    <!-- FINANCE -->
+    <div class="uc-panel" id="uc-finance">
+      <div class="uc-body">
+        <div>
+          <div class="uc-va-badge">Admin VA</div>
+          <div class="uc-story-tag">A real client</div>
+          <div class="uc-headline">Financial advisor spending 2 hours prepping for every review meeting. 3 meetings a week. Six hours gone before the week started.</div>
+          <p class="uc-story">His VA handles all pre-meeting prep: pulling portfolios, summarizing performance, updating client files. He went from 3 review meetings a week to 7, without adding a single hour to his schedule.</p>
+        </div>
+        <div>
+          <div class="uc-tasks-label">What his VA handles</div>
+          <div class="uc-task-list">
+            <div class="uc-task"><div class="uc-check">✓</div>Pre-meeting portfolio pull and summary</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Client file updates after every review</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Follow-up emails and document sends</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Appointment scheduling and reminders</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Compliance document tracking</div>
+          </div>
+        </div>
+      </div>
+      <div class="uc-bottom">
+        <div class="uc-metrics">
+          <div class="uc-metric"><div class="uc-metric-n g">3→7</div><div class="uc-metric-d">meetings/week</div></div>
+          <div class="uc-metric"><div class="uc-metric-n g">−12 hrs</div><div class="uc-metric-d">prep time/week</div></div>
+        </div>
+        <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="uc-cta">Get This for My Business</a>
+      </div>
+    </div>
+
+    <!-- CONSTRUCTION -->
+    <div class="uc-panel" id="uc-contractor">
+      <div class="uc-body">
+        <div>
+          <div class="uc-va-badge">Operations VA</div>
+          <div class="uc-story-tag">A real client</div>
+          <div class="uc-headline">General contractor. 3 hours every Monday on subcontractor admin. That's 150 hours a year that wasn't going into the business.</div>
+          <p class="uc-story">His VA took over certificate tracking, sub coordination, permit follow-ups, and weekly job reports. He used the Monday mornings to go after new bids. Revenue went from $3M to $4.2M in 12 months.</p>
+        </div>
+        <div>
+          <div class="uc-tasks-label">What his VA handles</div>
+          <div class="uc-task-list">
+            <div class="uc-task"><div class="uc-check">✓</div>Subcontractor insurance certificate tracking</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Permit application follow-ups</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Weekly job status reports</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Vendor and supplier coordination</div>
+            <div class="uc-task"><div class="uc-check">✓</div>Invoice generation and payment tracking</div>
+          </div>
+        </div>
+      </div>
+      <div class="uc-bottom">
+        <div class="uc-metrics">
+          <div class="uc-metric"><div class="uc-metric-n g">+$1.2M</div><div class="uc-metric-d">revenue in 12 mo</div></div>
+          <div class="uc-metric"><div class="uc-metric-n g">150 hrs</div><div class="uc-metric-d">reclaimed/year</div></div>
+        </div>
+        <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="uc-cta">Get This for My Business</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+function showUC(id, btn) {
+  document.querySelectorAll('.uc-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.uc-pill').forEach(b => b.classList.remove('active'));
+  document.getElementById('uc-' + id).classList.add('active');
+  btn.classList.add('active');
+}
+</script>
+
+<!-- SECTION 5: GUARANTEES -->
+<section class="dark-section">
+  <div class="section-inner">
+    <div style="max-width:640px;margin-bottom:0">
+      <div class="section-eyebrow">Our guarantees</div>
+      <h2 class="section-headline" style="color:#fff">You take zero risk.<br><em>We take all of it.</em></h2>
+      <p class="section-sub" style="color:rgba(255,255,255,.45)">We stand behind every placement. These aren't fine-print promises — they're how we operate.</p>
+    </div>
+    <div class="guarantee-strip" style="background:rgba(255,255,255,.03);border-color:rgba(255,255,255,.1);margin-top:48px">
+      <div class="guarantee-item" style="border-right-color:rgba(255,255,255,.1)">
+        <div class="guarantee-badge">48-Hour Replacement</div>
+        <div class="guarantee-title" style="color:#fff">Not working out? Replaced in 48 hours.</div>
+        <p class="guarantee-body" style="color:rgba(255,255,255,.42)">If your VA isn't meeting the standard — for any reason — we replace them within 48 hours at no cost. No waiting, no awkward conversations, no disruption to your workflow.</p>
+      </div>
+      <div class="guarantee-item" style="border-right-color:rgba(255,255,255,.1)">
+        <div class="guarantee-badge">Month-to-Month</div>
+        <div class="guarantee-title" style="color:#fff">No contracts. No lock-in. No severance.</div>
+        <p class="guarantee-body" style="color:rgba(255,255,255,.42)">You stay because it's working, not because you signed something. Cancel anytime with 30 days' notice. No termination fees. No HR paperwork. No severance package.</p>
+      </div>
+      <div class="guarantee-item" style="border-right:none">
+        <div class="guarantee-badge">Zero Overhead</div>
+        <div class="guarantee-title" style="color:#fff">Flat rate. No insurance, payroll, or benefits.</div>
+        <p class="guarantee-body" style="color:rgba(255,255,255,.42)">A US full-time hire costs $80,000+/year in salary alone — before insurance, payroll taxes, and PTO. A Jarvis VA is $1,600/month. One invoice. Everything included.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 6: TESTIMONIALS -->
+<style>
+.tcard-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
+.tcard{background:#fff;border:1.5px solid #e8e8e8;border-radius:16px;overflow:hidden;display:flex;flex-direction:column}
+.tcard-photo{width:100%;height:220px;object-fit:cover;object-position:center 20%;display:block}
+.tcard-body{padding:28px 28px 20px;flex:1;display:flex;flex-direction:column;gap:14px}
+.tcard-quote{font-size:16px;font-weight:700;color:#111;line-height:1.5;font-style:italic}
+.tcard-quote::before{content:'\201C';font-family:'Georgia','Times New Roman',serif;font-weight:400;font-size:64px;color:var(--lime);line-height:.7;display:block;margin-bottom:8px}
+.tcard-desc{font-size:14px;color:rgba(0,0,0,.55);line-height:1.75}
+.tcard-rag-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#bbb;margin-top:4px;margin-bottom:8px}
+.tcard-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#e8e8e8;border:1.5px solid #e8e8e8;border-radius:8px;overflow:hidden}
+.tcard-metric{background:#f7f7f7;padding:14px 8px;text-align:center}
+.tcard-metric-n{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:16px;color:#111;letter-spacing:-.3px;line-height:1}
+.tcard-metric-d{font-size:11px;color:#999;margin-top:3px;line-height:1.3}
+.tcard-footer{padding:20px 28px;border-top:1.5px solid #f0f0f0;display:flex;align-items:center;gap:14px}
+.tcard-avatar{width:38px;height:38px;border-radius:50%;object-fit:cover;flex-shrink:0}
+.tcard-name{font-weight:700;font-size:14px;color:#111;line-height:1.2}
+.tcard-role{font-size:12px;color:#aaa;margin-top:1px}
+@media(max-width:860px){.tcard-grid{grid-template-columns:1fr}}
+</style>
+
+<section class="section" style="background:#fff">
+  <div class="section-inner">
+    <div style="max-width:580px">
+      <div class="section-eyebrow">Client results</div>
+      <h2 class="section-headline">What happens when<br><em>you actually delegate</em></h2>
+    </div>
+    <div class="tcard-grid">
+
+      <div class="tcard">
+        <img class="tcard-photo" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&q=80&fit=crop" alt="Sarah K.">
+        <div class="tcard-body">
+          <div>
+<p class="tcard-quote">I haven't touched a $10/hour task since week one. My VA runs the inbox, the CRM, and every follow-up.</p>
+          </div>
+          <p class="tcard-desc">Was spending 3 hours a day on customer emails. After delegating to her Jarvis VA, she shifted that time into product development and scaled from $1.2M to $1.8M in 8 months.</p>
+          <div>
+            <div class="tcard-rag-label">Results at a Glance</div>
+            <div class="tcard-metrics">
+              <div class="tcard-metric"><div class="tcard-metric-n">−20 hrs</div><div class="tcard-metric-d">per week</div></div>
+              <div class="tcard-metric"><div class="tcard-metric-n">+$600K</div><div class="tcard-metric-d">revenue</div></div>
+              <div class="tcard-metric"><div class="tcard-metric-n">8 mo</div><div class="tcard-metric-d">to results</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard-footer">
+          <img class="tcard-avatar" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=100&q=80&fit=crop" alt="">
+          <div>
+            <div class="tcard-name">Sarah K.</div>
+            <div class="tcard-role">E-commerce founder, $1.8M/year</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard">
+        <img class="tcard-photo" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&q=80&fit=crop" alt="Marcus T.">
+        <div class="tcard-body">
+          <div>
+<p class="tcard-quote">The briefing process alone was better than any hire I've made. My VA showed up knowing my business.</p>
+          </div>
+          <p class="tcard-desc">Had 400 unread DMs, some of which were warm leads. His VA triaged everything, drafted replies, and booked 11 discovery calls in month one — recovering $15K he almost left on the table.</p>
+          <div>
+            <div class="tcard-rag-label">Results at a Glance</div>
+            <div class="tcard-metrics">
+              <div class="tcard-metric"><div class="tcard-metric-n">11</div><div class="tcard-metric-d">calls booked</div></div>
+              <div class="tcard-metric"><div class="tcard-metric-n">$15K</div><div class="tcard-metric-d">recovered</div></div>
+              <div class="tcard-metric"><div class="tcard-metric-n">Mo 1</div><div class="tcard-metric-d">results</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard-footer">
+          <img class="tcard-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&q=80&fit=crop" alt="">
+          <div>
+            <div class="tcard-name">Marcus T.</div>
+            <div class="tcard-role">Business coach, 11 new clients in month one</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tcard">
+        <img class="tcard-photo" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&q=80&fit=crop" alt="David R.">
+        <div class="tcard-body">
+          <div>
+<p class="tcard-quote">My VA reorganized my entire pipeline, chased 6 overdue invoices, and freed 22 hours in two weeks. I hired a second one.</p>
+          </div>
+          <p class="tcard-desc">Was skeptical about remote VAs. After his Jarvis VA took over Monday admin, sub certs, and job reports, he used the recovered time to close new bids. Revenue went from $3M to $4.2M in 12 months.</p>
+          <div>
+            <div class="tcard-rag-label">Results at a Glance</div>
+            <div class="tcard-metrics">
+              <div class="tcard-metric"><div class="tcard-metric-n">+$1.2M</div><div class="tcard-metric-d">revenue</div></div>
+              <div class="tcard-metric"><div class="tcard-metric-n">22 hrs</div><div class="tcard-metric-d">freed wk 1</div></div>
+              <div class="tcard-metric"><div class="tcard-metric-n">2nd VA</div><div class="tcard-metric-d">hired</div></div>
+            </div>
+          </div>
+        </div>
+        <div class="tcard-footer">
+          <img class="tcard-avatar" src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100&q=80&fit=crop" alt="">
+          <div>
+            <div class="tcard-name">David R.</div>
+            <div class="tcard-role">General contractor, $4.2M revenue</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- VA SPOTLIGHT -->
+<style>
+.va-spotlight{background:#f7f7f7;padding:88px 48px}
+.va-card{max-width:960px;margin:48px auto 0;background:#fff;border:1.5px solid #e8e8e8;border-radius:16px;overflow:hidden;display:grid;grid-template-columns:320px 1fr}
+.va-card-photo-wrap{position:relative;overflow:hidden}
+.va-card-photo-wrap img{width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+.va-badge{position:absolute;top:20px;left:20px;background:var(--lime);color:#000;font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:5px 12px;border-radius:3px}
+.va-card-body{padding:44px 44px 40px;display:flex;flex-direction:column;gap:18px}
+.va-card-name{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:28px;color:#111;letter-spacing:-.8px;line-height:1}
+.va-card-role{font-size:13px;font-weight:600;color:rgba(0,0,0,.4);letter-spacing:.05em;text-transform:uppercase;margin-top:4px}
+.va-quote{font-size:16px;font-style:italic;color:#333;line-height:1.75;border-left:3px solid var(--lime);padding-left:20px}
+.va-bio{font-size:14.5px;color:rgba(0,0,0,.6);line-height:1.8}
+.va-skills{display:flex;flex-wrap:wrap;gap:8px}
+.va-skill{font-size:12px;font-weight:600;color:#333;background:#f5f5f5;border:1px solid #e4e4e4;border-radius:4px;padding:5px 12px}
+.va-card-footer{display:flex;align-items:center;justify-content:space-between;padding-top:16px;border-top:1.5px solid #f0f0f0}
+.va-footer-note{font-size:12px;color:#aaa}
+.va-footer-cta{font-size:13px;font-weight:700;color:var(--lime);text-decoration:none}
+@media(max-width:860px){.va-card{grid-template-columns:1fr}.va-card-photo-wrap{height:280px}.va-spotlight{padding:60px 24px}}
+</style>
+
+<section class="va-spotlight">
+  <div style="max-width:960px;margin:0 auto">
+    <div style="max-width:560px">
+      <div class="section-eyebrow">Our team</div>
+      <h2 class="section-headline">The person behind<br><em>your business</em></h2>
+      <p class="section-sub">Every Jarvis Specialist is a real professional with a real story. We spotlight one each month.</p>
+    </div>
+
+    <div class="va-card">
+      <div class="va-card-photo-wrap">
+        <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?w=640&q=80&fit=crop" alt="Anj Reyes">
+        <div class="va-badge">Filipino</div>
+      </div>
+      <div class="va-card-body">
+        <div>
+          <div class="va-card-name">Anj Reyes</div>
+          <div class="va-card-role">Operations Jarvis Specialist — Cebu, Philippines</div>
+        </div>
+        <div class="va-quote">"My clients trust me to run parts of their business they used to handle themselves. That responsibility means everything to me."</div>
+        <p class="va-bio">Anj has been with Jarvis for 14 months. Before joining, she was a customer service agent earning $3.50/hr with no path forward. Today she manages inbox operations, CRM workflows, and client reporting for two US-based business coaches — and earns four times what she made before. She's saving to open a small business of her own.</p>
+        <div class="va-skills">
+          <span class="va-skill">Inbox Management</span>
+          <span class="va-skill">CRM Operations</span>
+          <span class="va-skill">Client Reporting</span>
+          <span class="va-skill">Calendar Management</span>
+          <span class="va-skill">HubSpot</span>
+        </div>
+        <div class="va-card-footer">
+          <span class="va-footer-note">Updated monthly by our Account Success team.</span>
+          <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="va-footer-cta">Work with a Jarvis Specialist →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-section">
+  <div class="faq-inner">
+    <div style="max-width:560px">
+      <div class="section-eyebrow">FAQ</div>
+      <h2 class="section-headline">Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          What does a Jarvis VA actually do day-to-day?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">A Jarvis VA handles the operational work that keeps your business running but doesn't require you: inbox management, CRM updates, lead follow-ups, scheduling, research, reporting, vendor coordination, and more. The exact scope is mapped in your first call and adjusted as your business evolves. Most clients hand off 15-25 hours of work per week in the first month.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          What makes Jarvis different from hiring a VA on Upwork or through an agency?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Most freelance VAs are self-reported — you take their word for their skills, hope their internet is reliable, and figure out the fit after you've already paid. Jarvis VAs have cleared a 67 point live assessment, a background check, a typing and writing test, an internet speed verification, and a final interview. They also complete Jarvis training before touching your business. You're not taking a chance — you're selecting from a proven roster.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          What does the 67 point vetting process actually include?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">The 67 points span 6 stages: application and HR screening, personality and background check, typing speed and writing quality, a live skills simulation across 12 task categories (inbox, CRM, research, scheduling, reporting, AI tool use, and more), an internet and equipment check, and a final video interview with Jarvis leadership. Less than 1% of applicants make it through all stages.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          What types of businesses are the best fit for Jarvis?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Jarvis works best for business owners doing $10K-$500K/month who are spending too much time on operational work that isn't growing the business. We've placed VAs with e-commerce brands, real estate agents, financial advisors, coaches, agencies, contractors, law firms, and healthcare practices. If you're doing work that doesn't require your specific expertise, there's a Jarvis VA for it.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Why wouldn't I just hire a VA myself?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">You can. But sourcing, vetting, testing, background-checking, and training a VA takes 40-80 hours — and most founders still end up with someone who looked good on paper. Jarvis gives you a pre-vetted, pre-trained VA matched to your industry in 48 hours, with a guaranteed replacement if it doesn't work out. Most clients find the math straightforward: the time and risk you save is worth more than the small premium over a self-sourced hire.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Do you offer any guarantees?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes. If your VA isn't meeting the standard for any reason, we replace them within 48 hours at no cost. There are no long-term contracts — month-to-month with 30 days' notice to cancel. No HR paperwork, no severance, no overhead. You pay one flat rate and we handle everything else.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Will my VA work full-time?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Yes. The standard Jarvis VA placement is full-time, 8 hours a day, 5 days a week, working your business hours. That's 160+ hours per month dedicated to your business. If your needs are different, we can discuss the right structure on your first call.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          How much does a Jarvis VA cost?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">$1,600/month, flat. That's $10/hour for a full-time, pre-vetted, trained virtual assistant. No payroll taxes, no benefits, no equipment costs, no HR overhead. A comparable US-based hire runs $50,000-$80,000+ per year before benefits. Most clients see a positive ROI within their first month.</div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFAQ(this)">
+          Where are Jarvis VAs based?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Jarvis VAs are based in the Philippines. We chose the Philippines intentionally — we genuinely believe in changing lives, not just filling roles. The VAs we work with are driven, hardworking, and deeply committed to doing right by the clients they support. That integrity shows up every day in how they work. Every VA must also pass an internet speed test, demonstrate strong English communication, work US business hours, and show full understanding of US business culture.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+function toggleFAQ(btn) {
+  var item = btn.parentElement;
+  var wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+
+<!-- FINAL CTA -->
+<section class="final-cta">
+  <div class="final-cta-inner">
+    <div class="eyebrow" style="color:var(--lime);margin-bottom:20px">Get started</div>
+    <h2>Stop doing the work<br>a VA <em>should be doing.</em></h2>
+    <p>15 minutes. We'll map out exactly what your VA handles from day one — and match you within 48 hours.</p>
+    <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="btn-primary">Book a Free 15-Min Call</a>
+    <p class="final-note">No commitment. No hard sell. Just a plan.</p>
+  </div>
+</section>
+
+</body>
+</html>

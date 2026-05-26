@@ -1,0 +1,85 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e372]:
+      - link [ref=e373] [cursor=pointer]:
+        - /url: /
+        - img [ref=e5]
+      - generic [ref=e8]:
+        - link [ref=e374] [cursor=pointer]:
+          - /url: /
+          - text: Explore
+        - button [ref=e375] [cursor=pointer]: Image
+        - button [ref=e376] [cursor=pointer]: Video
+        - button [ref=e377] [cursor=pointer]: Audio
+        - link [ref=e378] [cursor=pointer]:
+          - /url: /generate
+          - text: Chat
+          - generic [ref=e17]: New
+        - button [ref=e379] [cursor=pointer]: Edit
+        - button [ref=e380] [cursor=pointer]: Character
+        - link [ref=e381] [cursor=pointer]:
+          - /url: /moodboard
+          - text: Moodboard
+        - link [ref=e382] [cursor=pointer]:
+          - /url: /cinema-studio
+          - text: Cinema Studio
+          - generic [ref=e25]: "2.5"
+        - link [ref=e383] [cursor=pointer]:
+          - /url: /original-series
+          - text: Original Series
+          - generic [ref=e27]: New
+        - link [ref=e384] [cursor=pointer]:
+          - /url: /apps
+          - text: Apps
+        - link [ref=e385] [cursor=pointer]:
+          - /url: /chat
+          - text: Assist
+        - button [ref=e386] [cursor=pointer]: Gallery
+      - generic [ref=e33]:
+        - link [ref=e387] [cursor=pointer]:
+          - /url: /pricing
+          - generic [ref=e35]
+        - separator [ref=e39]
+        - generic [ref=e153]:
+          - button [ref=e388] [cursor=pointer]
+          - link [ref=e389] [cursor=pointer]:
+            - /url: /asset/all
+          - button [ref=e391] [cursor=pointer]
+  - main [ref=e50]:
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - tablist [ref=e56]
+          - slider [ref=e68]
+        - generic [ref=e171]:
+          - generic [ref=e174]
+          - generic [ref=e180]
+          - generic [ref=e186]
+      - group [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e75]
+          - generic [ref=e81]
+        - complementary [ref=e139]:
+          - button [ref=e403] [cursor=pointer]
+  - alert [ref=e148]
+  - generic [ref=e335]:
+    - text: Adds two FREE Seedream generations in parallel
+    - tooltip [ref=e404]: Adds two FREE Seedream generations in parallel
+  - dialog [ref=e407]:
+    - button "Dismiss" [ref=e409] [cursor=pointer]
+    - generic [ref=e410]: Select quality
+    - listbox [ref=e411]:
+      - group [ref=e412]:
+        - option "1K" [active] [selected] [ref=e413]:
+          - generic [ref=e415]
+        - option "2K" [ref=e420]:
+          - generic [ref=e424]: 2K
+        - option "4K" [ref=e425]:
+          - generic [ref=e429]: 4K
+    - button "Dismiss" [ref=e431] [cursor=pointer]
+  - generic:
+    - img
+  - generic:
+    - img
+  - generic:
+    - img

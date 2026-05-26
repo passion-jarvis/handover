@@ -2,7 +2,7 @@
 
 ## Jarvis (gojarvis.ai) — MAIN FOCUS
 
-**What it is:** VA matching service connecting $10K+/month business owners with pre-trained virtual assistants.
+**What it is:** VA matching service connecting $1M–$10M/year business owners with AI-trained virtual assistants.
 **Revenue model:** $10/hr × 8hrs × 5 days × 4 weeks = ~$1,600/month per client
 **Current:** 22 active clients = ~$35,200/month
 **Goal:** 100 active clients = ~$160,000/month
@@ -37,3 +37,22 @@
 **Revenue:** ~$2,000/month from brand collabs (iHerb, TalkMe.ai, Boz Lab, SCONAS, Typeless, etc.)
 **Future:** Digital products (pre-recorded, downloadable)
 **Tools:** Notion, Claude, Instagram
+
+---
+
+## Jarvis — Additional Detail
+
+**Service:** VA matching + automation builds. Not just VA placement.
+- VAs handle: lead response, call booking, inbox management, client comms
+- Automations handle: follow-up sequences, pipeline tracking, report generation
+- VAs are AI-trained — they work alongside tools like Claude to handle multiple tasks in parallel (e.g., video editing VA edits footage + handles other tasks while render runs)
+- This combination is a key differentiator. No competitor bundles both.
+
+**Target clients:**
+- Service-based businesses: coaches, consultants, financial advisors, agency owners
+- D2C brand owners (Shopify, Klaviyo, Meta Ads stack)
+- Revenue range: $1M–$10M/year
+
+**VA automation stack (common integrations):**
+- Service businesses: Salesforce, HubSpot, Slack, Gmail, QuickBooks
+- D2C brands: Shopify, Klaviyo, Meta Ads, Gmail, QuickBooks

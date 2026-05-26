@@ -1,0 +1,54 @@
+name: Daily SDR Pipeline
+
+on:
+  schedule:
+    # 6 AM PT = 13:00 UTC (14:00 UTC during PDT)
+    - cron: "0 13 * * 1-5"
+  workflow_dispatch:   # allows manual trigger from GitHub Actions UI
+
+jobs:
+  run-pipeline:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Write Google service account
+        run: echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}' > service_account.json
+
+      - name: Run pipeline
+        env:
+          SERPAPI_KEY:                  ${{ secrets.SERPAPI_KEY }}
+          PROXYCURL_KEY:                ${{ secrets.PROXYCURL_KEY }}
+          APIFY_KEY:                    ${{ secrets.APIFY_KEY }}
+          APOLLO_KEY:                   ${{ secrets.APOLLO_KEY }}
+          HUNTER_KEY:                   ${{ secrets.HUNTER_KEY }}
+          GHL_API_KEY:                  ${{ secrets.GHL_API_KEY }}
+          GHL_LOCATION_ID:              ${{ secrets.GHL_LOCATION_ID }}
+          GHL_PIPELINE_ID:              ${{ secrets.GHL_PIPELINE_ID }}
+          GHL_STAGE_ID_NEW:             ${{ secrets.GHL_STAGE_ID_NEW }}
+          GHL_CF_JOB_TITLE:             ${{ secrets.GHL_CF_JOB_TITLE }}
+          GHL_CF_JOB_URL:               ${{ secrets.GHL_CF_JOB_URL }}
+          GHL_CF_JOB_POST_DATE:         ${{ secrets.GHL_CF_JOB_POST_DATE }}
+          GHL_CF_KEYWORD_CATEGORY:      ${{ secrets.GHL_CF_KEYWORD_CATEGORY }}
+          GHL_CF_EMPLOYEE_COUNT:        ${{ secrets.GHL_CF_EMPLOYEE_COUNT }}
+          GHL_CF_REVENUE_ESTIMATE:      ${{ secrets.GHL_CF_REVENUE_ESTIMATE }}
+          GHL_CF_ENRICHMENT_STATUS:     ${{ secrets.GHL_CF_ENRICHMENT_STATUS }}
+          SUPABASE_URL:                 ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY:         ${{ secrets.SUPABASE_SERVICE_KEY }}
+          GOOGLE_SHEETS_SPREADSHEET_ID: ${{ secrets.GOOGLE_SHEETS_SPREADSHEET_ID }}
+          GOOGLE_SERVICE_ACCOUNT_JSON:  ./service_account.json
+          SLACK_WEBHOOK_URL:            ${{ secrets.SLACK_WEBHOOK_URL }}
+          MAX_RESULTS_PER_KEYWORD:      "50"
+          DEDUP_WINDOW_DAYS:            "30"
+          DRY_RUN:                      "false"
+        run: python pipeline.py

@@ -1,0 +1,96 @@
+- generic [ref=e1]:
+  - banner
+  - banner [ref=e2]:
+    - navigation "primary navigation" [ref=e432]:
+      - link "Higgsfield AI – AI Video & Image Generation Platform" [ref=e433] [cursor=pointer]:
+        - /url: /
+        - img [ref=e5]
+      - generic [ref=e8]:
+        - link "Explore" [ref=e434] [cursor=pointer]:
+          - /url: /
+        - button "Image" [ref=e435] [cursor=pointer]
+        - button "Video" [ref=e436] [cursor=pointer]
+        - button "Audio" [ref=e437] [cursor=pointer]
+        - link "Chat New" [ref=e438] [cursor=pointer]:
+          - /url: /generate
+          - text: Chat
+          - generic [ref=e17]: New
+        - button "Edit" [ref=e439] [cursor=pointer]
+        - button "Character" [ref=e440] [cursor=pointer]
+        - link "Moodboard" [ref=e441] [cursor=pointer]:
+          - /url: /moodboard
+        - link "Cinema Studio 2.5" [ref=e442] [cursor=pointer]:
+          - /url: /cinema-studio
+          - text: Cinema Studio
+          - generic [ref=e25]: "2.5"
+        - link "Original Series New" [ref=e443] [cursor=pointer]:
+          - /url: /original-series
+          - text: Original Series
+          - generic [ref=e27]: New
+        - link "Apps" [ref=e444] [cursor=pointer]:
+          - /url: /apps
+        - link "Assist" [ref=e445] [cursor=pointer]:
+          - /url: /chat
+        - button "Gallery" [ref=e446] [cursor=pointer]
+      - generic [ref=e33]:
+        - link "Upgrade 30% OFF" [ref=e447] [cursor=pointer]:
+          - /url: /pricing
+          - generic [ref=e35]:
+            - img [ref=e150]
+            - text: Upgrade
+            - generic [ref=e38]: 30% OFF
+        - separator [ref=e39]
+        - generic [ref=e153]:
+          - button "Notifications" [ref=e448] [cursor=pointer]:
+            - img [ref=e156]
+          - link "Folder icon Assets" [ref=e449] [cursor=pointer]:
+            - /url: /asset/all
+            - img "Folder icon" [ref=e450]
+            - generic [ref=e161]: Assets
+          - button "user profile" [ref=e451] [cursor=pointer]:
+            - generic [ref=e165]
+  - main [ref=e50]:
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - tablist [ref=e56]:
+            - tab "History" [selected] [ref=e453] [cursor=pointer]
+            - tab "Community" [ref=e454] [cursor=pointer]
+          - slider [ref=e68]
+        - generic [ref=e171]:
+          - generic [ref=e174]:
+            - img "image generation" [ref=e455]
+            - generic [ref=e177] [cursor=pointer]
+          - generic [ref=e180]:
+            - img "image generation" [ref=e456]
+            - generic [ref=e183] [cursor=pointer]
+          - generic [ref=e186]:
+            - img "image generation" [ref=e457]
+            - generic [ref=e189] [cursor=pointer]
+      - group [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - button [ref=e76] [cursor=pointer]
+            - generic [ref=e79]
+          - generic [ref=e81]:
+            - group [ref=e83]
+            - generic [ref=e95]
+            - group [ref=e107]
+            - button "Decrement 4/4 Increment" [ref=e469] [cursor=pointer]
+            - button [ref=e130] [cursor=pointer]
+            - generic [ref=e133]
+            - generic [ref=e136] [cursor=pointer]
+        - complementary [ref=e139]:
+          - button "Generate 8" [ref=e470] [cursor=pointer]:
+            - generic [ref=e142]
+  - region "Notifications Alt+T"
+  - alert [ref=e148]
+  - generic [ref=e335]:
+    - text: Adds two FREE Seedream generations in parallel
+    - tooltip "Adds two FREE Seedream generations in parallel" [ref=e464]
+  - generic:
+    - img
+  - generic:
+    - img
+  - generic:
+    - img

@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jarvis, Company Overview</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, 'Helvetica Neue', Arial, sans-serif; background: #fff; color: #0d0d0d; word-spacing: normal; }
+  .page { width: 816px; min-height: 1056px; position: relative; overflow: hidden; background: #fff; page-break-after: always; }
+
+  /* ===== PAGE 1 ===== */
+
+  /* Hero, full dark, no photo */
+  .hero {
+    width: 100%;
+    background: #0d0d0d;
+    padding: 48px 56px 44px;
+    position: relative;
+  }
+
+  /* Jarvis logo */
+  .jarvis-logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 40px;
+  }
+  .jarvis-logo-mark {
+    width: 48px;
+    height: 48px;
+    background: #c8ff00;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .jarvis-logo-mark svg {
+    width: 28px;
+    height: 28px;
+  }
+  .jarvis-logo-wordmark {
+    display: flex;
+    flex-direction: column;
+  }
+  .jarvis-logo-name {
+    font-size: 28px;
+    font-weight: 900;
+    color: #fff;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    line-height: 1;
+  }
+  .jarvis-logo-sub {
+    font-size: 10px;
+    color: #888;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  /* Hero headline */
+  .hero-headline {
+    margin-bottom: 28px;
+  }
+  .hero-headline-dark {
+    font-size: 42px;
+    font-weight: 900;
+    color: #fff;
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+  }
+  .hero-headline-lime {
+    font-size: 42px;
+    font-weight: 900;
+    color: #c8ff00;
+    line-height: 1.05;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+    display: block;
+  }
+
+  /* Stats row */
+  .stats-row {
+    display: flex;
+    gap: 0;
+    margin-top: 36px;
+    border-top: 1px solid #222;
+    padding-top: 28px;
+  }
+  .stat {
+    flex: 1;
+    padding-right: 28px;
+    border-right: 1px solid #222;
+    margin-right: 28px;
+  }
+  .stat:last-child { border-right: none; margin-right: 0; padding-right: 0; }
+  .stat-number {
+    font-size: 30px;
+    font-weight: 900;
+    color: #c8ff00;
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .stat-label {
+    font-size: 11px;
+    color: #888;
+    margin-top: 5px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* Content section below hero */
+  .p1-content {
+    display: flex;
+    padding: 36px 56px 0;
+    gap: 32px;
+  }
+  .p1-left { flex: 1.25; }
+  .p1-right { flex: 0.75; }
+
+  .section-label {
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #c8ff00;
+    margin-bottom: 12px;
+  }
+
+  .p1-body {
+    font-size: 13.5px;
+    line-height: 1.75;
+    color: #333;
+  }
+
+  /* Right accent box */
+  .lime-box {
+    background: #c8ff00;
+    border-radius: 10px;
+    padding: 24px 22px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .lime-box-body {
+    font-size: 13px;
+    line-height: 1.65;
+    color: #0d0d0d;
+  }
+  .lime-box-bold {
+    font-size: 18px;
+    font-weight: 900;
+    color: #0d0d0d;
+    line-height: 1.2;
+  }
+  .contact-block {
+    background: #0d0d0d;
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .contact-label {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #c8ff00;
+    margin-bottom: 4px;
+  }
+  .contact-row {
+    font-size: 12px;
+    color: #fff;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .contact-dot {
+    width: 6px;
+    height: 6px;
+    background: #c8ff00;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* Footer */
+  .p1-footer {
+    background: #0d0d0d;
+    padding: 16px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 28px;
+  }
+  .footer-logo-wrap { display: flex; align-items: center; gap: 10px; }
+  .footer-logo-mark {
+    width: 26px; height: 26px;
+    background: #c8ff00;
+    border-radius: 5px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 900; color: #0d0d0d;
+  }
+  .footer-logo-name { font-size: 13px; font-weight: 900; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
+  .footer-tagline { font-size: 11px; color: #666; font-style: italic; }
+
+  /* ===== PAGE 2 ===== */
+
+  .p2-header {
+    background: #0d0d0d;
+    padding: 24px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .p2-header-title { font-size: 20px; font-weight: 900; color: #c8ff00; text-transform: uppercase; letter-spacing: -0.3px; }
+  .p2-header-sub { font-size: 11px; color: #666; margin-top: 3px; }
+  .p2-header-logo { display: flex; align-items: center; gap: 8px; }
+  .p2-logo-mark { width: 28px; height: 28px; background: #c8ff00; border-radius: 5px; display: flex; align-items: center; justify-content: center; font-size: 14px; font-weight: 900; color: #0d0d0d; }
+  .p2-logo-name { font-size: 13px; font-weight: 900; color: #fff; letter-spacing: 2px; text-transform: uppercase; }
+
+  /* VA Role Cards */
+  .roles-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    padding: 0 56px;
+  }
+
+  .role-card {
+    padding: 24px 28px 24px 0;
+    border-bottom: 1px solid #eee;
+  }
+  .role-card:nth-child(odd) { border-right: 1px solid #eee; }
+  .role-card:nth-child(even) { padding-left: 28px; padding-right: 0; }
+
+  .role-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 12px;
+  }
+  .role-icon {
+    width: 32px;
+    height: 32px;
+    background: #c8ff00;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    flex-shrink: 0;
+  }
+  .role-title {
+    font-size: 13px;
+    font-weight: 900;
+    color: #0d0d0d;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .role-tasks {
+    list-style: none;
+    margin-bottom: 14px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .role-tasks li {
+    font-size: 11.5px;
+    color: #555;
+    padding-left: 14px;
+    position: relative;
+    line-height: 1.4;
+  }
+  .role-tasks li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 5px;
+    height: 5px;
+    background: #ddd;
+    border-radius: 50%;
+  }
+
+  .role-outcome {
+    background: #0d0d0d;
+    border-radius: 7px;
+    padding: 11px 14px;
+    border-left: 3px solid #c8ff00;
+  }
+  .role-outcome-label {
+    font-size: 8px;
+    font-weight: 800;
+    color: #c8ff00;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    margin-bottom: 5px;
+  }
+  .role-outcome-text {
+    font-size: 12px;
+    color: #fff;
+    line-height: 1.5;
+    font-weight: 700;
+    font-style: normal;
+  }
+
+  /* Page 2 footer */
+  .p2-footer {
+    background: #0d0d0d;
+    padding: 16px 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+  }
+  .p2-footer-right { text-align: right; }
+  .p2-footer-tagline { font-size: 11px; color: #666; font-style: italic; }
+  .p2-footer-url { font-size: 13px; font-weight: 700; color: #c8ff00; }
+
+  @media print {
+    body { margin: 0; }
+    .page { page-break-after: always; width: 100%; min-height: 100vh; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== PAGE 1 ===== -->
+<div class="page">
+
+  <div class="hero">
+
+    <!-- Jarvis Logo -->
+    <div class="jarvis-logo">
+      <img src="logo-existing.jpg" style="height:44px; border-radius:8px;" alt="Jarvis">
+      <div class="jarvis-logo-sub" style="color:#888; font-size:10px; letter-spacing:2px; text-transform:uppercase; margin-left:4px; align-self:flex-end; padding-bottom:4px;">AI-Trained Virtual Assistants</div>
+    </div>
+
+    <!-- Headline -->
+    <div class="hero-headline">
+      <div class="hero-headline-dark">We don't just place VAs</div>
+      <span class="hero-headline-lime">We build the systems</span>
+    </div>
+
+    <!-- Stats -->
+    <div class="stats-row">
+      <div class="stat">
+        <div class="stat-number">1 in 200</div>
+        <div class="stat-label">Applicants pass our vetting process</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">67-pt</div>
+        <div class="stat-label">Assessment every Jarvis Specialist completes before placement</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">7 Stages</div>
+        <div class="stat-label">Of screening, training & skills validation</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">Ethical</div>
+        <div class="stat-label">Fair wages + health coverage for every Jarvis Specialist</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Main content -->
+  <div class="p1-content">
+
+    <div class="p1-left">
+      <div class="section-label">Who We Are</div>
+      <p class="p1-body">
+        Most VA agencies send you a warm body. Jarvis sends you a pre-trained virtual assistant paired with custom AI automations, so your pipeline, inbox, and calendar run without you.
+        <br><br>
+        We handle the hiring, training, vetting, and tech stack. You just show up to the calls that matter.
+        <br><br>
+        Our Jarvis Specialists are matched to your exact business needs, and trained on your workflows before day one. If the fit isn't right, we replace. No questions. No delays.
+      </p>
+    </div>
+
+    <div class="p1-right">
+      <div class="lime-box">
+        <p class="lime-box-body">A dedicated VA + AI system built around your business, so you can focus on growth, not operations.</p>
+        <p class="lime-box-bold">Together,<br>we scale.</p>
+        <div class="contact-block">
+          <div class="contact-label">Contact Us</div>
+          <div class="contact-row"><div class="contact-dot"></div> gojarvis.ai</div>
+          <div class="contact-row"><div class="contact-dot"></div> passion@gojarvis.ai</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="p1-footer">
+    <img src="logo-existing.jpg" style="height:32px; border-radius:6px;" alt="Jarvis">
+    <div class="footer-tagline">Strong VAs. Smart systems. Real results.</div>
+  </div>
+
+</div>
+
+
+<!-- ===== PAGE 2 ===== -->
+<div class="page" style="position:relative;min-height:1056px;">
+
+  <div class="p2-header">
+    <div>
+      <div class="p2-header-title">What Your Jarvis Specialist Takes Off Your Plate</div>
+      <div class="p2-header-sub">Choose the role — we handle the hire, training, and results</div>
+    </div>
+    <div class="p2-header-logo">
+      <img src="logo-existing.jpg" style="height:30px; border-radius:5px;" alt="Jarvis">
+    </div>
+  </div>
+
+  <div class="roles-grid">
+
+    <!-- Social Media -->
+    <div class="role-card">
+      <div class="role-header">
+        <div class="role-icon">📱</div>
+        <div class="role-title">Social Media Management</div>
+      </div>
+      <ul class="role-tasks">
+        <li>Content scheduling &amp; publishing</li>
+        <li>Caption writing &amp; hashtag research</li>
+        <li>Comment &amp; DM responses</li>
+        <li>Story creation &amp; engagement</li>
+        <li>Analytics reporting</li>
+      </ul>
+      <div class="role-outcome">
+        <div class="role-outcome-label">Your life, after.</div>
+        <div class="role-outcome-text">Your brand posts every day. You haven't touched your phone for content in 30 days. The audience grows. You don't even notice.</div>
+      </div>
+    </div>
+
+    <!-- Admin -->
+    <div class="role-card">
+      <div class="role-header">
+        <div class="role-icon">📋</div>
+        <div class="role-title">Admin &amp; Executive Support</div>
+      </div>
+      <ul class="role-tasks">
+        <li>Inbox management &amp; triage</li>
+        <li>Calendar scheduling &amp; reminders</li>
+        <li>Travel booking &amp; logistics</li>
+        <li>Document prep &amp; data entry</li>
+        <li>Meeting notes &amp; follow-ups</li>
+      </ul>
+      <div class="role-outcome">
+        <div class="role-outcome-label">Your life, after.</div>
+        <div class="role-outcome-text">You open your laptop. Inbox is clean. Calendar is full. Every follow-up is sent. You think — your Jarvis Specialist executes. Every single morning.</div>
+      </div>
+    </div>
+
+    <!-- Operations -->
+    <div class="role-card">
+      <div class="role-header">
+        <div class="role-icon">⚙️</div>
+        <div class="role-title">Operations &amp; Project Management</div>
+      </div>
+      <ul class="role-tasks">
+        <li>SOP documentation &amp; systems building</li>
+        <li>Team coordination &amp; task tracking</li>
+        <li>Vendor &amp; contractor management</li>
+        <li>Pipeline &amp; CRM maintenance</li>
+        <li>Weekly KPI reporting</li>
+      </ul>
+      <div class="role-outcome">
+        <div class="role-outcome-label">Your life, after.</div>
+        <div class="role-outcome-text">The business runs without you in it. Deadlines don't slip. Nothing falls through. You stop being the bottleneck and start being the CEO.</div>
+      </div>
+    </div>
+
+    <!-- Bookkeeping -->
+    <div class="role-card">
+      <div class="role-header">
+        <div class="role-icon">📊</div>
+        <div class="role-title">Bookkeeping &amp; Finance Support</div>
+      </div>
+      <ul class="role-tasks">
+        <li>Invoice tracking &amp; accounts receivable</li>
+        <li>Expense categorization &amp; receipts</li>
+        <li>QuickBooks / Xero data entry</li>
+        <li>Weekly P&amp;L reporting</li>
+        <li>Vendor payment coordination</li>
+      </ul>
+      <div class="role-outcome">
+        <div class="role-outcome-label">Your life, after.</div>
+        <div class="role-outcome-text">P&amp;L lands in your inbox every Friday. You always know your numbers. Nothing gets missed at tax time. You make decisions with data, not gut feelings.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Bottom strip -->
+  <div style="background:#f7f7f7; margin: 24px 56px; border-radius: 10px; padding: 20px 28px; border-left: 4px solid #c8ff00;">
+    <div style="font-size:10px; font-weight:700; letter-spacing:2px; text-transform:uppercase; color:#c8ff00; margin-bottom:6px;">Every Jarvis VA Includes</div>
+    <div style="display:flex; gap:32px; flex-wrap:wrap;">
+      <span style="font-size:12px; color:#333;">&#10003; 67-point skills assessment</span>
+      <span style="font-size:12px; color:#333;">&#10003; 7-stage vetting process</span>
+      <span style="font-size:12px; color:#333;">&#10003; Custom workflow training</span>
+      <span style="font-size:12px; color:#333;">&#10003; Dedicated success manager</span>
+      <span style="font-size:12px; color:#333;">&#10003; AI automation build-out</span>
+      <span style="font-size:12px; color:#333;">&#10003; Replacement guarantee</span>
+    </div>
+  </div>
+
+  <div class="p2-footer">
+    <img src="logo-existing.jpg" style="height:30px; border-radius:5px;" alt="Jarvis">
+    <div class="p2-footer-right">
+      <div class="p2-footer-tagline">Strong VAs. Smart systems. Real results.</div>
+      <div class="p2-footer-url">gojarvis.ai</div>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>

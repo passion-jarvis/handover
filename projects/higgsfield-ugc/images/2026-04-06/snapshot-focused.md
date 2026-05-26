@@ -1,0 +1,52 @@
+- generic [ref=e1]:
+  - banner
+  - banner [ref=e2]:
+    - navigation "primary navigation" [ref=e432]:
+      - link "Higgsfield AI – AI Video & Image Generation Platform" [ref=e433] [cursor=pointer]:
+        - /url: /
+        - img [ref=e5]
+      - generic [ref=e8]:
+        - link "Explore" [ref=e434] [cursor=pointer]:
+          - /url: /
+        - button "Image" [ref=e435] [cursor=pointer]
+        - button "Video" [ref=e436] [cursor=pointer]
+        - button "Audio" [ref=e437] [cursor=pointer]
+        - link "Chat New" [ref=e438] [cursor=pointer]:
+          - /url: /generate
+        - button "Edit" [ref=e439] [cursor=pointer]
+        - button "Character" [ref=e440] [cursor=pointer]
+        - link "Moodboard" [ref=e441] [cursor=pointer]:
+          - /url: /moodboard
+        - link "Cinema Studio 2.5" [ref=e442] [cursor=pointer]:
+          - /url: /cinema-studio
+        - link "Original Series New" [ref=e443] [cursor=pointer]:
+          - /url: /original-series
+        - link "Apps" [ref=e444] [cursor=pointer]:
+          - /url: /apps
+        - link "Assist" [ref=e445] [cursor=pointer]:
+          - /url: /chat
+        - button "Gallery" [ref=e446] [cursor=pointer]
+      - generic [ref=e33]:
+        - link "Upgrade 30% OFF" [ref=e447] [cursor=pointer]:
+          - /url: /pricing
+        - separator [ref=e39]
+        - generic [ref=e153]
+  - main [ref=e50]:
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]
+        - generic [ref=e171]
+      - group [ref=e73]:
+        - generic [ref=e74]
+        - complementary [ref=e139]
+  - region "Notifications Alt+T"
+  - alert [ref=e148]
+  - generic [ref=e335]:
+    - text: Adds two FREE Seedream generations in parallel
+    - tooltip "Adds two FREE Seedream generations in parallel" [ref=e464]
+  - generic:
+    - img
+  - generic:
+    - img
+  - generic:
+    - img

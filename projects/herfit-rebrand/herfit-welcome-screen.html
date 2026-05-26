@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=390, initial-scale=1.0">
+<title>HerFIT Welcome Screen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Outfit:wght@300;400;500;600;700&family=Noto+Serif+TC:wght@300;400;500;600&family=Noto+Sans+TC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #1a1a1a;
+    font-family: 'Outfit', sans-serif;
+  }
+
+  .phone {
+    width: 390px;
+    height: 844px;
+    border-radius: 50px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 40px 100px rgba(0,0,0,0.6);
+    border: 10px solid #2a2a2a;
+  }
+
+  /* Status bar */
+  .status-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 50px;
+    z-index: 20;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 28px 0;
+    color: #3A3530;
+    font-size: 13px;
+    font-weight: 600;
+  }
+
+  .status-bar .time { font-weight: 700; font-size: 15px; color: #3A3530; }
+  .status-bar .icons { display: flex; gap: 6px; align-items: center; }
+
+  /* Background photo */
+  .bg-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 68%;
+    background-image: url('/Users/passionchu/Downloads/1210 herfit1273.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+
+  /* Gradient overlay on photo - fades into beige at bottom */
+  .bg-photo::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 55%;
+    background: linear-gradient(to bottom, transparent 0%, rgba(240, 228, 212, 0.6) 60%, #F0E4D4 100%);
+  }
+
+  /* Very subtle top overlay for legibility */
+  .top-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 30%;
+    background: linear-gradient(to bottom, rgba(240, 228, 212, 0.2) 0%, transparent 100%);
+    z-index: 5;
+  }
+
+  /* Bottom content area */
+  .bottom-bg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 38%;
+    background: #F0E4D4;
+  }
+
+  /* Content layer */
+  .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Logo */
+  .logo {
+    margin-top: 60px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    color: #3A3530;
+    text-transform: uppercase;
+  }
+
+  /* Headline */
+  .headline {
+    margin-top: auto;
+    margin-bottom: 0;
+    padding-top: 20px;
+    text-align: center;
+    position: absolute;
+    top: 38%;
+    left: 0;
+    right: 0;
+  }
+
+  .headline h1 {
+    font-family: 'Cormorant Garamond', 'Noto Serif TC', Georgia, serif;
+    font-size: 32px;
+    font-weight: 600;
+    color: #3A3530;
+    line-height: 1.35;
+    letter-spacing: -0.5px;
+    text-shadow: 0 1px 3px rgba(240,228,212,0.5);
+    position: relative;
+    display: inline-block;
+  }
+
+  .sparkle {
+    display: inline-block;
+    margin-left: 4px;
+    font-size: 20px;
+    color: #9B7650;
+    vertical-align: super;
+  }
+
+  /* Feature icons section */
+  .features {
+    position: absolute;
+    top: 57%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    padding: 0 20px;
+  }
+
+  .feature-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .feature-icon {
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(155, 118, 80, 0.5);
+    background: rgba(255, 255, 255, 0.45);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+  }
+
+  .feature-label {
+    font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+    font-size: 11px;
+    color: #5a4f45;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+    white-space: nowrap;
+  }
+
+  /* Tagline */
+  .tagline {
+    position: absolute;
+    top: 72%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    padding: 0 30px;
+  }
+
+  .tagline p {
+    font-family: 'Outfit', 'Noto Sans TC', sans-serif;
+    font-size: 11.5px;
+    color: #6b5e54;
+    line-height: 1.9;
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
+
+  /* Dots */
+  .dots {
+    position: absolute;
+    top: 80%;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+  }
+
+  .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: rgba(155, 118, 80, 0.3);
+  }
+
+  .dot.active {
+    background: #9B7650;
+    width: 20px;
+    border-radius: 3px;
+  }
+
+  /* CTA Button */
+  .cta-btn {
+    position: absolute;
+    bottom: 88px;
+    left: 28px;
+    right: 28px;
+    height: 52px;
+    background: #9B7650;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #fff;
+    letter-spacing: 2px;
+    box-shadow: 0 6px 20px rgba(155, 118, 80, 0.35);
+  }
+
+  /* Login link */
+  .login-link {
+    position: absolute;
+    bottom: 52px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 12px;
+    color: #8a7a70;
+    letter-spacing: 0.5px;
+  }
+
+  /* Home indicator */
+  .home-indicator {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 4px;
+    background: rgba(58, 53, 48, 0.25);
+    border-radius: 2px;
+  }
+</style>
+</head>
+<body>
+<div class="phone">
+  <!-- Status bar -->
+  <div class="status-bar">
+    <span class="time">9:41</span>
+    <div class="icons">
+      <svg width="17" height="12" viewBox="0 0 17 12" fill="#3A3530"><rect x="0" y="3" width="3" height="9" rx="1"/><rect x="4.5" y="2" width="3" height="10" rx="1"/><rect x="9" y="0.5" width="3" height="11.5" rx="1"/><rect x="13.5" y="0" width="3" height="12" rx="1"/></svg>
+      <svg width="16" height="12" viewBox="0 0 16 12" fill="none"><path d="M8 2.5C10.2 2.5 12.1 3.5 13.4 5L14.8 3.5C13.1 1.8 10.7 0.8 8 0.8C5.3 0.8 2.9 1.8 1.2 3.5L2.6 5C3.9 3.5 5.8 2.5 8 2.5Z" fill="#3A3530"/><path d="M8 5.5C9.4 5.5 10.6 6.1 11.5 7L12.9 5.5C11.6 4.2 9.9 3.3 8 3.3C6.1 3.3 4.4 4.2 3.1 5.5L4.5 7C5.4 6.1 6.6 5.5 8 5.5Z" fill="#3A3530"/><circle cx="8" cy="9.5" r="1.8" fill="#3A3530"/></svg>
+      <svg width="26" height="13" viewBox="0 0 26 13" fill="none"><rect x="0.5" y="0.5" width="22" height="12" rx="3.5" stroke="#3A3530" stroke-opacity="0.35"/><rect x="2" y="2" width="17" height="9" rx="2" fill="#3A3530"/><path d="M24 4.5V8.5C24.8 8.2 25.5 7.5 25.5 6.5C25.5 5.5 24.8 4.8 24 4.5Z" fill="#3A3530" fill-opacity="0.4"/></svg>
+    </div>
+  </div>
+
+  <!-- Background photo -->
+  <div class="bg-photo"></div>
+  <div class="top-overlay"></div>
+  <div class="bottom-bg"></div>
+
+  <!-- Content -->
+  <div class="content">
+    <!-- Logo -->
+    <div class="logo">HerFIT</div>
+
+    <!-- Headline (sits over photo/gradient transition) -->
+    <div class="headline">
+      <h1>
+        專為30歲+ 以上的妳<span class="sparkle">✦</span><br>
+        設計的運動課表
+      </h1>
+    </div>
+
+    <!-- Feature icons -->
+    <div class="features">
+      <div class="feature-item">
+        <div class="feature-icon">🌸</div>
+        <span class="feature-label">穩定荷爾蒙</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">💪</div>
+        <span class="feature-label">線條更緊實</span>
+      </div>
+      <div class="feature-item">
+        <div class="feature-icon">🌿</div>
+        <span class="feature-label">掌握生活節奏</span>
+      </div>
+    </div>
+
+    <!-- Tagline -->
+    <div class="tagline">
+      <p>從 30+ 身體的變化出發設計<br>讓訓練更貼近妳現在的狀態</p>
+    </div>
+
+
+<!-- CTA button -->
+    <div class="cta-btn">開始我的專屬課表</div>
+
+    <!-- Login link -->
+    <div class="login-link">已經有帳號點我登入</div>
+
+    <!-- Home indicator -->
+    <div class="home-indicator"></div>
+  </div>
+</div>
+</body>
+</html>

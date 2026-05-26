@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Why Jarvis Exists | Jarvis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet"/>
+  <style>
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Arimo',sans-serif;background:#fff;color:rgba(0,0,0,.75);-webkit-font-smoothing:antialiased;}
+    a{text-decoration:none;color:inherit;}
+    img{display:block;max-width:100%;}
+
+    /* ── EXACT TOKENS FROM LIVE SITE ── */
+    :root{
+      --green:#CAE600;
+      --green-dark:#9DB800;
+      --green-text:#7a9200;
+      --text:#242424;
+      --muted:#595959;
+      --light:#6d6d6d;
+      --border:#ECECEC;
+      --bg:#fff;
+      --bg2:#f5f5f5;
+      --bg3:#efefef;
+      --r:12px;
+    }
+
+    .wrap{max-width:1200px;margin:0 auto;padding:0 40px;}
+    .wrap-sm{max-width:860px;margin:0 auto;padding:0 40px;}
+    .tc{text-align:center;}
+
+    /* ── CAPTION / BADGE (matches .caption on live site) ── */
+    .caption{
+      display:inline-flex;align-items:center;gap:8px;
+      border:1.5px solid var(--green);border-radius:100px;
+      padding:5px 16px 5px 10px;
+      font-size:11px;font-weight:700;letter-spacing:.5px;
+      color:rgba(0,0,0,.75);
+      margin-bottom:20px;
+    }
+    .caption .dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;}
+
+    /* ── HEADINGS ── */
+    .h1{font-size:clamp(32px,5vw,58px);font-weight:700;line-height:1.08;letter-spacing:-.5px;color:var(--text);}
+    .h2{font-size:clamp(24px,3.8vw,44px);font-weight:700;line-height:1.1;letter-spacing:-.3px;color:var(--text);}
+    .h2 em,.h1 em{font-style:italic;color:var(--green-dark);}
+    .h2 strong{font-weight:700;}
+    .body-lg{font-size:clamp(14px,1.6vw,16px);color:var(--muted);line-height:1.75;}
+    .body-lg strong{color:var(--text);}
+
+    /* ── CDN TEXTURES (exact images from live site) ── */
+    --adv-bg:url("https://cdn.shopify.com/s/files/1/0836/6535/5031/files/advantage-bg.png?v=1773150968");
+    --block-bg:url("https://cdn.shopify.com/s/files/1/0836/6535/5031/files/why-block-bg-imagee.jpg?v=1768551529");
+
+    /* ════════════════════════════════
+       HERO / BANNER (section__banner)
+    ════════════════════════════════ */
+    .banner{
+      background-color:#000;
+      background-image:url("why-us-banner.jpg");
+      background-size:cover;
+      background-position:center center;
+      background-repeat:no-repeat;
+      padding:180px 40px 120px;
+      text-align:center;
+      position:relative;
+      overflow:hidden;
+    }
+    .banner::after{content:none;}
+    .banner-inner{position:relative;z-index:1;}
+    .banner-badge{
+      display:inline-flex;align-items:center;gap:8px;
+      background:rgba(255,255,255,.2);
+      border-radius:30px;padding:10px 16px;
+      font-size:14px;font-weight:400;color:#fff;
+      margin-bottom:28px;
+    }
+    .banner-badge .dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex-shrink:0;}
+    .banner h1{font-size:clamp(32px,5vw,58px);font-weight:400;color:#fff;line-height:1.1;margin-bottom:24px;}
+    .banner h1 em{font-style:italic;color:var(--green);}
+    .banner-body{font-size:clamp(15px,1.8vw,20px);color:#afafaf;max-width:620px;margin:0 auto 16px;line-height:1.75;text-align:center;}
+    .banner-body strong{color:#fff;}
+    .banner-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:44px;}
+    .btn-primary{display:inline-block;background:var(--green);color:#000;font-family:'Arimo',sans-serif;font-size:16px;font-weight:500;padding:18px 32px;border-radius:100px;border:1px solid var(--green);transition:opacity .2s;}
+    .btn-primary:hover{opacity:.88;}
+    .btn-outline{display:inline-block;background:transparent;color:#fff;font-family:'Arimo',sans-serif;font-size:16px;font-weight:500;padding:18px 32px;border-radius:100px;border:1px solid #fff;transition:border-color .2s,color .2s;}
+    .btn-outline:hover{border-color:var(--green);color:var(--green);}
+
+    /* ════════════════════════════════
+       ADVANTAGE (section__advantage)
+    ════════════════════════════════ */
+    .advantage{padding:80px 40px;}
+    .advantage-header{text-align:center;margin-bottom:56px;}
+    .advantage-header .body-lg{max-width:580px;margin:16px auto 0;}
+
+    .advantage-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;}
+    @media(max-width:768px){.advantage-grid{grid-template-columns:1fr;}}
+
+    .adv-card{
+      background:url("https://cdn.shopify.com/s/files/1/0836/6535/5031/files/advantage-bg.png?v=1773150968") center center / cover no-repeat;
+      border:1px solid var(--border);
+      border-radius:16px;
+      padding:25px;
+      position:relative;overflow:hidden;
+    }
+    .adv-card.featured{
+      background:url("https://cdn.shopify.com/s/files/1/0836/6535/5031/files/why-block-bg-imagee.jpg?v=1768551529") center center / cover no-repeat;
+      border:1px solid var(--green-dark);
+    }
+
+    .adv-icon{
+      width:52px;height:52px;border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:24px;margin-bottom:22px;
+      background:var(--bg3);position:relative;z-index:1;
+    }
+    .adv-card.featured .adv-icon{background:var(--green);}
+    .adv-card h3{font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;position:relative;z-index:1;}
+    .adv-card h3 .tag{font-style:italic;color:var(--green-dark);font-size:15px;font-weight:700;}
+    .adv-card p{font-size:14px;color:var(--muted);line-height:1.75;margin-bottom:16px;position:relative;z-index:1;}
+    .adv-card ul{list-style:none;position:relative;z-index:1;}
+    .adv-card ul li{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:7px;padding-left:16px;position:relative;}
+    .adv-card ul li::before{content:'•';position:absolute;left:0;color:var(--green-dark);}
+
+    .advantage-footer{
+      max-width:760px;margin:40px auto 0;
+      text-align:center;padding-top:36px;
+      border-top:1px solid var(--border);
+      font-size:15px;color:var(--muted);line-height:1.75;
+    }
+    .advantage-footer em strong,.advantage-footer strong em{font-style:italic;color:var(--text);}
+
+    /* ════════════════════════════════
+       RICHTEXT / QUOTE BLOCK
+    ════════════════════════════════ */
+    .richtext{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:64px 40px;text-align:center;}
+    .richtext .h2{font-size:clamp(18px,2.8vw,30px);max-width:860px;margin:0 auto;}
+    .richtext .h2 strong{font-weight:700;color:var(--text);}
+
+    /* ════════════════════════════════
+       HOW IT WORKS (section__how-it-works)
+    ════════════════════════════════ */
+    .hiw{padding:80px 40px;}
+    .hiw-header{margin-bottom:52px;}
+    .hiw-header .body-lg{margin-top:12px;}
+
+    .hiw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    @media(max-width:768px){.hiw-grid{grid-template-columns:1fr;}}
+
+    .hiw-card{background:#fff;border:1px solid var(--border);border-radius:16px;overflow:hidden;}
+    .hiw-icon-area{
+      position:relative;height:220px;
+      background:#fff;
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;
+    }
+    .hiw-icon-area::before{
+      content:'';position:absolute;inset:0;
+      background:
+        radial-gradient(circle at 50% 50%, transparent 48px, #f0f0f0 48px, #f0f0f0 49px, transparent 49px),
+        radial-gradient(circle at 50% 50%, transparent 80px, #ebebeb 80px, #ebebeb 81px, transparent 81px),
+        radial-gradient(circle at 50% 50%, transparent 112px, #e6e6e6 112px, #e6e6e6 113px, transparent 113px),
+        radial-gradient(circle at 50% 50%, transparent 144px, #e0e0e0 144px, #e0e0e0 145px, transparent 145px),
+        radial-gradient(circle at 50% 50%, transparent 176px, #dadada 176px, #dadada 177px, transparent 177px),
+        #fff;
+    }
+    .hiw-icon{position:relative;z-index:1;font-size:28px;width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid #e8e8e8;border-radius:12px;box-shadow:0 2px 8px rgba(0,0,0,.06);}
+    .hiw-content{padding:20px 24px 28px;}
+    .hiw-step{font-size:11px;font-weight:400;letter-spacing:.5px;color:var(--muted);margin-bottom:10px;}
+    .hiw-card h3{font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px;}
+    .hiw-card p{font-size:13px;color:var(--muted);line-height:1.75;}
+
+    /* ════════════════════════════════
+       WHY US / COMPARISON
+    ════════════════════════════════ */
+    .why-us{padding:80px 40px;background:#fff;}
+    .why-us-header{margin-bottom:52px;}
+    .why-us-header .body-lg{margin-top:12px;}
+
+    .why-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    @media(max-width:768px){.why-grid{grid-template-columns:1fr;}}
+
+    .why-card{border-radius:16px;border:1px solid var(--green-dark);overflow:hidden;background:url("https://cdn.shopify.com/s/files/1/0836/6535/5031/files/why-block-bg-imagee.jpg?v=1768551529") center center / cover no-repeat;}
+    .why-card.jarvis{border-color:var(--green);}
+    .why-head{padding:20px 24px;border-bottom:1px solid var(--border);background:rgba(255,255,255,.9);}
+    .why-card.jarvis .why-head{background:rgba(247,253,224,.95);border-bottom-color:var(--green);}
+    .why-head h3{font-size:15px;font-weight:700;color:var(--text);}
+    .why-pros,.why-cons{padding:20px 24px;background:rgba(255,255,255,.88);}
+    .why-pros{border-bottom:1px solid var(--border);}
+    .why-list{list-style:none;}
+    .why-list li{font-size:13px;color:var(--muted);line-height:1.65;margin-bottom:9px;padding-left:26px;position:relative;}
+    .why-list.good li::before{content:'😊';position:absolute;left:0;font-size:14px;line-height:1.3;}
+    .why-list.bad li::before{content:'😞';position:absolute;left:0;font-size:14px;line-height:1.3;}
+
+    .why-footer{margin-top:36px;text-align:center;font-size:14px;font-style:italic;color:var(--muted);max-width:640px;margin-left:auto;margin-right:auto;padding:18px 28px;background:#eef4fd;border-radius:10px;line-height:1.7;}
+    .why-cta-wrap{text-align:center;margin-top:24px;}
+    .btn-outline-dark{display:inline-block;background:transparent;color:var(--text);font-family:'Arimo',sans-serif;font-size:13px;font-weight:700;padding:13px 28px;border-radius:4px;border:2px solid var(--text);transition:all .2s;}
+    .btn-outline-dark:hover{background:var(--text);color:#fff;}
+
+    /* ════════════════════════════════
+       TABS MASONRY (section__tabs-masonry)
+    ════════════════════════════════ */
+    .tabs-sec{background:#1e1e1e;padding:80px 40px;}
+    .tabs-sec .caption{border-color:var(--green);color:rgba(255,255,255,.6);}
+    .tabs-sec .caption .dot{background:var(--green);}
+    .tabs-sec .h2{color:#fff;}
+    .tabs-sec .h2 em{color:var(--green);}
+    .tabs-sec .body-lg{color:rgba(255,255,255,.55);}
+    .tabs-sec .body-lg strong{color:#fff;}
+
+    .tab-nav{display:flex;flex-wrap:wrap;gap:10px;margin:40px 0 36px;}
+    .tab-btn{
+      display:flex;align-items:center;gap:8px;
+      background:rgba(255,255,255,.07);border:1.5px solid rgba(255,255,255,.12);
+      border-radius:100px;padding:10px 18px;
+      font-family:'Arimo',sans-serif;font-size:12px;font-weight:700;
+      color:rgba(255,255,255,.55);cursor:pointer;transition:all .2s;
+    }
+    .tab-btn:hover{border-color:rgba(255,255,255,.35);color:rgba(255,255,255,.85);}
+    .tab-btn.active{background:var(--green);border-color:var(--green);color:#1a1a1a;}
+    .tab-num{font-size:10px;opacity:.7;}
+
+    .tab-panel{display:none;}
+    .tab-panel.active{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+    @media(max-width:768px){.tab-panel.active{grid-template-columns:1fr 1fr;}}
+    @media(max-width:480px){.tab-panel.active{grid-template-columns:1fr;}}
+
+    .svc-card{background:rgba(255,255,255,.05);border:1.5px solid rgba(255,255,255,.1);border-radius:var(--r);padding:26px 22px;transition:border-color .2s;}
+    .svc-card:hover{border-color:rgba(202,230,0,.45);}
+    .svc-card h4{font-size:14px;font-weight:700;color:#fff;margin-bottom:8px;}
+    .svc-card p{font-size:12px;color:rgba(255,255,255,.5);line-height:1.7;}
+
+    .tabs-mid-cta{margin-top:52px;text-align:center;padding-top:44px;border-top:1px solid rgba(255,255,255,.1);}
+    .tabs-mid-cta h3{font-size:clamp(18px,2.8vw,28px);font-weight:700;color:#fff;max-width:620px;margin:0 auto 14px;line-height:1.2;}
+    .tabs-mid-cta h3 em{font-style:italic;color:var(--green);}
+    .tabs-mid-cta p{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:28px;}
+
+    /* ════════════════════════════════
+       STORY — FATAL FLAWS
+    ════════════════════════════════ */
+    .flaws-sec{padding:72px 40px;background:#fff;}
+    .flaws-header{text-align:center;margin-bottom:48px;}
+    .flaws-header .h2{font-size:clamp(22px,3.2vw,38px);}
+    .flaws-header .body-lg{max-width:560px;margin:14px auto 0;}
+    .flaws-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;}
+    @media(max-width:900px){.flaws-grid{grid-template-columns:1fr 1fr;}}
+    @media(max-width:520px){.flaws-grid{grid-template-columns:1fr;}}
+    .flaw-card{background:url("https://cdn.shopify.com/s/files/1/0836/6535/5031/files/advantage-bg.png?v=1773150968") center center / cover no-repeat;border:1px solid var(--border);border-radius:16px;padding:25px;position:relative;}
+    .flaw-card::after{content:'FATAL FLAW';position:absolute;top:16px;right:16px;font-size:8px;font-weight:700;letter-spacing:2px;color:#e53935;background:#fde8e8;border-radius:4px;padding:3px 8px;}
+    .flaw-icon{font-size:26px;margin-bottom:14px;}
+    .flaw-card h4{font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px;}
+    .flaw-card .flaw-source{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:10px;}
+    .flaw-card p{font-size:13px;color:var(--muted);line-height:1.75;}
+
+    /* ════════════════════════════════
+       STORY — PART 3: SPLIT / ORIGIN
+    ════════════════════════════════ */
+    .story-sec{padding:80px 40px;}
+    .story-grid{display:grid;grid-template-columns:420px 1fr;gap:72px;align-items:center;}
+    @media(max-width:860px){.story-grid{grid-template-columns:1fr;gap:40px;}}
+    .story-img-wrap{position:relative;}
+    .story-img-wrap img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:top center;border-radius:16px;}
+    .story-stat{position:absolute;bottom:-16px;right:-16px;background:var(--green);color:#1a1a1a;padding:16px 20px;border-radius:10px;text-align:center;font-weight:700;font-size:12px;line-height:1.2;}
+    .story-stat span{display:block;font-size:26px;font-weight:700;line-height:1;margin-bottom:2px;}
+    .story-text .pull{font-size:clamp(18px,2.4vw,24px);font-weight:700;line-height:1.3;color:var(--text);margin-bottom:22px;}
+    .story-text .pull em{font-style:italic;color:var(--green-text);}
+    .story-text p{font-size:14px;color:var(--muted);line-height:1.85;margin-bottom:14px;}
+    .story-text p strong{color:var(--text);}
+    .sig{display:flex;align-items:center;gap:14px;margin-top:28px;padding-top:24px;border-top:1px solid var(--border);}
+    .sig img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:top;border:2px solid var(--green);}
+    .sig-name{font-size:13px;font-weight:700;color:var(--text);}
+    .sig-role{font-size:11px;color:var(--muted);margin-top:2px;}
+
+    /* ════════════════════════════════
+       TESTIMONIALS (section__real-results)
+    ════════════════════════════════ */
+    .testi-sec{padding:80px 40px;background:#fff;}
+    .testi-header{margin-bottom:52px;}
+    .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+    @media(max-width:768px){.testi-grid{grid-template-columns:1fr;}}
+    .testi-card{background:#fff;border:1.5px solid var(--border);border-radius:var(--r);padding:32px 28px;}
+    .testi-meta{display:flex;align-items:center;gap:12px;margin-bottom:16px;}
+    .testi-av{width:40px;height:40px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;font-size:15px;font-weight:700;color:#1a1a1a;flex-shrink:0;}
+    .testi-name{font-size:13px;font-weight:700;color:var(--text);}
+    .testi-co{font-size:11px;color:var(--muted);}
+    .testi-rating{font-size:11px;color:var(--muted);margin-bottom:14px;}
+    .testi-rating strong{color:var(--text);}
+    .testi-quote{font-size:15px;font-weight:700;color:var(--text);line-height:1.4;margin-bottom:12px;}
+    .testi-body{font-size:13px;color:var(--muted);line-height:1.75;}
+    .testi-stats{display:flex;gap:24px;margin-top:20px;padding-top:18px;border-top:1px solid var(--border);}
+    .t-num{font-size:20px;font-weight:700;color:var(--text);}
+    .t-label{font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+
+    /* ════════════════════════════════
+       FOUNDER SECTION
+    ════════════════════════════════ */
+    .founder-sec{padding:80px 40px;}
+    .founder-card{max-width:960px;margin:48px auto 0;display:grid;grid-template-columns:320px 1fr;border:1.5px solid var(--border);border-radius:16px;overflow:hidden;}
+    @media(max-width:768px){.founder-card{grid-template-columns:1fr;}}
+    .founder-photo img{width:100%;height:100%;object-fit:cover;object-position:top center;min-height:460px;display:block;}
+    @media(max-width:768px){.founder-photo img{min-height:280px;object-position:center 10%;}}
+    .founder-bio{padding:44px 40px;background:#fff;}
+    @media(max-width:768px){.founder-bio{padding:28px 24px;}}
+    .founder-bio h2{font-size:clamp(22px,3vw,30px);font-weight:700;color:var(--text);margin-bottom:3px;}
+    .f-role{font-size:10px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--green-dark);margin-bottom:24px;}
+    .founder-bio p{font-size:13px;color:var(--muted);line-height:1.85;margin-bottom:14px;}
+    .founder-bio p strong{color:var(--text);}
+    .bio-extra{display:none;}
+    .bio-extra.open{display:block;}
+    .rm-btn{background:none;border:none;color:var(--green-dark);font-family:'Arimo',sans-serif;font-size:12px;font-weight:700;cursor:pointer;padding:0;margin:6px 0 24px;display:flex;align-items:center;gap:5px;}
+    .rm-btn .arr{display:inline-block;transition:transform .2s;}
+    .rm-btn.open .arr{transform:rotate(90deg);}
+    .f-socials{display:flex;flex-wrap:wrap;gap:9px;}
+    .f-socials a{display:flex;align-items:center;gap:6px;background:var(--bg2);border:1.5px solid var(--border);border-radius:6px;padding:8px 14px;font-size:11px;font-weight:700;color:var(--muted);transition:border-color .2s,color .2s;}
+    .f-socials a:hover{border-color:var(--green);color:var(--text);}
+    .f-socials svg{width:13px;height:13px;fill:currentColor;flex-shrink:0;}
+
+    /* ════════════════════════════════
+       FAQ
+    ════════════════════════════════ */
+    .faq-sec{padding:80px 40px;background:#fff;}
+    .faq-header{margin-bottom:52px;}
+    .faq-cols{display:grid;grid-template-columns:1fr 1fr;gap:12px;align-items:start;}
+    @media(max-width:768px){.faq-cols{grid-template-columns:1fr;}}
+    .faq-col-inner{display:flex;flex-direction:column;gap:12px;}
+    .faq-item{background:rgb(251,251,251);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+    .faq-q{width:100%;background:none;border:none;text-align:left;padding:20px 24px;font-family:'Arimo',sans-serif;font-size:13px;font-weight:700;color:var(--text);cursor:pointer;display:flex;align-items:flex-start;justify-content:space-between;gap:12px;line-height:1.5;}
+    .faq-q:hover{background:rgba(0,0,0,.02);}
+    .faq-icon{color:var(--muted);font-size:20px;flex-shrink:0;transition:transform .2s;line-height:1;}
+    .faq-item.open .faq-icon{transform:rotate(45deg);}
+    .faq-a{display:none;padding:0 24px 20px;font-size:13px;color:var(--muted);line-height:1.8;}
+    .faq-item.open .faq-a{display:block;}
+
+    /* ════════════════════════════════
+       FINAL CTA
+    ════════════════════════════════ */
+    .final-cta{background:#000;text-align:center;padding:88px 40px;}
+    .final-cta .caption{border-color:rgba(202,230,0,.5);}
+    .final-cta .caption .dot{background:var(--green);}
+    .final-cta h2{font-size:clamp(24px,4.5vw,48px);font-weight:700;color:#fff;max-width:700px;margin:0 auto 16px;line-height:1.1;}
+    .final-cta h2 em{color:var(--green);}
+    .final-cta p{font-size:14px;color:rgba(255,255,255,.5);margin-bottom:36px;max-width:480px;margin-left:auto;margin-right:auto;}
+    .final-cta .fine{margin-top:16px;font-size:11px;color:rgba(255,255,255,.25);}
+    @keyframes pg{0%{box-shadow:0 0 0 0 rgba(202,230,0,.5);}60%{box-shadow:0 0 0 18px rgba(202,230,0,0);}100%{box-shadow:0 0 0 0 rgba(202,230,0,0);}}
+    .btn-pulse{animation:pg 2.4s ease-in-out infinite;}
+  </style>
+</head>
+<body>
+
+<!-- ════════ HERO / BANNER ════════ -->
+<section class="banner">
+  <div class="wrap tc banner-inner">
+    <div class="banner-badge"><span class="dot"></span>Our Story</div>
+    <h1>The VA industry is broken.<br><em>We fixed it.</em></h1>
+    <p class="banner-body">
+      Not because VAs are bad people. Because every platform selling them has one job: connect you with a stranger and collect their cut. They get paid at placement. What happens after is your problem.
+    </p>
+    <p class="banner-body">
+      So you post on Upwork. Sort through 200 strangers. Interview. Onboard. Write the SOPs from scratch. Three months in — they ghost. You start over.
+    </p>
+    <p class="banner-body">
+      <strong>Every option puts the burden on you. That's not a hiring problem. That's a broken industry. Jarvis was built to fix it.</strong>
+    </p>
+    <div class="banner-btns">
+      <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation?link_origin=source_website" class="btn-primary btn-pulse">Hire an Automation VA</a>
+      <a href="#flaws" class="btn-outline">See Why It's Broken</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ ADVANTAGE TRIPTYCH ════════ -->
+<section class="advantage">
+  <div class="wrap">
+    <div class="advantage-header tc">
+      <div class="caption" style="margin:0 auto 20px"><span class="dot"></span>Jarvis Advantage</div>
+      <h2 class="h2" style="font-size:clamp(28px,4.5vw,52px);font-weight:700;"><em>You're the visionary,</em> founder of your business.</h2>
+      <p class="body-lg" style="margin:16px auto 0;max-width:580px;"><strong>Even Iron Man needed JARVIS.</strong> At Jarvis, we combine smart VAs with AI-powered automation to run your operations like a machine — fully customized to your workflow.</p>
+    </div>
+
+    <div class="advantage-grid">
+      <div class="adv-card">
+        <div class="adv-icon">👥</div>
+        <h3>Human Operator</h3>
+        <p>A pre-vetted, Jarvis-certified VA who already knows how to work — no hand-holding, no ramp-up, no micromanaging.</p>
+        <ul>
+          <li>Inbox and calendar management</li>
+          <li>Client communication and follow-ups</li>
+          <li>Task prioritisation and execution</li>
+          <li>Quality checks and SOP refinement</li>
+          <li>Daily reporting and accountability</li>
+        </ul>
+      </div>
+      <div class="adv-card featured">
+        <div class="adv-icon">💎</div>
+        <h3>You <span class="tag">(The visionary)</span></h3>
+        <p>You make the calls. You set the direction. You close the deals. Everything else — handled.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">⚡</div>
+        <h3>AI Automation</h3>
+        <p>Intelligent workflows running 24/7 so nothing falls through the cracks — even when you're offline.</p>
+        <ul>
+          <li>Lead nurturing sequences</li>
+          <li>Automated follow-ups</li>
+          <li>CRM data syncing</li>
+          <li>Report generation</li>
+          <li>Invoice and payment triggers</li>
+        </ul>
+      </div>
+    </div>
+
+    <p class="advantage-footer"><em><strong>No hiring headaches. No tool overload.</strong></em> Just a pre-trained operator backed by automation — so your business runs whether or not you're in the room. You're still the founder. We just make sure you actually act like one.</p>
+  </div>
+</section>
+
+<!-- ════════ RICHTEXT QUOTE ════════ -->
+<div class="richtext">
+  <div class="wrap-sm">
+    <h2 class="h2">You're doing $10K, $20K, $50K a month — and you're still answering emails at 11pm. <strong>That's not a revenue problem. That's a delegation problem. What would change if it was finally solved?</strong></h2>
+  </div>
+</div>
+
+<!-- ════════ STORY PART 2: FATAL FLAWS ════════ -->
+<section class="flaws-sec" id="flaws">
+  <div class="wrap">
+    <div class="flaws-header">
+      <div class="caption" style="margin:0 auto 20px;"><span class="dot"></span>Why We're Different</div>
+      <h2 class="h2">Every VA Model Has a <em>Fatal Flaw</em></h2>
+      <p class="body-lg">We tried them all before building something different.</p>
+    </div>
+    <div class="flaws-grid">
+      <div class="flaw-card">
+        <div class="flaw-icon">📋</div>
+        <div class="flaw-source">Upwork / Job Boards</div>
+        <h4>You do the screening</h4>
+        <p>200+ applicants. Your time. Your judgment. You train them from scratch. You write the playbook. If they quit, you start over.</p>
+      </div>
+      <div class="flaw-card">
+        <div class="flaw-icon">🎯</div>
+        <div class="flaw-source">Fiverr</div>
+        <h4>Project-based, zero continuity</h4>
+        <p>Task done, person gone. No context retained. No systems built. Every engagement is the first day again. No accountability between gigs.</p>
+      </div>
+      <div class="flaw-card">
+        <div class="flaw-icon">🏢</div>
+        <div class="flaw-source">Traditional VA Agencies</div>
+        <h4>Expensive, generic, no tech</h4>
+        <p>They place someone. You still build the SOPs, the workflows, the automations. You're paying agency prices for Upwork-level output.</p>
+      </div>
+      <div class="flaw-card">
+        <div class="flaw-icon">💸</div>
+        <div class="flaw-source">Hiring In-House</div>
+        <h4>3x the cost, 3x the risk</h4>
+        <p>Salary, benefits, onboarding time, legal complexity. And if they leave, you've lost institutional knowledge. The ROI doesn't add up until you're much bigger.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ STORY PART 3: HERE'S WHAT HAPPENED ════════ -->
+<section class="story-sec">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="story-img-wrap">
+        <img src="passion-photo.jpg" alt="Passion Chu, Founder of Jarvis"/>
+        <div class="story-stat"><span>6×</span>Revenue Growth</div>
+      </div>
+      <div class="story-text">
+        <div class="caption"><span class="dot"></span>Here's What Actually Happened</div>
+        <p class="pull">"I built businesses before I figured out <em>how to delegate.</em>"</p>
+        <p>Every time I hired a VA through the usual channels, I ended up doing more work than before. Managing them became its own full-time job. Three months in, they'd ghost. I'd start over.</p>
+        <p>Then I cracked it. A VA who arrived with systems already built. Automations behind her that handled the volume. She focused on judgment calls. The tools handled the rest.</p>
+        <p><strong>Revenue in my business 6x'd. Not because I worked harder. Because I finally stopped being the bottleneck.</strong></p>
+        <p>I built Jarvis so you don't have to spend years figuring out what I did. Every founder doing $10K+/month deserves that system from day one.</p>
+        <div class="sig">
+          <img src="passion-photo.jpg" alt="Passion Chu"/>
+          <div>
+            <div class="sig-name">Passion Chu</div>
+            <div class="sig-role">Founder &amp; CEO, Jarvis</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ HOW IT WORKS ════════ -->
+<section class="hiw" style="background:var(--bg2);">
+  <div class="wrap">
+    <div class="hiw-header">
+      <div class="caption"><span class="dot"></span>Our Process</div>
+      <h2 class="h2">The best part? We take care of <em>everything.</em></h2>
+      <p class="body-lg" style="margin-top:12px;max-width:560px;">From sourcing to deployment in 5 days — no friction, no guesswork, no strangers dumped on your doorstep.</p>
+    </div>
+    <div class="hiw-grid">
+      <div class="hiw-card">
+        <div class="hiw-icon-area"><div class="hiw-icon">🎧</div></div>
+        <div class="hiw-content">
+          <div class="hiw-step">Step 01</div>
+          <h3>We Interview</h3>
+          <p>We test real tasks — not resumes, not references. Every Jarvis VA goes through simulation-based screening where only 1 in 200 applicants makes it through. By the time we introduce them to you, we've already done the hard part.</p>
+        </div>
+      </div>
+      <div class="hiw-card">
+        <div class="hiw-icon-area"><div class="hiw-icon">📥</div></div>
+        <div class="hiw-content">
+          <div class="hiw-step">Step 02</div>
+          <h3>We Train</h3>
+          <p>Every VA completes the Jarvis Training Hub before touching your business — AI tools, workflow systems, communication standards, and your industry's best practices. They also learn how to build and refine SOPs so your business keeps running even when they're not there.</p>
+        </div>
+      </div>
+      <div class="hiw-card">
+        <div class="hiw-icon-area"><div class="hiw-icon">🏅</div></div>
+        <div class="hiw-content">
+          <div class="hiw-step">Step 03</div>
+          <h3>We Certify</h3>
+          <p>Jarvis Certification means your VA has passed real assessments, completed real tasks, and is ready to deliver results from Day 1. No trial-and-error on your time and money.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ WHY JARVIS COMPARISON ════════ -->
+<section class="why-us">
+  <div class="wrap">
+    <div class="why-us-header">
+      <div class="caption"><span class="dot"></span>Why We're Different</div>
+      <h2 class="h2">Why <em>Jarvis?</em></h2>
+      <p class="body-lg" style="margin-top:12px;max-width:560px;">Most VA platforms profit from placing someone. We profit from keeping you. That difference changes everything.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card jarvis">
+        <div class="why-head"><h3>Jarvis</h3></div>
+        <div class="why-pros">
+          <ul class="why-list good">
+            <li>Only 1 of 200 applicants passes our screening</li>
+            <li>Simulation-tested on real tasks before Day 1</li>
+            <li>Background check + NDA signed before they log in</li>
+            <li>Daily QA and performance monitoring</li>
+            <li>Instant backup if your VA is unavailable</li>
+            <li>Consistent quality, every week</li>
+            <li>Easily saves 10–20+ hours per week</li>
+          </ul>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-head"><h3>Fiverr VAs</h3></div>
+        <div class="why-pros">
+          <ul class="why-list good">
+            <li>Cheapest option available</li>
+            <li>Easy to find and hire quickly</li>
+          </ul>
+        </div>
+        <div class="why-cons">
+          <ul class="why-list bad">
+            <li>Zero onboarding or context on your business</li>
+            <li>No SOPs, workflows, or systems</li>
+            <li>High turnover — average 2–3 months</li>
+            <li>No accountability or quality control</li>
+            <li>You get what you pay for</li>
+          </ul>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-head"><h3>Freelancers</h3></div>
+        <div class="why-pros">
+          <ul class="why-list good">
+            <li>More affordable than agencies</li>
+            <li>Direct relationship with person doing the work</li>
+          </ul>
+        </div>
+        <div class="why-cons">
+          <ul class="why-list bad">
+            <li>Juggling 5–10 other clients at once</li>
+            <li>No training or standardisation</li>
+            <li>Often disappear or ghost mid-project</li>
+            <li>No backup if they get sick or quit</li>
+            <li>Inconsistent quality and availability</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <p class="why-footer">Why hire a stranger and hope for the best — when you can get a VA vetted from 200+ applicants, Jarvis-certified, and backed by automation built for your business?</p>
+    <div class="why-cta-wrap"><a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation?link_origin=source_website" class="btn-outline-dark">See How Jarvis Works For You</a></div>
+  </div>
+</section>
+
+<!-- ════════ VA SERVICES TABS ════════ -->
+<section class="tabs-sec">
+  <div class="wrap">
+    <div class="tc">
+      <div class="caption" style="margin:0 auto 20px"><span class="dot"></span>What We Do</div>
+      <h2 class="h2">What can a <em>virtual assistant</em> actually do?</h2>
+      <p class="body-lg" style="margin:14px auto 0;max-width:560px;">More than you think. Here's what Jarvis VAs handle across every area of your business.</p>
+    </div>
+
+    <div class="tab-nav">
+      <button class="tab-btn active" onclick="switchTab(0)"><span class="tab-num">01</span>Administrative</button>
+      <button class="tab-btn" onclick="switchTab(1)"><span class="tab-num">02</span>Financial</button>
+      <button class="tab-btn" onclick="switchTab(2)"><span class="tab-num">03</span>Marketing</button>
+      <button class="tab-btn" onclick="switchTab(3)"><span class="tab-num">04</span>Operational</button>
+      <button class="tab-btn" onclick="switchTab(4)"><span class="tab-num">05</span>Sales & CX</button>
+      <button class="tab-btn" onclick="switchTab(5)"><span class="tab-num">06</span>Research</button>
+      <button class="tab-btn" onclick="switchTab(6)"><span class="tab-num">07</span>Personal</button>
+    </div>
+
+    <div class="tab-panel active" id="tab0">
+      <div class="svc-card"><h4>📅 Calendar Control</h4><p>Meetings booked, conflicts resolved, prep done before every call. Your day runs on purpose, not chaos.</p></div>
+      <div class="svc-card"><h4>📬 Inbox Zero</h4><p>Priority emails flagged, responses drafted, everything else sorted. You open your inbox to action items — not noise.</p></div>
+      <div class="svc-card"><h4>📁 Docs & Forms</h4><p>Contracts, proposals, intake forms. Created, organized, and ready when you need them.</p></div>
+      <div class="svc-card"><h4>📋 Meeting Prep</h4><p>Agendas, background research, action tracking, follow-up emails. Every meeting starts and ends with clarity.</p></div>
+      <div class="svc-card"><h4>✈️ Travel Setup</h4><p>Flights, hotels, itineraries. You show up. Everything else is already handled.</p></div>
+      <div class="svc-card"><h4>🤝 Vendor Liaison</h4><p>Quote requests, follow-ups, vendor communication. You stay out of the back-and-forth.</p></div>
+    </div>
+    <div class="tab-panel" id="tab1">
+      <div class="svc-card"><h4>📊 Bookkeeping Support</h4><p>Weekly transaction categorization in QuickBooks or Xero, monthly reconciliation, expense coding. Clean books without you touching them.</p></div>
+      <div class="svc-card"><h4>🧾 Invoice Management</h4><p>Invoices drafted and sent on schedule, outstanding payments tracked, overdue accounts followed up. Cash flow stays visible.</p></div>
+      <div class="svc-card"><h4>💳 Expense Tracking</h4><p>Receipts collected and entered, subscriptions monitored, unusual charges flagged before they become surprises.</p></div>
+      <div class="svc-card"><h4>📈 Financial Reporting</h4><p>Monthly P&L pulled and formatted, weekly cash position summaries, AR aging reports delivered every Monday.</p></div>
+      <div class="svc-card"><h4>🏦 Contractor Payments</h4><p>W-9s collected, payment schedules tracked, ACH coordination handled. Pay people on time without thinking about it.</p></div>
+      <div class="svc-card"><h4>🤖 Automated Finance</h4><p>Invoice auto-triggers, payment reminder sequences, real-time cash dashboards. The system runs without you watching it.</p></div>
+    </div>
+    <div class="tab-panel" id="tab2">
+      <div class="svc-card"><h4>📱 Content Scheduling</h4><p>Posts scheduled, captions ready, content calendar maintained. You never fall behind again.</p></div>
+      <div class="svc-card"><h4>📊 Analytics Reporting</h4><p>Weekly performance pull from Instagram, LinkedIn, and Meta Ads. Numbers summarized — no dashboard-digging.</p></div>
+      <div class="svc-card"><h4>✍️ Copy & Captions</h4><p>First drafts written for posts, emails, and ad copy. You review and approve. They handle the rest.</p></div>
+      <div class="svc-card"><h4>📧 Email Marketing</h4><p>Campaigns drafted, lists managed, sequences built. Your email list works harder without more of your time.</p></div>
+      <div class="svc-card"><h4>🎯 Lead Magnet Support</h4><p>Landing page copy, opt-in setup, sequence coordination. Your funnel stays active and converting.</p></div>
+      <div class="svc-card"><h4>🔍 Influencer Outreach</h4><p>Creator research, DM outreach, follow-up sequences managed. Your partnership pipeline fills without you running it.</p></div>
+    </div>
+    <div class="tab-panel" id="tab3">
+      <div class="svc-card"><h4>⚙️ SOP Creation</h4><p>Your workflows documented, gaps identified, processes written. The business runs without you explaining everything twice.</p></div>
+      <div class="svc-card"><h4>🔄 Automation Builds</h4><p>Zapier and Make workflows built for data entry, notifications, follow-ups, and reporting. Volume automated — you handle judgment.</p></div>
+      <div class="svc-card"><h4>📦 Project Coordination</h4><p>Tasks tracked in Asana or Notion, deadlines monitored, blockers caught early. Nothing surprises you.</p></div>
+      <div class="svc-card"><h4>🗂️ CRM Management</h4><p>HubSpot or GHL pipelines kept clean, leads updated, deal stages accurate. Your CRM reflects reality.</p></div>
+      <div class="svc-card"><h4>📥 Onboarding Flows</h4><p>New client and new hire checklists executed on time. First impressions stay strong without you running them.</p></div>
+      <div class="svc-card"><h4>📊 KPI Dashboards</h4><p>Weekly metrics pulled from every tool and compiled into one clean report. You see the numbers without asking.</p></div>
+    </div>
+    <div class="tab-panel" id="tab4">
+      <div class="svc-card"><h4>📞 Lead Response</h4><p>New leads followed up within minutes. Hot leads stop going cold because nobody replied.</p></div>
+      <div class="svc-card"><h4>📆 Call Booking</h4><p>Discovery calls booked, reminders sent, no-shows followed up. Your calendar stays full without you managing it.</p></div>
+      <div class="svc-card"><h4>💬 Client Communication</h4><p>Emails, check-ins, updates handled. Clients feel taken care of. You stay out of the day-to-day.</p></div>
+      <div class="svc-card"><h4>🔁 Follow-Up Sequences</h4><p>Automated chains built and managed so no lead is ever forgotten. Revenue you were leaving on the table, captured.</p></div>
+      <div class="svc-card"><h4>⭐ Review Requests</h4><p>Post-delivery review asks sent at the right time. Your reputation grows on autopilot.</p></div>
+      <div class="svc-card"><h4>🎫 Support Tickets</h4><p>Incoming requests triaged, common issues resolved, escalations flagged. Response times stay fast.</p></div>
+    </div>
+    <div class="tab-panel" id="tab5">
+      <div class="svc-card"><h4>🔎 Competitor Research</h4><p>Ads, offers, pricing, and content tracked across your top competitors. You always know what they're doing.</p></div>
+      <div class="svc-card"><h4>🎯 Lead Sourcing</h4><p>Apollo and LinkedIn searches run, lists built and verified, contacts added to your CRM. Outbound pipeline stays full.</p></div>
+      <div class="svc-card"><h4>📰 Industry Monitoring</h4><p>Relevant news, trends, and opportunities summarized weekly. You stay informed without drowning in it.</p></div>
+      <div class="svc-card"><h4>📑 Performance Reporting</h4><p>Data from every tool compiled into clean weekly summaries. One place to see what's working.</p></div>
+      <div class="svc-card"><h4>🧠 Event & Podcast Research</h4><p>Networking events, speaking slots, and podcast pitches identified and prepped. Opportunities don't pass you by.</p></div>
+      <div class="svc-card"><h4>📋 Proposal Research</h4><p>Client background research, supporting data, case study sourcing. Proposals go out faster and close higher.</p></div>
+    </div>
+    <div class="tab-panel" id="tab6">
+      <div class="svc-card"><h4>🛍️ Personal Shopping</h4><p>Gifts sourced, orders placed, returns handled. Never spend an hour on Amazon again.</p></div>
+      <div class="svc-card"><h4>🍽️ Reservations</h4><p>Restaurants, events, experiences — researched and booked before you have to think about it.</p></div>
+      <div class="svc-card"><h4>🎁 Client Gifting</h4><p>Gifts sourced, personal notes written, sent on time. Relationships maintained without the manual effort.</p></div>
+      <div class="svc-card"><h4>📋 Errands & Admin</h4><p>Bill payments, form submissions, appointment scheduling. The small stuff that eats your day, gone.</p></div>
+      <div class="svc-card"><h4>🏠 Property Support</h4><p>Contractor follow-ups, repair coordination, utility tracking. Life runs smoother.</p></div>
+      <div class="svc-card"><h4>✈️ Personal Travel</h4><p>Vacations planned end-to-end. You show up. Everything else is handled.</p></div>
+    </div>
+
+    <div class="tabs-mid-cta">
+      <h3>You've already built something real. Let's make sure <em>it doesn't depend on you to run it.</em></h3>
+      <p>One conversation. No pitch. No pressure.</p>
+      <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation?link_origin=source_website" class="btn-primary">Start My Free Pre-Audit</a>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ TESTIMONIALS ════════ -->
+<section class="testi-sec">
+  <div class="wrap">
+    <div class="testi-header">
+      <div class="caption"><span class="dot"></span>Social Proof</div>
+      <h2 class="h2">Real results from <em>real clients</em></h2>
+      <p class="body-lg" style="margin-top:12px;max-width:480px;">Founders who were where you are — and decided to stop doing everything themselves.</p>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-meta"><div class="testi-av">N</div><div><div class="testi-name">Nelson Chen</div><div class="testi-co">Owner at VibeQ Digital</div></div></div>
+        <div class="testi-rating"><strong>4.9/5</strong> average across 200+ client engagements</div>
+        <p class="testi-quote">"My revenue grew 2x and I took a 16-day vacation."</p>
+        <p class="testi-body">For the first time, the backend felt calm and predictable. I finally had the space to think like a CEO again. Jarvis gave us structure, speed, and consistency.</p>
+        <div class="testi-stats"><div><div class="t-num">2×</div><div class="t-label">Revenue Growth</div></div><div><div class="t-num">16</div><div class="t-label">Day Vacation</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-meta"><div class="testi-av">C</div><div><div class="testi-name">Chloe Chen</div><div class="testi-co">Owner at The Alchemist</div></div></div>
+        <div class="testi-rating"><strong>4.9/5</strong> average across 200+ client engagements</div>
+        <p class="testi-quote">"Jarvis tests real tasks to verify skills."</p>
+        <p class="testi-body">Our VA didn't just help — they took ownership. Tasks organized, follow-ups handled, nothing slipped. For the first time our backend felt calm and predictable.</p>
+        <div class="testi-stats"><div><div class="t-num">97%</div><div class="t-label">Task Accuracy</div></div><div><div class="t-num">+50%</div><div class="t-label">Faster Turnaround</div></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-meta"><div class="testi-av">A</div><div><div class="testi-name">Albert</div><div class="testi-co">Owner at Parting Pro</div></div></div>
+        <div class="testi-rating"><strong>4.9/5</strong> average across 200+ client engagements</div>
+        <p class="testi-quote">"We hired two VAs, and suddenly, everything clicked."</p>
+        <p class="testi-body">Before Jarvis it felt like we were holding the backend together with duct tape. The impact was immediate — tasks organized, systems cleaned up, nothing slipped through the cracks.</p>
+        <div class="testi-stats"><div><div class="t-num">97%</div><div class="t-label">Task Accuracy</div></div><div><div class="t-num">40+</div><div class="t-label">Hours Saved/Mo</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FOUNDER ════════ -->
+<section class="founder-sec tc">
+  <div class="wrap">
+    <div class="caption" style="margin:0 auto 20px"><span class="dot"></span>The Human Behind Jarvis</div>
+    <h2 class="h2">Meet <em>Passion Chu</em></h2>
+  </div>
+  <div style="max-width:960px;margin:0 auto;padding:0 40px;">
+    <div class="founder-card">
+      <div class="founder-photo"><img src="passion-photo.jpg" alt="Passion Chu — Founder & CEO of Jarvis"/></div>
+      <div class="founder-bio">
+        <h2>Passion Chu</h2>
+        <p class="f-role">Founder &amp; CEO — Jarvis</p>
+        <p>Passion Chu is a serial entrepreneur and operator who has built and scaled businesses across two countries. She is the founder and CEO of Jarvis — the VA matching and automation service built for founders doing $10K+/month who are ready to stop being the bottleneck in their own growth.</p>
+        <p>Before building Jarvis, Passion co-founded HerFIT, a women's fitness platform with 1,000+ active users across Asia, and built a personal brand on Instagram with over 111,000 followers focused on entrepreneurship and building a life with real standards.</p>
+        <div class="bio-extra" id="bioExtra">
+          <p>Passion was born and raised in Taiwan and moved to Los Angeles in 2024. The insight behind Jarvis came from years of firsthand experience with bad hires and broken delegation. After cracking the code — <strong>a pre-trained VA paired with the automation to back her up</strong> — revenue in her own business 6x'd.</p>
+          <p>Today Jarvis serves retained clients across the US. Every client gets a pre-trained VA, a custom automation build, and a 5-day onboarding — or their money back.</p>
+        </div>
+        <button class="rm-btn" id="rmBtn" onclick="toggleBio()"><span id="rmTxt">Read More</span><span class="arr">›</span></button>
+        <div class="f-socials">
+          <a href="https://www.instagram.com/passionya" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+            @passionya
+          </a>
+          <a href="https://www.linkedin.com/in/passionchu" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+            LinkedIn
+          </a>
+          <a href="https://gojarvis.ai" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 6.628 5.374 12 12 12s12-5.372 12-12c0-6.627-5.374-12-12-12zm8.016 7.113h-3.14c-.34-1.57-.84-2.976-1.476-4.077a10.06 10.06 0 0 1 4.616 4.077zM12 2.04c.861 1.01 1.6 2.52 2.073 4.266H9.927C10.4 4.56 11.14 3.05 12 2.04zM2.205 14.26A9.96 9.96 0 0 1 2 12c0-.78.1-1.538.205-2.26H5.8a20.895 20.895 0 0 0 0 4.52H2.205zm.779 1.627h3.14c.34 1.57.84 2.976 1.476 4.077a10.06 10.06 0 0 1-4.616-4.077zm3.14-8.774H2.984A10.06 10.06 0 0 1 7.6 3.036C6.964 4.137 6.464 5.543 6.124 7.113zM12 21.96c-.861-1.01-1.6-2.52-2.073-4.266h4.146C13.6 19.44 12.86 20.95 12 21.96zm2.541-5.893H9.459a18.617 18.617 0 0 1 0-4.134h5.082a18.614 18.614 0 0 1 0 4.134zm.328 6.897c.636-1.101 1.136-2.507 1.476-4.077h3.14a10.06 10.06 0 0 1-4.616 4.077zm1.926-5.704a20.897 20.897 0 0 0 0-4.52h3.595c.106.722.205 1.48.205 2.26s-.1 1.538-.205 2.26H16.795z"/></svg>
+            gojarvis.ai
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FAQ ════════ -->
+<section class="faq-sec">
+  <div class="wrap">
+    <div class="faq-header">
+      <div class="caption"><span class="dot"></span>FAQs</div>
+      <h2 class="h2">Answers to common <em>questions</em></h2>
+      <p class="body-lg" style="margin-top:12px;max-width:480px;">Simple, clear, and honest. No sales spin.</p>
+    </div>
+    <div class="faq-cols">
+      <div class="faq-col-inner">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Can I hire a Jarvis VA just for one area? What's the minimum commitment?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Yes. VAs can be scoped to one function — inbox, finance, sales support — or a full general role. The minimum is 160 hours/month ($1,600). Most clients expand to a second VA within 60 days once they see what's possible.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">I'm concerned about cost. Won't this cut into my profits?<span class="faq-icon">+</span></button>
+          <div class="faq-a">The question isn't whether a VA costs money — it's what your time costs. If you're doing $10K+/month, your hour is worth $50–$200. You're paying $10/hr to get it back. That's not an expense. That's the highest-ROI hire you can make right now.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">I've never hired before. How do I know what kind of help I need?<span class="faq-icon">+</span></button>
+          <div class="faq-a">That's exactly what the free pre-audit is for. We interview you, map your current workflows, and tell you exactly where a VA would have the highest ROI. No guesswork. No generic advice.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">Where are Jarvis VAs located? How can I trust someone remote?<span class="faq-icon">+</span></button>
+          <div class="faq-a">VAs are based in the Philippines and Latin America. Every VA signs an NDA, passes a background check, and completes simulation-based testing before placement. You get accountability baked in — not crossed fingers.</div>
+        </div>
+      </div>
+      <div class="faq-col-inner">
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What kinds of tasks can a Jarvis VA handle?<span class="faq-icon">+</span></button>
+          <div class="faq-a">Admin, financial (bookkeeping, invoicing, expense tracking), marketing, operations, sales support, research, and personal assistance. If you're doing it manually right now, there's a good chance a VA can own it.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">How do you ensure a good match between my business and a VA?<span class="faq-icon">+</span></button>
+          <div class="faq-a">We run a pre-audit to understand your workflows, team structure, and goals — then match from our certified VA pool. If it's not the right fit within 14 days, we replace or refund. No questions asked.</div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-q" onclick="toggleFaq(this)">What happens if I'm not satisfied with my Jarvis VA?<span class="faq-icon">+</span></button>
+          <div class="faq-a">14-day money-back guarantee, full stop. If it's not the right fit in the first two weeks, you pay nothing. We part ways cleanly and professionally. This isn't buried in the fine print — it's the first thing we tell every new client.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════ FINAL CTA ════════ -->
+<section class="final-cta">
+  <div class="wrap tc">
+    <div class="caption" style="margin:0 auto 20px;color:rgba(255,255,255,.6);border-color:rgba(202,230,0,.35)"><span class="dot"></span>CTA</div>
+    <h2>Stop doing $15/hour work while building<br>a <em>$150K/month business.</em></h2>
+    <p>Every hour you spend on tasks a VA should own is an hour you're not spending on growth. Let's fix that today.</p>
+    <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation?link_origin=source_website" class="btn-primary btn-pulse">Hire an Automation VA</a>
+    <p class="fine">14-day money-back guarantee &nbsp;·&nbsp; 5-day onboarding &nbsp;·&nbsp; No long-term contract</p>
+  </div>
+</section>
+
+<script>
+  function switchTab(i){
+    document.querySelectorAll('.tab-btn').forEach((b,j)=>b.classList.toggle('active',j===i));
+    document.querySelectorAll('.tab-panel').forEach((p,j)=>p.classList.toggle('active',j===i));
+  }
+  function toggleFaq(btn){btn.closest('.faq-item').classList.toggle('open');}
+  function toggleBio(){
+    const e=document.getElementById('bioExtra'),b=document.getElementById('rmBtn'),t=document.getElementById('rmTxt');
+    const o=e.classList.toggle('open');b.classList.toggle('open',o);t.textContent=o?'Read Less':'Read More';
+  }
+</script>
+</body>
+</html>

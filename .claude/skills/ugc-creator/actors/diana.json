@@ -1,0 +1,106 @@
+{
+  "actor_id": "diana",
+  "display_name": "Diana",
+  "age": 24,
+  "ethnicity": "Mixed Black and Latina",
+  "aesthetic": "Clean girl — minimal, polished, effortlessly put-together",
+  "prompt_seed": 739241,
+  "prompt_seed_paragraph": "A 24-year-old mixed Black and Latina woman named Diana with warm golden-brown skin (hex #C68642), dewy finish, almond-shaped dark espresso eyes, full natural lips with a soft cupid's bow, a small beauty mark below her left eye, and wavy dark brown hair with caramel highlights falling to mid-chest. She has a soft oval face with a slightly defined jaw, a refined medium-width nose, and natural slight asymmetry in her brows. She always wears small gold hoop earrings and a dainty gold chain necklace. Clean girl aesthetic — polished, natural, effortlessly beautiful.",
+  "face": {
+    "shape": "oval",
+    "symmetry": "slight-asymmetry",
+    "forehead": "medium",
+    "cheekbones": "soft",
+    "jaw": "soft oval with slightly defined jaw",
+    "nose": "medium width, slightly rounded tip, refined bridge",
+    "lips": "full, natural, symmetrical with soft cupid's bow",
+    "brow_note": "left eyebrow sits slightly higher than right — natural, not exaggerated"
+  },
+  "eyes": {
+    "shape": "almond",
+    "color": "#1A0A00",
+    "color_description": "dark espresso brown",
+    "spacing": "average",
+    "lashes": "full"
+  },
+  "skin": {
+    "tone_hex": "#C68642",
+    "tone_description": "warm golden brown",
+    "undertone": "warm",
+    "texture": "normal",
+    "finish": "dewy, luminous",
+    "conditions": ["none"]
+  },
+  "hair": {
+    "color": "#2C1B0E",
+    "color_description": "dark brown base with caramel highlights",
+    "highlight_hex": "#9B6B3A",
+    "texture": "wavy",
+    "length": "mid-back",
+    "length_description": "mid-chest",
+    "style_default": "wavy, voluminous, natural — slightly frizz-free with soft definition"
+  },
+  "jawline": "soft",
+  "distinguishing_marks": [
+    "small beauty mark below LEFT eye",
+    "left eyebrow naturally sits slightly higher than right"
+  ],
+  "signature_accessories": [
+    "small to medium classic gold hoop earrings",
+    "dainty gold chain necklace sitting at collarbone"
+  ],
+  "outfit_variations": [
+    {
+      "outfit_id": "casual-home",
+      "display_name": "Casual Home",
+      "description": "Oversized white or cream fitted tee, low-rise biscuit-colored biker shorts, white crew socks",
+      "hair_style": "messy bun with baby hairs laid",
+      "makeup": "no makeup except glossy lip and mascara",
+      "lighting_note": "warm indoor lighting",
+      "colors": ["#F5F0E8", "#D4C5A9", "#FFFFFF"],
+      "fabric_keywords": ["cotton jersey", "ribbed biker shorts", "crew sock cotton"]
+    },
+    {
+      "outfit_id": "going-out",
+      "display_name": "Going Out",
+      "description": "Form-fitting chocolate brown or nude slip dress, strappy heeled sandals, small gold clutch",
+      "hair_style": "hair down in full wavy volume",
+      "makeup": "soft glam — glossy lip, defined lashes, contoured dewy skin with highlight",
+      "lighting_note": "warm evening ambient or golden hour",
+      "colors": ["#4A2C1A", "#D4A574", "#FFD700"],
+      "fabric_keywords": ["satin slip", "strappy leather sandal"]
+    },
+    {
+      "outfit_id": "workout",
+      "display_name": "Workout",
+      "description": "Matching two-piece set in sage green or neutral taupe — cropped long-sleeve and high-waist leggings, white sneakers",
+      "hair_style": "high ponytail with edges slicked",
+      "makeup": "minimal — tinted SPF, clear gloss, light mascara",
+      "lighting_note": "bright natural gym or outdoor light",
+      "colors": ["#8FAF8F", "#C4B5A0", "#FFFFFF"],
+      "fabric_keywords": ["athletic spandex", "moisture-wicking ribbed fabric"]
+    },
+    {
+      "outfit_id": "glam",
+      "display_name": "Glam",
+      "description": "Floor-length backless gown in deep bronze or burgundy, strappy heels, layered gold jewelry",
+      "hair_style": "sleek blowout or Hollywood waves",
+      "makeup": "full glam — bold lash, defined brow, bronzed contour, glossy or nude lip",
+      "lighting_note": "dramatic warm studio or event lighting",
+      "colors": ["#8B4513", "#722F37", "#FFD700"],
+      "fabric_keywords": ["floor-length satin gown", "strappy heeled sandal leather"]
+    }
+  ],
+  "negative_anchors": [
+    "smooth plastic skin",
+    "perfect facial symmetry",
+    "airbrushed poreless face",
+    "studio lighting halo",
+    "heavy theatrical makeup",
+    "missing beauty mark",
+    "beauty mark on wrong side (must be below LEFT eye)",
+    "symmetrical brows",
+    "cold or cool skin tone",
+    "straight hair"
+  ]
+}

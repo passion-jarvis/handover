@@ -1,0 +1,70 @@
+- generic [ref=e1]:
+  - banner
+  - banner [ref=e2]:
+    - navigation "primary navigation" [ref=e3]:
+      - link "Higgsfield AI – AI Video & Image Generation Platform" [active] [ref=e4] [cursor=pointer]:
+        - /url: /
+      - generic [ref=e8]
+      - generic [ref=e33]
+  - main [ref=e43]:
+    - generic [ref=e224]:
+      - list [ref=e226]
+      - button [ref=e275] [cursor=pointer]
+    - generic [ref=e278]:
+      - generic [ref=e279]
+      - generic [ref=e367]
+      - generic [ref=e379]
+    - generic [ref=e492]:
+      - generic [ref=e493]
+      - generic [ref=e500]
+    - generic [ref=e596]:
+      - link "Try Photodump" [ref=e597] [cursor=pointer]:
+        - /url: /image/soul-v2/photodump?skip-preview=true
+      - generic [ref=e601]
+    - generic [ref=e608]:
+      - generic [ref=e609]
+      - link "View all of Higgsfield Soul Cinema" [ref=e636] [cursor=pointer]:
+        - /url: /soul-cinema-community
+    - generic [ref=e639]:
+      - img [ref=e640]
+      - generic [ref=e641]
+    - generic [ref=e677]:
+      - generic [ref=e678]
+      - link "View all of Higgsfield Soul 2.0" [ref=e705] [cursor=pointer]:
+        - /url: /soul-community
+    - generic [ref=e708]:
+      - generic [ref=e709]
+      - group [ref=e715]
+      - link "View all of Mixed Media" [ref=e773] [cursor=pointer]:
+        - /url: /mixed-media-community
+    - generic [ref=e776]:
+      - generic [ref=e777]
+      - group [ref=e783]
+      - link "View all of Visual Effects" [ref=e908] [cursor=pointer]:
+        - /url: /effects
+    - generic [ref=e911]:
+      - generic [ref=e912]
+      - group [ref=e918]
+      - link "View all of Higgsfield Apps" [ref=e1035] [cursor=pointer]:
+        - /url: /apps
+    - generic [ref=e1038]:
+      - generic [ref=e1039]
+      - link "View all of Higgsfield Soul" [ref=e1065] [cursor=pointer]:
+        - /url: /soul
+    - generic [ref=e1068]:
+      - generic [ref=e1069]
+      - group [ref=e1075]
+      - link "View all of Kling 2.5 Turbo" [ref=e1157] [cursor=pointer]:
+        - /url: /kling
+    - generic [ref=e1160]:
+      - heading "Explore more ai features" [level=2] [ref=e1161]
+      - generic [ref=e1162]
+    - generic [ref=e1200]:
+      - generic [ref=e1201]
+      - generic [ref=e1324]
+  - contentinfo [ref=e1338]:
+    - navigation [ref=e1339]:
+      - paragraph [ref=e1340]
+      - list [ref=e1342]
+  - region "Notifications Alt+T"
+  - alert [ref=e188]: An ultimate infrastructure for AI Video and Image Generation by Higgsfield

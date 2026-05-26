@@ -1,0 +1,69 @@
+- generic [active] [ref=e1]:
+  - banner
+  - banner [ref=e2]:
+    - navigation "primary navigation" [ref=e3]:
+      - link "Higgsfield AI – AI Video & Image Generation Platform" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [ref=e5]
+      - generic [ref=e8]:
+        - link "Explore" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - button "Image" [ref=e11] [cursor=pointer]
+        - button "Video" [ref=e13] [cursor=pointer]
+        - button "Audio" [ref=e15] [cursor=pointer]
+        - link "Chat New" [ref=e16] [cursor=pointer]:
+          - /url: /generate
+        - button "Edit" [ref=e19] [cursor=pointer]
+        - button "Character" [ref=e21] [cursor=pointer]
+        - link "Moodboard" [ref=e22] [cursor=pointer]:
+          - /url: /moodboard
+        - link "Cinema Studio 2.5" [ref=e24] [cursor=pointer]:
+          - /url: /cinema-studio
+        - link "Original Series New" [ref=e26] [cursor=pointer]:
+          - /url: /original-series
+        - link "Apps" [ref=e28] [cursor=pointer]:
+          - /url: /apps
+        - link "Assist" [ref=e29] [cursor=pointer]:
+          - /url: /chat
+        - button "Gallery" [ref=e31] [cursor=pointer]
+      - generic [ref=e33]:
+        - link "Upgrade 30% OFF" [ref=e149] [cursor=pointer]:
+          - /url: /pricing
+        - separator [ref=e39]
+        - generic [ref=e153]
+  - main [ref=e50]:
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]
+        - generic [ref=e171]
+      - group [ref=e73]:
+        - generic [ref=e74]
+        - complementary [ref=e139]
+  - region "Notifications Alt+T"
+  - alert [ref=e148]
+  - dialog "Cookie consent dialog" [ref=e190]:
+    - button "Close" [ref=e192] [cursor=pointer]: ×
+    - generic [ref=e194]:
+      - text: Our website uses tracking technologies that are described in our
+      - link "Cookie Policy" [ref=e195] [cursor=pointer]:
+        - /url: https://higgsfield.ai/cookie-notice
+      - text: . To manage these settings, visit
+      - link "Your Privacy Choices" [ref=e196] [cursor=pointer]:
+        - /url: https://higgsfield.ai/privacy-policy
+      - text: . By continuing to explore our website you agree to our
+      - link "Privacy Policy" [ref=e197] [cursor=pointer]:
+        - /url: https://higgsfield.ai/privacy-policy
+      - text: ","
+      - link "Terms of Use" [ref=e198] [cursor=pointer]:
+        - /url: https://higgsfield.ai/terms-of-use-agreement
+      - text: ", and"
+      - link "Cookie Policy" [ref=e199] [cursor=pointer]:
+        - /url: https://higgsfield.ai/cookie-notice
+      - text: .
+    - button "Opt-Out" [ref=e201] [cursor=pointer]
+  - generic:
+    - img
+  - generic:
+    - img
+  - generic:
+    - img

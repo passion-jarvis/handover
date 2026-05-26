@@ -1,0 +1,43 @@
+name: Monthly DB Purge
+
+on:
+  schedule:
+    # First of every month at 9 AM PT = 17:00 UTC
+    - cron: "0 17 1 * *"
+  workflow_dispatch:
+    inputs:
+      days:
+        description: "Purge records older than N days"
+        default: "90"
+      dry_run:
+        description: "Dry run (true/false)"
+        default: "false"
+
+jobs:
+  purge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Purge old Supabase records
+        env:
+          SUPABASE_URL:         ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_KEY: ${{ secrets.SUPABASE_SERVICE_KEY }}
+        run: |
+          DAYS=${{ github.event.inputs.days || '90' }}
+          DRY=${{ github.event.inputs.dry_run || 'false' }}
+          if [ "$DRY" = "true" ]; then
+            python scripts/purge_old.py --days $DAYS --dry-run
+          else
+            python scripts/purge_old.py --days $DAYS
+          fi

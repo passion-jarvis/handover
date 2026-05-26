@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jarvis — You Didn't Start a Business to Work 60-Hour Weeks</title>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--yellow:#D4FF00;--yellow-dark:#BBDF00;--black:#0A0A0A;--white:#FFFFFF;--off-white:#F5F5F5;--gray:#1A1A1A;--gray-mid:#333;--gray-light:#888;--text:#0A0A0A;}
+  *{margin:0;padding:0;box-sizing:border-box;}html{scroll-behavior:smooth;}body{background:var(--white);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;}
+  nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;justify-content:space-between;align-items:center;padding:16px 56px;background:rgba(255,255,255,0.96);backdrop-filter:blur(12px);border-bottom:1px solid #E8E8E8;}
+  .nl{display:flex;align-items:center;gap:12px;text-decoration:none;}
+  .lm{width:36px;height:36px;background:var(--yellow);border-radius:50%;display:flex;align-items:center;justify-content:center;}
+  .lm span{font-family:'Barlow Condensed',sans-serif;font-size:13px;font-weight:900;color:var(--black);letter-spacing:1px;}
+  .lt{font-family:'Barlow Condensed',sans-serif;font-size:22px;font-weight:900;color:var(--black);letter-spacing:2px;}
+  .nav-links{display:flex;align-items:center;gap:32px;}
+  .nav-links a{font-size:14px;color:var(--gray-light);text-decoration:none;transition:color 0.2s;}
+  .nav-links a:hover{color:var(--black);}
+  .nc{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--yellow);color:var(--black);padding:10px 24px;border-radius:4px;text-decoration:none;transition:background 0.2s;}
+  .nc:hover{background:var(--yellow-dark);}
+
+  /* HERO split */
+  .hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;padding-top:80px;}
+  .hl{display:flex;flex-direction:column;justify-content:center;padding:80px 56px;background:var(--black);}
+  .hr{background:var(--yellow);display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;}
+  .hr::before{content:'11:47';font-family:'Barlow Condensed',sans-serif;font-size:clamp(60px,8vw,120px);font-weight:900;color:rgba(0,0,0,0.08);position:absolute;bottom:40px;right:20px;line-height:1;letter-spacing:2px;}
+  .clock-box{display:flex;flex-direction:column;align-items:center;gap:24px;z-index:1;}
+  .clock-ring{width:200px;height:200px;border-radius:50%;border:3px solid rgba(0,0,0,0.15);display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.05);}
+  .clock-time{font-family:'Barlow Condensed',sans-serif;font-size:52px;font-weight:900;color:var(--black);letter-spacing:3px;}
+  .clock-lbl{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:2px;color:var(--black);text-align:center;}
+
+  .tag{display:inline-flex;align-items:center;gap:8px;background:rgba(212,255,0,0.12);color:var(--yellow);font-family:'DM Mono',monospace;font-size:11px;letter-spacing:2px;text-transform:uppercase;padding:7px 14px;border-radius:2px;margin-bottom:32px;width:fit-content;opacity:0;animation:up 0.5s ease forwards 0.1s;}
+  .tag::before{content:'';width:6px;height:6px;background:var(--yellow);border-radius:50%;}
+  h1{font-family:'Barlow Condensed',sans-serif;font-size:clamp(56px,7vw,110px);line-height:0.92;font-weight:900;text-transform:uppercase;letter-spacing:1px;color:var(--white);opacity:0;animation:up 0.5s ease forwards 0.25s;}
+  h1 .y{color:var(--yellow);}
+  .sub{margin-top:28px;font-size:17px;font-weight:300;color:rgba(255,255,255,0.5);line-height:1.8;max-width:440px;opacity:0;animation:up 0.5s ease forwards 0.4s;}
+  .acts{margin-top:44px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;opacity:0;animation:up 0.5s ease forwards 0.55s;}
+  .bp{font-family:'Barlow Condensed',sans-serif;font-size:17px;font-weight:700;letter-spacing:1px;text-transform:uppercase;background:var(--yellow);color:var(--black);padding:16px 40px;border-radius:4px;text-decoration:none;transition:background 0.2s;}
+  .bp:hover{background:var(--yellow-dark);}
+  .hn{font-size:13px;color:rgba(255,255,255,0.35);font-style:italic;}
+
+  /* SCROLL BAR */
+  .sb{padding:12px 0;background:var(--yellow);overflow:hidden;white-space:nowrap;}
+  .si{display:inline-flex;animation:scroll 22s linear infinite;}
+  .si span{font-family:'Barlow Condensed',sans-serif;font-size:15px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--black);padding:0 28px;}
+  .si .d{color:rgba(0,0,0,0.25);}
+  @keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+  .section{padding:100px 56px;max-width:1200px;margin:0 auto;}
+  .sf{padding:100px 56px;}
+  .sl{font-family:'DM Mono',monospace;font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--gray-light);margin-bottom:48px;display:flex;align-items:center;gap:16px;}
+  .sl::after{content:'';flex:1;max-width:60px;height:1px;background:#E0E0E0;}
+  .st{font-family:'Barlow Condensed',sans-serif;font-size:clamp(40px,5vw,72px);font-weight:900;text-transform:uppercase;letter-spacing:1px;line-height:0.95;margin-bottom:20px;color:var(--black);}
+  .st .y{color:var(--yellow);-webkit-text-stroke:1px var(--black);}
+
+  /* BEFORE AFTER */
+  .ba{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:48px;}
+  .bc{padding:48px 40px;}
+  .bb{background:var(--off-white);}
+  .ba2{background:var(--black);}
+  .bh{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:28px;padding-bottom:16px;border-bottom:2px solid;}
+  .bb .bh{color:var(--gray-light);border-color:#E0E0E0;}
+  .ba2 .bh{color:var(--yellow);border-color:rgba(212,255,0,0.3);}
+  .bi{display:flex;gap:10px;align-items:flex-start;margin-bottom:16px;font-size:14px;line-height:1.6;font-weight:300;}
+  .bb .bi{color:var(--gray-light);}
+  .ba2 .bi{color:rgba(255,255,255,0.65);}
+  .bic{flex-shrink:0;margin-top:1px;font-size:12px;}
+
+  /* WEEKS */
+  .weeks{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-top:48px;}
+  .wk{background:var(--white);padding:32px 24px;border:2px solid #E8E8E8;transition:border-color 0.2s;}
+  .wk:hover{border-color:var(--black);}
+  .wl{font-family:'DM Mono',monospace;font-size:10px;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light);margin-bottom:12px;}
+  .wk h4{font-family:'Barlow Condensed',sans-serif;font-size:24px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px;color:var(--black);}
+  .wk p{font-size:13px;color:var(--gray-light);line-height:1.7;font-weight:300;}
+
+  .sr{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:2px solid var(--black);margin-top:64px;}
+  .st2{padding:36px 28px;text-align:center;border-right:2px solid var(--black);}
+  .st2:last-child{border-right:none;}
+  .sn{font-family:'Barlow Condensed',sans-serif;font-size:60px;font-weight:900;color:var(--black);line-height:1;}
+  .slb{font-size:12px;color:var(--gray-light);margin-top:6px;font-weight:300;}
+
+  .qs{background:var(--off-white);padding:100px 56px;}
+  .qi{max-width:640px;margin:0 auto;}
+  .qh{text-align:center;margin-bottom:56px;}
+  .qh h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(48px,7vw,80px);font-weight:900;text-transform:uppercase;letter-spacing:1px;line-height:0.95;margin-bottom:16px;color:var(--black);}
+  .qh h2 .y{color:var(--yellow);-webkit-text-stroke:1px var(--black);}
+  .qh p{font-size:15px;color:var(--gray-light);font-weight:300;}
+  .q{display:none;animation:up 0.4s ease forwards;}.q.on{display:block;}
+  .q h3{font-family:'Barlow Condensed',sans-serif;font-size:32px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:24px;color:var(--black);}
+  .opts{display:flex;flex-direction:column;gap:10px;}
+  .opt{background:var(--white);border:2px solid #E8E8E8;padding:16px 20px;cursor:pointer;font-size:14px;color:var(--text);font-weight:400;display:flex;align-items:center;gap:14px;transition:all 0.2s;border-radius:4px;}
+  .opt:hover,.opt.sel{border-color:var(--black);background:var(--yellow);}
+  .dot{width:20px;height:20px;border-radius:50%;border:2px solid #E8E8E8;flex-shrink:0;font-size:10px;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+  .opt.sel .dot{background:var(--black);border-color:var(--black);color:var(--yellow);}
+  .qf{display:flex;justify-content:space-between;align-items:center;margin-top:28px;}
+  .pg{font-family:'DM Mono',monospace;font-size:11px;color:var(--gray-light);letter-spacing:1px;}
+  .bn{font-family:'Barlow Condensed',sans-serif;font-size:16px;font-weight:700;text-transform:uppercase;letter-spacing:1px;background:var(--black);color:var(--yellow);border:none;padding:14px 32px;border-radius:4px;cursor:pointer;transition:background 0.2s;}
+  .bn:hover{background:#222;}.bn:disabled{background:#CCC;color:#999;cursor:not-allowed;}
+  .res{display:none;text-align:center;animation:up 0.5s ease forwards;}.res.on{display:block;}
+  .rb{display:inline-flex;align-items:center;gap:8px;background:var(--yellow);color:var(--black);font-family:'Barlow Condensed',sans-serif;font-size:14px;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:8px 20px;border-radius:2px;margin-bottom:24px;}
+  .res h2{font-family:'Barlow Condensed',sans-serif;font-size:clamp(48px,7vw,80px);font-weight:900;text-transform:uppercase;letter-spacing:1px;line-height:0.95;margin-bottom:16px;color:var(--black);}
+  .res h2 .y{color:var(--yellow);-webkit-text-stroke:1px var(--black);}
+  .res p{font-size:16px;color:var(--gray-light);line-height:1.7;max-width:460px;margin:0 auto 36px;font-weight:300;}
+  .bb2{font-family:'Barlow Condensed',sans-serif;font-size:18px;font-weight:700;text-transform:uppercase;letter-spacing:1px;background:var(--black);color:var(--yellow);padding:18px 48px;border-radius:4px;text-decoration:none;display:inline-block;transition:background 0.2s;}
+  .bb2:hover{background:#222;}
+  .rn{margin-top:20px;font-size:13px;color:var(--gray-light);font-style:italic;}
+  footer{padding:40px 56px;border-top:2px solid var(--black);display:flex;justify-content:space-between;align-items:center;background:var(--white);}
+  footer p{font-size:13px;color:var(--gray-light);}
+  @keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+  @media(max-width:900px){nav{padding:14px 20px;}.nav-links{display:none;}.hero{grid-template-columns:1fr;}.hr{display:none;}.hl{padding:100px 20px 60px;}.section,.sf,.qs{padding:80px 20px;}.ba{grid-template-columns:1fr;}.weeks{grid-template-columns:1fr 1fr;}.sr{grid-template-columns:1fr 1fr;}.st2{border-right:none;border-bottom:2px solid var(--black);}footer{flex-direction:column;gap:12px;text-align:center;padding:32px 20px;}}
+</style>
+</head>
+<body>
+<nav>
+  <a href="https://gojarvis.ai" class="nl"><div class="lm"><span>J</span></div><span class="lt">JARVIS</span></a>
+  <div class="nav-links"><a href="https://gojarvis.ai/pages/how-it-works">How It Works</a><a href="https://gojarvis.ai/pages/why-us">Why Jarvis</a><a href="https://gojarvis.ai/pages/case-studies">Case Studies</a></div>
+  <a href="https://audit.gojarvis.ai/widget/bookings/jarvis-consultation-calendar?link_origin=source_website" class="nc">Book a Consultation</a>
+</nav>
+<section class="hero">
+  <div class="hl">
+    <div class="tag">The Time Prison</div>
+    <h1>YOU DIDN'T<br>START A BUSINESS<br>TO WORK <span class="y">60-HOUR</span><br>WEEKS.</h1>
+    <p class="sub">Yet here you are — answering emails at 11pm, doing work any trained VA could handle. Your business became your prison. We have the key.</p>
+    <div class="acts"><a href="#quiz" class="bp">Get my time back →</a><span class="hn">200+ founders freed. $0 upfront.</span></div>
+  </div>
+  <div class="hr"><div class="clock-box"><div class="clock-ring"><div class="clock-time">11:47</div></div><div class="clock-lbl">Still at your desk.</div></div></div>
+</section>
+<div class="sb"><div class="si"><span>Email Management</span><span class="d">·</span><span>Calendar Scheduling</span><span class="d">·</span><span>Customer Follow-ups</span><span class="d">·</span><span>Data Entry</span><span class="d">·</span><span>Research</span><span class="d">·</span><span>Report Writing</span><span class="d">·</span><span>Inbox Triage</span><span class="d">·</span><span>Vendor Coordination</span><span class="d">·</span><span>Email Management</span><span class="d">·</span><span>Calendar Scheduling</span><span class="d">·</span><span>Customer Follow-ups</span><span class="d">·</span><span>Data Entry</span><span class="d">·</span><span>Research</span><span class="d">·</span><span>Report Writing</span><span class="d">·</span><span>Inbox Triage</span><span class="d">·</span><span>Vendor Coordination</span><span class="d">·</span></div></div>
+<div class="section">
+  <div class="sl">Before & After</div>
+  <div class="st">THIS IS WHAT<br>CHANGES WITH <span class="y">JARVIS.</span></div>
+  <div class="ba">
+    <div class="bc bb"><div class="bh">Before Jarvis</div><div class="bi"><span class="bic">○</span>You're wearing all the hats</div><div class="bi"><span class="bic">○</span>You keep hiring the wrong person</div><div class="bi"><span class="bic">○</span>You delegate but it's never done properly</div><div class="bi"><span class="bic">○</span>You think no one can do it better than you</div><div class="bi"><span class="bic">○</span>You're constantly putting out fires</div><div class="bi"><span class="bic">○</span>Your big ideas are collecting dust</div></div>
+    <div class="bc ba2"><div class="bh">After Jarvis</div><div class="bi"><span class="bic">✓</span>You've built a reliable support system</div><div class="bi"><span class="bic">✓</span>You're focused on work that actually grows the company</div><div class="bi"><span class="bic">✓</span>You're growing without the chaos</div><div class="bi"><span class="bic">✓</span>Your big ideas are finally in motion</div><div class="bi"><span class="bic">✓</span>Fires are put out before they even happen</div><div class="bi"><span class="bic">✓</span>You think like a CEO again</div></div>
+  </div>
+</div>
+<div class="sf" style="background:var(--off-white);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div class="sl">Week by Week</div>
+    <div class="st">THIS IS WHAT<br><span class="y">FREEDOM</span> LOOKS LIKE.</div>
+    <div class="weeks">
+      <div class="wk"><div class="wl">Week 1</div><h4>Inbox Managed.</h4><p>Emails filtered, responded to, escalated. You stop opening your inbox every morning.</p></div>
+      <div class="wk"><div class="wl">Week 2</div><h4>Scheduling Done.</h4><p>Calls booked, calendar managed, follow-ups sent. Your calendar runs without you.</p></div>
+      <div class="wk"><div class="wl">Week 3</div><h4>First SOP Built.</h4><p>Repeatable processes documented and running. The same way. Every time.</p></div>
+      <div class="wk"><div class="wl">Week 4</div><h4>Fully Delegated.</h4><p>You work ON the business. Your VA runs the ops engine. 15 hours back.</p></div>
+    </div>
+    <div class="sr"><div class="st2"><div class="sn">15hrs</div><div class="slb">Back per week avg.</div></div><div class="st2"><div class="sn">200+</div><div class="slb">Founders served</div></div><div class="st2"><div class="sn">4.9★</div><div class="slb">Founder rating</div></div><div class="st2"><div class="sn">$0</div><div class="slb">Upfront cost</div></div></div>
+  </div>
+</div>
+<div class="qs" id="quiz">
+  <div class="qi">
+    <div class="qh"><div class="sl" style="justify-content:center;">Get Started</div><h2>HOW MUCH TIME<br>ARE YOU <span class="y">LOSING?</span></h2><p>3 questions. 60 seconds. Find out if Jarvis is right for you.</p></div>
+    <div class="q on" id="q1"><h3>Hours/week on $10/hr tasks?</h3><div class="opts"><label class="opt"><span class="dot">✓</span>Under 5 hrs/week<input type="radio" name="q1" hidden></label><label class="opt"><span class="dot">✓</span>5–10 hrs/week<input type="radio" name="q1" hidden></label><label class="opt"><span class="dot">✓</span>10–20 hrs/week<input type="radio" name="q1" hidden></label><label class="opt"><span class="dot">✓</span>20+ hrs/week<input type="radio" name="q1" hidden></label></div><div class="qf"><span class="pg">1 of 3</span><button class="bn" disabled id="n1" onclick="nxt('q1','q2')">Continue →</button></div></div>
+    <div class="q" id="q2"><h3>Monthly revenue?</h3><div class="opts"><label class="opt"><span class="dot">✓</span>Under $5K<input type="radio" name="q2" hidden></label><label class="opt"><span class="dot">✓</span>$5K–$10K<input type="radio" name="q2" hidden></label><label class="opt"><span class="dot">✓</span>$10K–$50K<input type="radio" name="q2" hidden></label><label class="opt"><span class="dot">✓</span>$50K+<input type="radio" name="q2" hidden></label></div><div class="qf"><span class="pg">2 of 3</span><button class="bn" disabled id="n2" onclick="nxt('q2','q3')">Continue →</button></div></div>
+    <div class="q" id="q3"><h3>Biggest bottleneck?</h3><div class="opts"><label class="opt"><span class="dot">✓</span>Not enough time<input type="radio" name="q3" hidden></label><label class="opt"><span class="dot">✓</span>Can't find reliable staff<input type="radio" name="q3" hidden></label><label class="opt"><span class="dot">✓</span>Too much admin work<input type="radio" name="q3" hidden></label><label class="opt"><span class="dot">✓</span>All of the above<input type="radio" name="q3" hidden></label></div><div class="qf"><span class="pg">3 of 3</span><button class="bn" disabled id="n3" onclick="done()">See My Result →</button></div></div>
+    <div class="res" id="r"><div class="rb">✓ You Qualify</div><h2>YOUR VA IS <span class="y">READY.</span></h2><p>Book your free consultation — no payment, no commitment, zero risk on your side.</p><a href="https://audit.gojarvis.ai/widget/bookings/jarvis-consultation-calendar?link_origin=source_website" class="bb2">Book Free Consultation →</a><div class="rn">No payment until ready. Free replacement guarantee.</div></div>
+  </div>
+</div>
+<footer><a href="https://gojarvis.ai" class="nl"><div class="lm"><span>J</span></div><span class="lt">JARVIS</span></a><p>© 2026 Jarvis · gojarvis.ai · Stop doing $10/hr work.</p></footer>
+<script>document.querySelectorAll('.opt').forEach(o=>{o.addEventListener('click',function(){const n=this.querySelector('input').name;document.querySelectorAll(`input[name="${n}"]`).forEach(r=>r.closest('.opt').classList.remove('sel'));this.classList.add('sel');this.querySelector('input').checked=true;const m={q1:'n1',q2:'n2',q3:'n3'};if(document.getElementById(m[n]))document.getElementById(m[n]).disabled=false;});});function nxt(c,n){document.getElementById(c).classList.remove('on');document.getElementById(n).classList.add('on');document.getElementById(n).scrollIntoView({behavior:'smooth',block:'center'});}function done(){document.getElementById('q3').classList.remove('on');const r=document.getElementById('r');r.classList.add('on');r.scrollIntoView({behavior:'smooth',block:'center'});}</script>
+</body></html>

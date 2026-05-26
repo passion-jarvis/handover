@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>gstack — AI 軟體工廠</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #0a0a0a;
+      color: #e8e8e8;
+      font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+      line-height: 1.7;
+    }
+
+    .hero {
+      background: #000;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 80px 40px 60px;
+      text-align: center;
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: #d4ff00;
+      color: #000;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 2px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-size: clamp(48px, 8vw, 96px);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 span { color: #d4ff00; }
+
+    .hero-sub {
+      font-size: 17px;
+      color: #888;
+      max-width: 580px;
+      margin: 0 auto 40px;
+    }
+
+    .hero-quote {
+      background: #111;
+      border-left: 3px solid #d4ff00;
+      padding: 16px 24px;
+      max-width: 680px;
+      margin: 0 auto 40px;
+      text-align: left;
+      border-radius: 0 4px 4px 0;
+    }
+
+    .hero-quote p {
+      font-style: italic;
+      color: #ccc;
+      font-size: 15px;
+    }
+
+    .hero-quote .attr {
+      color: #d4ff00;
+      font-size: 12px;
+      font-weight: 600;
+      margin-top: 8px;
+      font-style: normal;
+    }
+
+    .stat-row {
+      display: flex;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .stat { text-align: center; }
+
+    .stat-num {
+      font-size: 32px;
+      font-weight: 800;
+      color: #d4ff00;
+      display: block;
+    }
+
+    .stat-label {
+      font-size: 12px;
+      color: #666;
+      letter-spacing: 0.05em;
+    }
+
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #d4ff00;
+      margin-bottom: 16px;
+    }
+
+    .code-block {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 6px;
+      padding: 16px 20px;
+      font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace;
+      font-size: 13px;
+      color: #d4ff00;
+      overflow-x: auto;
+      margin-bottom: 12px;
+      word-break: break-all;
+    }
+
+    .install-note {
+      font-size: 13px;
+      color: #666;
+      margin-top: 8px;
+    }
+
+    .sprint-flow {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin: 24px 0 40px;
+    }
+
+    .sprint-step {
+      background: #111;
+      border: 1px solid #222;
+      border-radius: 4px;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .sprint-arrow {
+      color: #d4ff00;
+      font-weight: 700;
+    }
+
+    .skills-section {
+      padding: 0 40px 80px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .category { margin-bottom: 48px; }
+
+    .category-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #d4ff00;
+      margin-bottom: 16px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+
+    .skill-card {
+      display: grid;
+      grid-template-columns: 180px 1fr;
+      border: 1px solid #1a1a1a;
+      border-radius: 6px;
+      margin-bottom: 8px;
+      overflow: hidden;
+      transition: border-color 0.15s;
+    }
+
+    .skill-card:hover { border-color: #333; }
+
+    .skill-left {
+      background: #111;
+      padding: 16px 20px;
+      border-right: 1px solid #1a1a1a;
+    }
+
+    .skill-cmd {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 14px;
+      font-weight: 600;
+      color: #d4ff00;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .skill-role {
+      font-size: 11px;
+      color: #555;
+      font-weight: 500;
+    }
+
+    .skill-right {
+      padding: 16px 20px;
+      background: #0d0d0d;
+    }
+
+    .skill-right strong {
+      display: block;
+      font-size: 14px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .skill-right p {
+      font-size: 13px;
+      color: #888;
+      margin-bottom: 8px;
+    }
+
+    .when-tag {
+      display: inline-block;
+      background: #1a1a1a;
+      border: 1px solid #2a2a2a;
+      border-radius: 3px;
+      padding: 2px 8px;
+      font-size: 11px;
+      color: #666;
+      margin-right: 4px;
+      margin-top: 4px;
+    }
+
+    .when-tag.highlight {
+      border-color: #d4ff0033;
+      color: #d4ff0099;
+    }
+
+    .power-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .power-card {
+      background: #111;
+      border: 1px solid #1a1a1a;
+      border-radius: 6px;
+      padding: 16px 20px;
+      transition: border-color 0.15s;
+    }
+
+    .power-card:hover { border-color: #333; }
+
+    .power-card .cmd {
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 13px;
+      font-weight: 600;
+      color: #d4ff00;
+      margin-bottom: 6px;
+    }
+
+    .power-card strong {
+      display: block;
+      font-size: 13px;
+      color: #fff;
+      margin-bottom: 4px;
+    }
+
+    .power-card p {
+      font-size: 12px;
+      color: #666;
+    }
+
+    .terminal {
+      max-width: 900px;
+      margin: 0 auto;
+      background: #0a0a0a;
+      border: 1px solid #222;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .terminal-bar {
+      background: #1a1a1a;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .dot { width: 10px; height: 10px; border-radius: 50%; }
+    .dot.red { background: #ff5f57; }
+    .dot.yellow { background: #ffbd2e; }
+    .dot.green { background: #28ca41; }
+
+    .terminal-body {
+      padding: 24px;
+      font-family: 'JetBrains Mono', 'Fira Code', monospace;
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    .t-user { color: #d4ff00; }
+    .t-claude { color: #888; }
+    .t-cmd { color: #fff; font-weight: 600; }
+    .t-result { color: #4a9eff; }
+    .t-comment { color: #444; }
+    .t-line { margin-bottom: 4px; }
+
+    .who-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .who-card {
+      background: #111;
+      border: 1px solid #1a1a1a;
+      border-radius: 6px;
+      padding: 20px;
+    }
+
+    .who-card .icon { font-size: 24px; margin-bottom: 10px; }
+
+    .who-card h3 {
+      font-size: 15px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .who-card p { font-size: 13px; color: #666; }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 800;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    footer {
+      background: #000;
+      border-top: 1px solid #1a1a1a;
+      padding: 40px;
+      text-align: center;
+    }
+
+    footer .links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    footer a {
+      color: #666;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color 0.15s;
+    }
+
+    footer a:hover { color: #d4ff00; }
+
+    footer .copy { font-size: 12px; color: #333; }
+
+    @media (max-width: 600px) {
+      .power-grid { grid-template-columns: 1fr; }
+      .skill-card { grid-template-columns: 1fr; }
+      .skill-left { border-right: none; border-bottom: 1px solid #1a1a1a; }
+      .stat-row { gap: 24px; }
+      .who-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- 主視覺區塊 -->
+<div class="hero">
+  <div class="hero-badge">開源 · MIT 授權 · 永久免費</div>
+  <h1>g<span>stack</span></h1>
+  <p class="hero-sub">AI 軟體工廠。28 個斜線指令專家，將 Claude Code 變成你的虛擬工程團隊。</p>
+
+  <div class="hero-quote">
+    <p>「我大概從十二月開始就沒有親手打過幾行程式碼了，這是一個極大的轉變。」</p>
+    <div class="attr">— Andrej Karpathy，No Priors Podcast，2026年3月</div>
+  </div>
+
+  <div class="stat-row">
+    <div class="stat">
+      <span class="stat-num">60萬+</span>
+      <span class="stat-label">60天內的程式碼行數</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">1–2萬</span>
+      <span class="stat-label">每日產出行數</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">28</span>
+      <span class="stat-label">技能 / 斜線指令</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">35%</span>
+      <span class="stat-label">測試覆蓋比例</span>
+    </div>
+  </div>
+</div>
+
+<!-- 安裝 -->
+<div style="background:#000; border-bottom: 1px solid #1a1a1a; padding: 48px 40px;">
+  <div style="max-width: 900px; margin: 0 auto;">
+    <div class="section-label">安裝 — 30秒搞定</div>
+    <h2>一個指令，全部完成</h2>
+    <p style="color:#666; font-size:14px; margin-bottom:16px;">打開 Claude Code，貼上以下指令。剩下的交給 Claude。</p>
+    <div class="code-block">git clone https://github.com/garrytan/gstack.git ~/.claude/skills/gstack && cd ~/.claude/skills/gstack && ./setup</div>
+    <p class="install-note">需求：Claude Code、Git、Bun v1.0+。不會動到你的 PATH，也不會在背景執行任何程序。</p>
+
+    <p style="color:#666; font-size:14px; margin-top:24px; margin-bottom:12px;">加入你的專案讓隊友也能使用（選用）：</p>
+    <div class="code-block">cp -Rf ~/.claude/skills/gstack .claude/skills/gstack && rm -rf .claude/skills/gstack/.git && cd .claude/skills/gstack && ./setup</div>
+    <p class="install-note">真實檔案直接 commit 進 repo，非 submodule。<code style="color:#d4ff00">git clone</code> 即可使用，零設定。</p>
+  </div>
+</div>
+
+<!-- 衝刺流程 -->
+<div style="padding: 64px 40px; max-width: 900px; margin: 0 auto;">
+  <div class="section-label">衝刺流程</div>
+  <h2>技能依照衝刺的順序執行</h2>
+  <p style="color:#666; margin-bottom:24px;">每個技能會銜接下一個。這是一套流程，不只是工具集合。</p>
+  <div class="sprint-flow">
+    <div class="sprint-step">思考</div>
+    <div class="sprint-arrow">→</div>
+    <div class="sprint-step">規劃</div>
+    <div class="sprint-arrow">→</div>
+    <div class="sprint-step">開發</div>
+    <div class="sprint-arrow">→</div>
+    <div class="sprint-step">審查</div>
+    <div class="sprint-arrow">→</div>
+    <div class="sprint-step">測試</div>
+    <div class="sprint-arrow">→</div>
+    <div class="sprint-step">發布</div>
+    <div class="sprint-arrow">→</div>
+    <div class="sprint-step">回顧</div>
+  </div>
+</div>
+
+<!-- 示範終端機 -->
+<div style="background:#000; border-top:1px solid #1a1a1a; border-bottom:1px solid #1a1a1a; padding:64px 40px;">
+  <div style="max-width:900px; margin:0 auto;">
+    <div class="section-label">實際運作示範</div>
+    <h2 style="margin-bottom:32px;">八個指令，從想法到 PR</h2>
+    <div class="terminal">
+      <div class="terminal-bar">
+        <div class="dot red"></div>
+        <div class="dot yellow"></div>
+        <div class="dot green"></div>
+      </div>
+      <div class="terminal-body">
+        <div class="t-line"><span class="t-user">你：</span><span class="t-claude">我想做一個行事曆每日摘要 App。</span></div>
+        <div class="t-line"><span class="t-user">你：</span><span class="t-cmd">/office-hours</span></div>
+        <div class="t-line t-comment">→ 用六個強制提問釐清真正的痛點</div>
+        <div class="t-line"><span class="t-result">Claude：「你描述的不是摘要 App，而是一個個人 AI 首席助理。」</span></div>
+        <br/>
+        <div class="t-line"><span class="t-user">你：</span><span class="t-cmd">/plan-ceo-review</span></div>
+        <div class="t-line t-comment">→ 讀取設計文件，挑戰範疇，進行十個面向的審查</div>
+        <br/>
+        <div class="t-line"><span class="t-user">你：</span><span class="t-cmd">/plan-eng-review</span></div>
+        <div class="t-line t-comment">→ ASCII 資料流程圖、邊界條件、測試矩陣</div>
+        <br/>
+        <div class="t-line"><span class="t-user">你：</span><span class="t-claude">核准計劃。退出規劃模式。</span></div>
+        <div class="t-line t-comment">→ 約8分鐘，寫出11個檔案共2,400行程式碼</div>
+        <br/>
+        <div class="t-line"><span class="t-user">你：</span><span class="t-cmd">/review</span></div>
+        <div class="t-line"><span class="t-result">[自動修復] 2個問題。[需確認] 競態條件 → 你批准修復。</span></div>
+        <br/>
+        <div class="t-line"><span class="t-user">你：</span><span class="t-cmd">/qa https://staging.myapp.com</span></div>
+        <div class="t-line t-comment">→ 開啟真實瀏覽器，點擊使用流程，發現並修復一個 bug</div>
+        <br/>
+        <div class="t-line"><span class="t-user">你：</span><span class="t-cmd">/ship</span></div>
+        <div class="t-line"><span class="t-result">測試：42 → 51（新增9個）。PR：github.com/you/app/pull/42</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 所有技能 -->
+<div class="skills-section" style="padding-top: 64px;">
+  <div class="section-label">全部 28 個技能</div>
+  <h2>你的虛擬工程團隊</h2>
+  <p style="color:#666; margin-bottom:32px;">每個技能都是一位專家。按順序使用效果最佳。</p>
+
+  <!-- 階段1：思考 -->
+  <div class="category">
+    <div class="category-title">階段 1 — 思考與策略</div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/office-hours</span>
+        <div class="skill-role">YC 合夥人</div>
+      </div>
+      <div class="skill-right">
+        <strong>從這裡開始。在寫第一行程式碼之前。</strong>
+        <p>六個強制提問重新定義你的產品想法。挑戰你的思維框架、質疑前提假設，並產生多種實作方案。自動生成設計文件，供所有後續技能使用。</p>
+        <span class="when-tag highlight">新功能</span>
+        <span class="when-tag highlight">新專案</span>
+        <span class="when-tag">產品腦力激盪</span>
+        <span class="when-tag">「我有個想法」</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 階段2：規劃 -->
+  <div class="category">
+    <div class="category-title">階段 2 — 規劃與設計</div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/plan-ceo-review</span>
+        <div class="skill-role">執行長 / 創辦人</div>
+      </div>
+      <div class="skill-right">
+        <strong>重新思考問題。找出隱藏其中的十星產品。</strong>
+        <p>四種模式：擴展範疇（大膽想像）、選擇性擴展（精選擴充）、守住範疇（最高嚴謹度）、縮減範疇（回歸核心）。挑戰你的假設，找出需求背後真正的產品。</p>
+        <span class="when-tag highlight">在 /office-hours 之後</span>
+        <span class="when-tag">「這夠有野心嗎？」</span>
+        <span class="when-tag">策略審查</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/plan-eng-review</span>
+        <div class="skill-role">工程主管</div>
+      </div>
+      <div class="skill-right">
+        <strong>在動手開發前鎖定架構。</strong>
+        <p>ASCII 資料流程圖、狀態機、錯誤路徑、測試矩陣、失敗模式與安全疑慮。強制將隱藏假設攤在陽光下。在程式碼階段修正遠比事後便宜得多。</p>
+        <span class="when-tag highlight">開始寫程式前</span>
+        <span class="when-tag">架構審查</span>
+        <span class="when-tag">plan-ceo-review 之後</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/plan-design-review</span>
+        <div class="skill-role">資深設計師</div>
+      </div>
+      <div class="skill-right">
+        <strong>在畫出第一個像素之前的設計審查。</strong>
+        <p>對每個設計面向評分 0–10，說明滿分10分的標準，並直接修改計劃以達標。偵測 AI 生成的糟糕視覺模式。互動式審查——每個設計決策都會先詢問你。</p>
+        <span class="when-tag highlight">UI/UX 規劃</span>
+        <span class="when-tag">前端開發前</span>
+        <span class="when-tag">設計評審</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/design-consultation</span>
+        <div class="skill-role">設計夥伴</div>
+      </div>
+      <div class="skill-right">
+        <strong>從零建立完整的設計系統。</strong>
+        <p>研究視覺競品、提出美學方向、字型、色彩、間距與動態設計。生成字型與色彩預覽頁面。建立 DESIGN.md 作為專案設計的唯一真相來源。</p>
+        <span class="when-tag highlight">尚無設計系統的新專案</span>
+        <span class="when-tag">「建立品牌規範」</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/autoplan</span>
+        <div class="skill-role">審查流水線</div>
+      </div>
+      <div class="skill-right">
+        <strong>一個指令，自動完成全套計劃審查。</strong>
+        <p>自動依序執行 CEO → 設計 → 工程審查，並依照內建決策原則自動處理非判斷性決策。只將真正的主觀取捨（方向選擇、範疇平衡）提交給你決定。取代15–30個互動問題。</p>
+        <span class="when-tag highlight">想讓審查自動完成時</span>
+        <span class="when-tag">「自動審查」</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 階段3：審查與除錯 -->
+  <div class="category">
+    <div class="category-title">階段 3 — 審查與除錯</div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/review</span>
+        <div class="skill-role">資深工程師</div>
+      </div>
+      <div class="skill-right">
+        <strong>找出能通過 CI 卻會在正式環境爆炸的 bug。</strong>
+        <p>分析你與主分支的 diff。自動修復明顯問題。標記 SQL 安全、LLM 信任邊界違規、條件性副作用與完整性缺口。非顯而易見的部分會先詢問你。</p>
+        <span class="when-tag highlight">每個 PR 之前</span>
+        <span class="when-tag">實作完成後</span>
+        <span class="when-tag">「程式碼審查」</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/investigate</span>
+        <div class="skill-role">除錯專家</div>
+      </div>
+      <div class="skill-right">
+        <strong>系統性根因除錯。不猜測，只調查。</strong>
+        <p>四個階段：調查、分析、假設、實作。鐵則：沒有根因就不修復。追蹤資料流、驗證假設。若三次修復嘗試均失敗，停止並回報發現，而非無限循環。</p>
+        <span class="when-tag highlight">「為什麼壞了？」</span>
+        <span class="when-tag">非預期行為</span>
+        <span class="when-tag">正式環境 bug</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/design-review</span>
+        <div class="skill-role">會寫程式的設計師</div>
+      </div>
+      <div class="skill-right">
+        <strong>在線上網站進行視覺 QA，然後直接修復。</strong>
+        <p>與 /plan-design-review 相同的審查方法，但作用於你運行中的應用程式。找出 AI 糟糕視覺模式、間距不一致、層次結構問題。每個問題都用獨立 commit 修復，並附上修復前後截圖。</p>
+        <span class="when-tag highlight">線上網站優化</span>
+        <span class="when-tag">「審查設計」</span>
+        <span class="when-tag">視覺不一致</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/codex</span>
+        <div class="skill-role">第二意見</div>
+      </div>
+      <div class="skill-right">
+        <strong>來自 OpenAI Codex CLI 的獨立審查。</strong>
+        <p>三種模式：<em>review</em>（通過/不通過的 diff 分析）、<em>challenge</em>（對抗性模式，嘗試攻破你的程式碼）、<em>consult</em>（持續對話式問答）。當 /review 與 /codex 都跑過後，會進行跨模型交叉分析。</p>
+        <span class="when-tag">「第二意見」</span>
+        <span class="when-tag">高風險程式碼</span>
+        <span class="when-tag">對抗性測試</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/cso</span>
+        <div class="skill-role">資訊安全長</div>
+      </div>
+      <div class="skill-right">
+        <strong>完整的 OWASP Top 10 + STRIDE 威脅模型稽核。</strong>
+        <p>零噪音設計：17個誤報排除規則、8/10以上信心門檻、獨立發現驗證。每個發現都附上具體的攻擊情境。兩種模式：日常（零噪音）與全面（每月深度掃描）。跨次稽核趨勢追蹤。</p>
+        <span class="when-tag highlight">上線前</span>
+        <span class="when-tag">安全稽核</span>
+        <span class="when-tag">處理用戶資料時</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 階段4：測試 -->
+  <div class="category">
+    <div class="category-title">階段 4 — 測試與 QA</div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/qa</span>
+        <div class="skill-role">QA 主管</div>
+      </div>
+      <div class="skill-right">
+        <strong>用真實瀏覽器測試、找 bug、修 bug、再驗證。</strong>
+        <p>開啟 Chromium，點擊你的真實使用流程，找出 bug，用獨立 commit 修復，並重新驗證每個修復。自動為每個修復生成回歸測試。三個層級：快速（僅嚴重問題）、標準、全面。產出修復前後的健康評分。</p>
+        <span class="when-tag highlight">/qa https://staging.url</span>
+        <span class="when-tag">「測試這個功能」</span>
+        <span class="when-tag">發布前 QA</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/qa-only</span>
+        <div class="skill-role">QA 報告員</div>
+      </div>
+      <div class="skill-right">
+        <strong>與 /qa 相同，但只產報告——不動程式碼。</strong>
+        <p>產出結構化 bug 報告，包含健康評分、截圖與重現步驟。當你想先了解哪些東西壞了再決定修什麼時使用，或需要乾淨稽核紀錄而不想改動程式碼時。</p>
+        <span class="when-tag">「只要回報 bug」</span>
+        <span class="when-tag">稽核紀錄</span>
+        <span class="when-tag">在 /qa 之前</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/browse</span>
+        <div class="skill-role">QA 工程師</div>
+      </div>
+      <div class="skill-right">
+        <strong>真實 Chromium 瀏覽器，每個指令約100毫秒。</strong>
+        <p>導航頁面、點擊元素、驗證狀態、操作前後 diff、截圖標注、測試響應式佈局、表單、上傳、對話框。/qa 內部使用此工具——需要細粒度瀏覽器控制時直接呼叫。</p>
+        <span class="when-tag highlight">所有網頁測試</span>
+        <span class="when-tag">「在瀏覽器開啟」</span>
+        <span class="when-tag">截圖驗證</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/setup-browser-cookies</span>
+        <div class="skill-role">Session 管理員</div>
+      </div>
+      <div class="skill-right">
+        <strong>匯入真實瀏覽器的 cookie，測試需登入的頁面。</strong>
+        <p>開啟互動式選擇 UI，讓你從 Chrome、Arc、Brave 或 Edge 選擇要匯入哪些網域的 cookie 到無頭瀏覽器 session 中。測試需要登入的頁面前先執行此指令。</p>
+        <span class="when-tag highlight">測試需登入頁面前</span>
+        <span class="when-tag">「登入網站」</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/benchmark</span>
+        <div class="skill-role">效能工程師</div>
+      </div>
+      <div class="skill-right">
+        <strong>建立基準並在每個 PR 比較頁面效能。</strong>
+        <p>測量頁面載入時間、Core Web Vitals（LCP、CLS、FID）與資源大小。建立基準後，每個 PR 都進行前後比較。追蹤效能趨勢，在用戶感受到問題前發現退化。</p>
+        <span class="when-tag">「效能」</span>
+        <span class="when-tag">頁面速度</span>
+        <span class="when-tag">Bundle 大小</span>
+        <span class="when-tag">PR 前後比較</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 階段5：發布 -->
+  <div class="category">
+    <div class="category-title">階段 5 — 發布與監控</div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/ship</span>
+        <div class="skill-role">發布工程師</div>
+      </div>
+      <div class="skill-right">
+        <strong>同步主分支、跑測試、升版本、建立 PR。</strong>
+        <p>偵測並合併基礎分支、執行測試套件、稽核覆蓋率、升 VERSION、更新 CHANGELOG、commit、push 並開啟 PR。若你尚無測試框架，會自動初始化一個。在 /review 之後執行。</p>
+        <span class="when-tag highlight">程式碼準備好時</span>
+        <span class="when-tag">「建立 PR」</span>
+        <span class="when-tag">「部署」</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/land-and-deploy</span>
+        <div class="skill-role">發布工程師</div>
+      </div>
+      <div class="skill-right">
+        <strong>合併 PR、等待 CI、驗證正式環境健康狀態。</strong>
+        <p>從「PR 已核准」到「正式環境已驗證」，一個指令搞定。合併 PR、等待 CI 與部署流水線完成，再執行 canary 檢查驗證正式環境是否健康。接在 /ship 之後使用。</p>
+        <span class="when-tag highlight">PR 核准後</span>
+        <span class="when-tag">「上線」</span>
+        <span class="when-tag">「合併並部署」</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/canary</span>
+        <div class="skill-role">SRE</div>
+      </div>
+      <div class="skill-right">
+        <strong>部署後監控正式環境有無錯誤。</strong>
+        <p>部署後的監控循環。使用真實瀏覽器檢查 console 錯誤、效能退化與頁面失敗。定期截圖，與部署前基準比較，發現異常時發出警報。</p>
+        <span class="when-tag">「監控部署」</span>
+        <span class="when-tag">部署後觀察</span>
+        <span class="when-tag">正式環境健康</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/setup-deploy</span>
+        <div class="skill-role">DevOps</div>
+      </div>
+      <div class="skill-right">
+        <strong>/land-and-deploy 的一次性部署設定。</strong>
+        <p>偵測你的部署平台（Fly.io、Render、Vercel、Netlify、Heroku、GitHub Actions、自訂）、正式環境 URL、健康檢查端點與部署狀態指令。將設定寫入 CLAUDE.md。每個專案只需執行一次。</p>
+        <span class="when-tag">首次設定</span>
+        <span class="when-tag">「設定部署」</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 階段6：文件與回顧 -->
+  <div class="category">
+    <div class="category-title">階段 6 — 文件與回顧</div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/document-release</span>
+        <div class="skill-role">技術寫作者</div>
+      </div>
+      <div class="skill-right">
+        <strong>更新所有文件以符合你剛發布的內容。</strong>
+        <p>讀取所有專案文件，與 diff 交叉比對，更新 README / ARCHITECTURE / CONTRIBUTING / CLAUDE.md 以反映已發布的內容。優化 CHANGELOG 語氣，清理 TODO，可選擇升版本號。自動發現過期的 README。</p>
+        <span class="when-tag">發布後</span>
+        <span class="when-tag">「更新文件」</span>
+        <span class="when-tag">PR 合併後</span>
+      </div>
+    </div>
+
+    <div class="skill-card">
+      <div class="skill-left">
+        <span class="skill-cmd">/retro</span>
+        <div class="skill-role">工程主管</div>
+      </div>
+      <div class="skill-right">
+        <strong>具團隊感知的每週回顧，含趨勢追蹤。</strong>
+        <p>分析 commit 歷史、工作模式與程式碼品質指標。每位成員的貢獻分解，含讚美與成長建議。執行 <code>/retro global</code> 可跨所有專案與 AI 工具（Claude Code、Codex、Gemini）彙總。持久化歷史記錄。</p>
+        <span class="when-tag">「每週回顧」</span>
+        <span class="when-tag">Sprint 結束</span>
+        <span class="when-tag">團隊 check-in</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 強力工具 -->
+  <div class="category">
+    <div class="category-title">強力工具 — 安全與實用程式</div>
+    <div class="power-grid">
+
+      <div class="power-card">
+        <div class="cmd">/careful</div>
+        <strong>安全護欄</strong>
+        <p>在執行破壞性指令前發出警告：rm -rf、DROP TABLE、force-push、git reset --hard、kubectl delete。每個警告都可以覆蓋。操作正式環境或除錯線上系統時使用。</p>
+      </div>
+
+      <div class="power-card">
+        <div class="cmd">/freeze</div>
+        <strong>編輯鎖定</strong>
+        <p>將檔案編輯限制在特定目錄內。在除錯時防止意外修改目標範圍外的程式碼。想聚焦在單一模組而不小心「修好」無關程式碼時使用。</p>
+      </div>
+
+      <div class="power-card">
+        <div class="cmd">/guard</div>
+        <strong>完整安全模式</strong>
+        <p>/careful + /freeze 合而為一。正式環境工作或共享環境的最高安全防護。想同時擁有破壞性警告與目錄範圍限制時使用。</p>
+      </div>
+
+      <div class="power-card">
+        <div class="cmd">/unfreeze</div>
+        <strong>解除鎖定</strong>
+        <p>移除 /freeze 設定的邊界，無需結束 session。完成範圍除錯後，想允許對整個 repo 進行編輯時使用。</p>
+      </div>
+
+      <div class="power-card">
+        <div class="cmd">/gstack-upgrade</div>
+        <strong>自動更新</strong>
+        <p>升級 gstack 至最新版本。自動偵測全域或專案內安裝，執行升級並顯示更新日誌。當技能感覺過時或出現「invalid SKILL.md」錯誤時執行。</p>
+      </div>
+
+      <div class="power-card" style="border-color: #d4ff0033;">
+        <div class="cmd" style="color:#888;">/codex</div>
+        <strong>跨模型審查</strong>
+        <p>也可作為獨立強力工具使用。三種模式：review、challenge、consult。當 /review 與 /codex 都執行過後，會進行交叉比對發現，提供更豐富的分析。</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- 適合誰使用 -->
+<div style="padding: 64px 40px; max-width: 900px; margin: 0 auto;">
+  <div class="section-label">適合的使用者</div>
+  <h2>為建造者而生</h2>
+  <div class="who-grid">
+    <div class="who-card">
+      <div class="icon">🚀</div>
+      <h3>創辦人與執行長</h3>
+      <p>想繼續親手出貨的技術型創辦人。gstack 給你一支虛擬團隊，讓你不再是瓶頸。</p>
+    </div>
+    <div class="who-card">
+      <div class="icon">⚡</div>
+      <h3>Claude Code 新手</h3>
+      <p>有結構的專家角色，而非空白提示框。你會清楚知道何時該輸入什麼。</p>
+    </div>
+    <div class="who-card">
+      <div class="icon">🔧</div>
+      <h3>技術主管與資深工程師</h3>
+      <p>嚴謹的審查、QA 與每個 PR 的發布自動化。捕捉 CI 漏掉的問題。</p>
+    </div>
+  </div>
+</div>
+
+<!-- 快速參考表 -->
+<div style="background: #000; border-top: 1px solid #1a1a1a; border-bottom: 1px solid #1a1a1a; padding: 64px 40px;">
+  <div style="max-width: 900px; margin: 0 auto;">
+    <div class="section-label">快速參考</div>
+    <h2>新功能的建議使用順序</h2>
+    <div style="background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 8px; overflow: hidden; margin-top: 24px;">
+      <table style="width:100%; border-collapse: collapse;">
+        <thead>
+          <tr style="background: #111; border-bottom: 1px solid #1a1a1a;">
+            <th style="padding: 12px 20px; text-align:left; font-size:11px; color:#666; letter-spacing:0.06em; font-weight:700;">步驟</th>
+            <th style="padding: 12px 20px; text-align:left; font-size:11px; color:#666; letter-spacing:0.06em; font-weight:700;">指令</th>
+            <th style="padding: 12px 20px; text-align:left; font-size:11px; color:#666; letter-spacing:0.06em; font-weight:700;">使用時機</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom: 1px solid #111;">
+            <td style="padding: 12px 20px; font-size:13px; color:#555;">1</td>
+            <td style="padding: 12px 20px; font-family: monospace; color: #d4ff00; font-size:13px;">/office-hours</td>
+            <td style="padding: 12px 20px; font-size:13px; color:#888;">寫任何程式碼之前。驗證想法。</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #111;">
+            <td style="padding: 12px 20px; font-size:13px; color:#555;">2</td>
+            <td style="padding: 12px 20px; font-family: monospace; color: #d4ff00; font-size:13px;">/plan-ceo-review</td>
+            <td style="padding: 12px 20px; font-size:13px; color:#888;">確認範疇與野心。你在解決對的問題嗎？</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #111;">
+            <td style="padding: 12px 20px; font-size:13px; color:#555;">3</td>
+            <td style="padding: 12px 20px; font-family: monospace; color: #d4ff00; font-size:13px;">/plan-eng-review</td>
+            <td style="padding: 12px 20px; font-size:13px; color:#888;">鎖定架構。在寫程式前逼出所有假設。</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #111;">
+            <td style="padding: 12px 20px; font-size:13px; color:#555;">4</td>
+            <td style="padding: 12px 20px; font-family: monospace; color: #888; font-size:13px;">[用 Claude Code 開發]</td>
+            <td style="padding: 12px 20px; font-size:13px; color:#888;">寫程式碼。計劃已鎖定。</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #111;">
+            <td style="padding: 12px 20px; font-size:13px; color:#555;">5</td>
+            <td style="padding: 12px 20px; font-family: monospace; color: #d4ff00; font-size:13px;">/review</td>
+            <td style="padding: 12px 20px; font-size:13px; color:#888;">在 PR 之前捕捉正式環境 bug。</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #111;">
+            <td style="padding: 12px 20px; font-size:13px; color:#555;">6</td>
+            <td style="padding: 12px 20px; font-family: monospace; color: #d4ff00; font-size:13px;">/qa https://staging.url</td>
+            <td style="padding: 12px 20px; font-size:13px; color:#888;">瀏覽器 QA。真實點擊，真實 bug。</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #111;">
+            <td style="padding: 12px 20px; font-size:13px; color:#555;">7</td>
+            <td style="padding: 12px 20px; font-family: monospace; color: #d4ff00; font-size:13px;">/ship</td>
+            <td style="padding: 12px 20px; font-size:13px; color:#888;">建立 PR。測試、版本號、更新日誌全部搞定。</td>
+          </tr>
+          <tr style="border-bottom: 1px solid #111;">
+            <td style="padding: 12px 20px; font-size:13px; color:#555;">8</td>
+            <td style="padding: 12px 20px; font-family: monospace; color: #d4ff00; font-size:13px;">/land-and-deploy</td>
+            <td style="padding: 12px 20px; font-size:13px; color:#888;">PR 核准後。合併、等待、驗證正式環境。</td>
+          </tr>
+          <tr>
+            <td style="padding: 12px 20px; font-size:13px; color:#555;">9</td>
+            <td style="padding: 12px 20px; font-family: monospace; color: #d4ff00; font-size:13px;">/document-release</td>
+            <td style="padding: 12px 20px; font-size:13px; color:#888;">同步所有文件以符合已發布的內容。</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- 頁腳 -->
+<footer>
+  <div class="links">
+    <a href="https://github.com/garrytan/gstack">GitHub →</a>
+    <a href="https://github.com/garrytan/gstack/blob/main/docs/skills.md">技能深度說明 →</a>
+    <a href="https://github.com/garrytan/gstack/blob/main/ARCHITECTURE.md">架構文件 →</a>
+    <a href="https://github.com/garrytan/gstack/blob/main/BROWSER.md">瀏覽器參考 →</a>
+    <a href="https://github.com/garrytan/gstack/blob/main/CHANGELOG.md">更新日誌 →</a>
+  </div>
+  <p class="copy">MIT 授權 · 永久免費 · 由 Garry Tan / Y Combinator 製作</p>
+</footer>
+
+</body>
+</html>

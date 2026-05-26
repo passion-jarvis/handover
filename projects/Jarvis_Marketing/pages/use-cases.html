@@ -1,0 +1,1733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Use Cases | Jarvis VA</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Instrument+Serif:ital@0;1&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --lime:#CAE600;
+  --bg:#fff;
+  --hero-bg:#0a0a0a;
+  --surface:#f7f7f7;
+  --border:#e8e8e8;
+  --text:#111;
+  --muted-2:#aaa;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'Manrope',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+
+/* HERO */
+.hero{background:var(--hero-bg);padding:90px 48px 80px;position:relative;overflow:hidden;text-align:center}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(202,230,0,.1) 0%,transparent 70%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:760px;margin:0 auto}
+.hero h1{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(42px,5.5vw,72px);line-height:1.0;letter-spacing:-2px;color:#fff;margin-bottom:20px}
+.hero h1 em{color:var(--lime)}
+.hero-body{font-size:17px;line-height:1.75;color:rgba(255,255,255,.55);max-width:580px;margin:0 auto}
+.hero-body strong{color:rgba(255,255,255,.85);font-weight:600}
+
+/* TABS */
+.tab-section{padding:60px 48px 100px;background:#fff}
+.industry-pills{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:36px}
+.pill-btn{display:flex;align-items:center;padding:9px 20px;border:1.5px solid var(--border);border-radius:6px;background:#fff;cursor:pointer;font-family:'Manrope',sans-serif;font-size:13px;font-weight:600;color:#666;transition:all .15s;white-space:nowrap}
+.pill-btn:hover{border-color:#999;color:var(--text)}
+.pill-btn.active{background:var(--lime);border-color:var(--lime);color:#000}
+
+/* PANEL */
+.panel-wrap{border:1.5px solid var(--border);border-radius:4px;overflow:hidden;box-shadow:0 4px 32px rgba(0,0,0,.06)}
+.tab-panel{display:none}
+.tab-panel.active{display:block}
+
+/* STAT BANNER */
+.panel-banner{background:var(--hero-bg);padding:36px 56px;display:flex;align-items:center;gap:0;flex-wrap:wrap}
+.banner-col{display:flex;flex-direction:column;gap:6px;flex:1;min-width:140px;padding:0 32px 0 0}
+.banner-col:first-child{padding-left:0}
+.banner-divider{width:1px;height:64px;background:rgba(255,255,255,.12);margin:0 32px;flex-shrink:0}
+.banner-label{font-size:10px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.52)}
+.banner-stat{font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(28px,3.5vw,44px);font-weight:800;color:var(--lime);line-height:1;letter-spacing:-1px}
+.banner-stat.white{color:#fff}
+.banner-sub{font-size:12px;color:rgba(255,255,255,.42);line-height:1.45;margin-top:2px}
+
+/* PANEL CONTENT */
+.panel-content{padding:52px 56px 48px;background:#fff}
+.panel-top-row{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-bottom:40px}
+
+/* VA TYPE BADGE */
+.va-type{display:inline-flex;align-items:center;gap:5px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:var(--lime);color:#000;padding:3px 9px;border-radius:3px;margin-bottom:10px}
+
+.story-tag{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:rgba(0,0,0,.35);margin-bottom:10px}
+.story-headline{font-family:'Manrope',sans-serif;font-weight:700;font-size:clamp(17px,1.6vw,20px);line-height:1.45;color:#111;margin-bottom:16px;letter-spacing:-.1px}
+.story-body{font-size:14.5px;color:rgba(0,0,0,.68);line-height:1.8}
+
+.tasks-label{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#bbb;margin-bottom:16px}
+.task-list{display:flex;flex-direction:column;gap:10px}
+.task-row{display:flex;align-items:flex-start;gap:10px;font-size:14px;color:#333;line-height:1.55;font-weight:500}
+.check{width:20px;height:20px;border-radius:2px;background:rgba(202,230,0,.15);border:1px solid rgba(202,230,0,.4);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-size:11px;color:#7a9800}
+
+/* AI VIBE CODING BLOCK */
+.auto-block{margin-top:20px;padding:14px 16px;background:#f4f5ff;border-radius:0;border-left:3px solid #7B8FFF}
+.auto-tag{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#7B8FFF;margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.auto-row{display:flex;align-items:flex-start;gap:8px;font-size:12.5px;color:#666;line-height:1.5;margin-bottom:5px}
+.auto-row:last-child{margin-bottom:0}
+.auto-row::before{content:'→';color:#7B8FFF;flex-shrink:0;font-size:11px;margin-top:1px}
+
+/* BOTTOM BAR */
+.panel-bottom{display:flex;align-items:center;gap:20px;padding-top:28px;border-top:1.5px solid var(--border);flex-wrap:wrap}
+.metrics{display:flex;gap:10px;flex:1;flex-wrap:wrap}
+.metric{background:var(--surface);border-radius:3px;padding:14px 18px;text-align:center;min-width:90px}
+.metric-n{font-family:'Bricolage Grotesque',sans-serif;font-size:22px;font-weight:800;color:var(--text);line-height:1;letter-spacing:-.5px}
+.metric-n.g{color:#1a7a1a}
+.metric-d{font-size:11px;color:var(--muted-2);margin-top:4px;line-height:1.3}
+.cta-btn{display:inline-block;background:var(--lime);color:#000;font-family:'Bricolage Grotesque',sans-serif;font-size:14px;font-weight:700;padding:13px 26px;border-radius:4px;text-decoration:none;white-space:nowrap;flex-shrink:0;transition:background .15s}
+.cta-btn:hover{background:#b5cc00}
+
+/* CASE DIVIDER */
+.case-divider{display:flex;align-items:center;gap:16px;padding:20px 0 28px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+
+/* BOTTOM CTA */
+/* WHY JARVIS */
+.why-section{padding:80px 48px 0;background:#fff}
+.why-section-inner{max-width:1120px;margin:0 auto}
+.section-eyebrow{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--lime);margin-bottom:16px}
+.section-headline{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(28px,3.5vw,44px);line-height:1.1;letter-spacing:-1px;color:#111;margin-bottom:12px}
+.section-subhead{font-size:16px;color:rgba(0,0,0,.5);line-height:1.7;max-width:560px;margin-bottom:48px}
+.benefit-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:0}
+.benefit-tile{background:var(--surface);border-radius:4px;padding:28px 28px 24px;border:1.5px solid var(--border)}
+.benefit-icon{font-size:22px;margin-bottom:14px;line-height:1}
+.benefit-title{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:18px;color:#111;margin-bottom:8px;letter-spacing:-.3px}
+.benefit-body{font-size:14px;color:rgba(0,0,0,.55);line-height:1.7}
+.benefit-body strong{color:#111;font-weight:600}
+
+/* PROCESS */
+.process-section{background:var(--hero-bg);margin-top:72px;padding:80px 48px 80px;position:relative;overflow:hidden}
+.process-section::before{content:'';position:absolute;top:-200px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(202,230,0,.06) 0%,transparent 65%);pointer-events:none}
+.process-inner{max-width:1120px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.process-left h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:clamp(28px,3vw,40px);color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:16px}
+.process-left h2 em{font-style:italic;font-family:'Instrument Serif',serif;font-weight:400;color:var(--lime)}
+.process-left p{font-size:15px;color:rgba(255,255,255,.45);line-height:1.75;margin-bottom:36px}
+.process-cta{display:inline-block;background:var(--lime);color:#000;font-family:'Bricolage Grotesque',sans-serif;font-size:15px;font-weight:700;padding:16px 32px;border-radius:4px;text-decoration:none;transition:background .15s}
+.process-cta:hover{background:#b5cc00}
+.process-steps{display:flex;flex-direction:column;gap:0}
+.process-step{display:flex;gap:24px;padding:24px 0;border-bottom:1px solid rgba(255,255,255,.07)}
+.process-step:last-child{border-bottom:none}
+.step-num{font-family:'Bricolage Grotesque',sans-serif;font-size:13px;font-weight:800;color:var(--lime);width:28px;flex-shrink:0;padding-top:3px}
+.step-body{}
+.step-title{font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;color:#fff;margin-bottom:5px}
+.step-desc{font-size:13.5px;color:rgba(255,255,255,.4);line-height:1.65}
+
+@media(max-width:900px){
+  .benefit-grid{grid-template-columns:1fr 1fr}
+  .process-inner{grid-template-columns:1fr;gap:48px}
+  .why-section{padding:60px 24px 0}
+  .process-section{padding:60px 24px 60px}
+}
+
+@media(max-width:900px){
+  .hero{padding:72px 24px 56px}
+  .tab-section{padding:40px 24px 80px}
+  .panel-top-row{grid-template-columns:1fr;gap:32px}
+  .panel-content{padding:32px 28px 28px}
+  .panel-banner{padding:28px 28px}
+  .bottom-cta{margin:0 16px 60px;padding:56px 28px}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-inner">
+    <h1>Popular <em>Jarvis</em> use cases</h1>
+    <p class="hero-body">Discover how business owners use Jarvis to save <strong>40 hours a week</strong> and spend that time with their family</p>
+  </div>
+</section>
+
+<section class="tab-section">
+
+  <div class="industry-pills">
+    <button class="pill-btn active" onclick="showTab('dtoc',this)">E-Commerce</button>
+    <button class="pill-btn" onclick="showTab('agency',this)">Agency</button>
+    <button class="pill-btn" onclick="showTab('saas',this)">SaaS</button>
+    <button class="pill-btn" onclick="showTab('coaching',this)">Coaching</button>
+    <button class="pill-btn" onclick="showTab('finance',this)">Finance</button>
+    <button class="pill-btn" onclick="showTab('fitness',this)">Fitness</button>
+    <button class="pill-btn" onclick="showTab('clinic',this)">Healthcare</button>
+    <button class="pill-btn" onclick="showTab('realestate',this)">Real Estate</button>
+    <button class="pill-btn" onclick="showTab('auto',this)">Auto Service</button>
+    <button class="pill-btn" onclick="showTab('construction',this)">Construction</button>
+    <button class="pill-btn" onclick="showTab('lawfirm',this)">Law Firm</button>
+  </div>
+
+  <div class="panel-wrap">
+
+    <!-- E-COMMERCE -->
+    <div class="tab-panel active" id="panel-dtoc">
+      <div class="panel-banner">
+        <div class="banner-col">
+          <div class="banner-label">What you pay</div>
+          <div class="banner-stat">$19,200</div>
+          <div class="banner-sub">$1,600/mo × 12 months</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">Revenue growth (8 months)</div>
+          <div class="banner-stat">+$600,000</div>
+          <div class="banner-sub">$1.2M → $1.8M after delegating ops</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">ROI</div>
+          <div class="banner-stat white">46×</div>
+          <div class="banner-sub">on total investment</div>
+        </div>
+      </div>
+      <div class="panel-content">
+
+        <!-- CASE 1: Inbox -->
+        <div class="panel-top-row">
+          <div>
+            <div class="va-type">Customer Support VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">D2C skincare founder, $1.2M/year. Every morning until noon clearing her inbox. Nothing else got done.</h2>
+            <p class="story-body">40-50 customer emails every day: refunds, wrong orders, subscription changes. By noon the inbox was clear but the business hadn't moved. Her VA took over the entire inbox. She went from 4 hours a day in email to zero, launched two new products, and grew from $1.2M to $1.8M in 8 months.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What her VA handled</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Responds to every customer ticket within 2 hours</div>
+              <div class="task-row"><div class="check">✓</div>Processes refunds, exchanges, subscription changes</div>
+              <div class="task-row"><div class="check">✓</div>Flags only what actually needs the founder's decision</div>
+              <div class="task-row"><div class="check">✓</div>Tracks issues, spots patterns, reports weekly</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Shopify order issue auto-tagged and routed to VA queue</div>
+              <div class="auto-row">Refund approved → Stripe refund processed automatically</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">0 hrs</div><div class="metric-d">in inbox (from 4/day)</div></div>
+            <div class="metric"><div class="metric-n g">$1.8M</div><div class="metric-d">from $1.2M</div></div>
+            <div class="metric"><div class="metric-n">8 mo</div><div class="metric-d">to get there</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 2: UGC -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">UGC Manager VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">D2C beauty founder. UGC strategy was fully mapped out. Sat untouched for 4 months because he had no one to run it.</h2>
+            <p class="story-body">He knew exactly what he wanted: outreach to 100 UGC creators a month, sample logistics, affiliate tracking. The plan was ready. He just didn't have the bandwidth to execute it himself. His Jarvis VA took ownership of the entire pipeline. It was live in week one.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What his VA handled</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Identifies and contacts UGC creators every week</div>
+              <div class="task-row"><div class="check">✓</div>Coordinates sample shipments, 100+ per month</div>
+              <div class="task-row"><div class="check">✓</div>Manages the affiliate program, tracks commissions and links</div>
+              <div class="task-row"><div class="check">✓</div>Follows up with creators on content delivery timelines</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Creator onboarded → tracking link auto-generated and logged</div>
+              <div class="auto-row">Monthly performance dashboard built for founder review</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">100+</div><div class="metric-d">samples shipped/month</div></div>
+            <div class="metric"><div class="metric-n g">0 hrs</div><div class="metric-d">founder time on UGC ops</div></div>
+            <div class="metric"><div class="metric-n">wk 1</div><div class="metric-d">fully operational</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 3: Social Media -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Social Media VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">Shopify founder. Every hour spent on social was an hour not spent on new products. He hired a VA to fix that.</h2>
+            <p class="story-body">Content was working. The problem was him doing all of it. Scheduling, repurposing, responding to comments, managing the content calendar. He hired a Jarvis social media VA and shifted entirely to product development. His store launched two new product lines that year.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What his VA handled</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Manages the full content calendar across all platforms</div>
+              <div class="task-row"><div class="check">✓</div>Schedules posts, handles comments and DMs daily</div>
+              <div class="task-row"><div class="check">✓</div>Repurposes existing content into Reels, Stories, threads</div>
+              <div class="task-row"><div class="check">✓</div>Weekly performance report delivered every Monday</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">New product launch → content brief auto-generated for VA</div>
+              <div class="auto-row">Weekly analytics dashboard auto-pulled and sent to founder</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">2</div><div class="metric-d">new product lines launched</div></div>
+            <div class="metric"><div class="metric-n g">0 hrs</div><div class="metric-d">founder time on social</div></div>
+            <div class="metric"><div class="metric-n">7 days</div><div class="metric-d">consistent posting</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 4: Ads + TikTok Shop -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Media Buyer VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">D2C founder. Hired a VA to run his paid ads and TikTok Shop. The VA learned Manus and is now managing both.</h2>
+            <p class="story-body">He needed someone who could execute, not just assist. His Jarvis VA learned to operate Manus to manage and optimize his ad campaigns, and took full ownership of his TikTok Shop: listings, inventory, promotions. He now has a full media buyer and TikTok operator in one hire.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What his VA handled</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Runs paid ad campaigns via Manus end to end</div>
+              <div class="task-row"><div class="check">✓</div>Manages TikTok Shop: listings, inventory, promotions</div>
+              <div class="task-row"><div class="check">✓</div>Monitors ad performance, adjusts budgets and creatives</div>
+              <div class="task-row"><div class="check">✓</div>Weekly performance dashboard delivered, flags what needs founder input</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Ad spend + TikTok Shop data piped into one live dashboard</div>
+              <div class="auto-row">Spend hits threshold → founder alert auto-sent for review</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">1 VA</div><div class="metric-d">media buyer + TikTok operator</div></div>
+            <div class="metric"><div class="metric-n g">0 hrs</div><div class="metric-d">founder time on ads or TikTok</div></div>
+          </div>
+        </div>
+
+        <!-- EA VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Executive Assistant VA</div>
+            <div class="story-tag">The strongest hire</div>
+            <h2 class="story-headline">D2C brand CEO at $2M revenue. Still answers her own emails. Still manages her own calendar. Has never had an EA.</h2>
+            <p class="story-body">Every decision routes through her personally. Vendor emails, team questions, investor follow-ups, launch logistics. She is the bottleneck and she knows it. Her Jarvis EA cleared the executive layer entirely. She stopped being the scheduler and started being the CEO.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the EA VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Triages inbox, surfaces only what needs her decision</div>
+              <div class="task-row"><div class="check">✓</div>Manages calendar, protects deep work and launch planning blocks</div>
+              <div class="task-row"><div class="check">✓</div>Preps briefing notes before every investor and vendor call</div>
+              <div class="task-row"><div class="check">✓</div>Coordinates with team and vendors on her behalf</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Inbox auto-categorized by urgency and type</div>
+              <div class="auto-row">Weekly exec summary auto-compiled from team updates</div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-bottom">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">1 VA</div><div class="metric-d">media buyer + TikTok operator</div></div>
+            <div class="metric"><div class="metric-n g">0 hrs</div><div class="metric-d">founder time on ads or TikTok</div></div>
+          </div>
+          <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="cta-btn">Book a Free Call →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- COACHING -->
+    <div class="tab-panel" id="panel-coaching">
+      <div class="panel-banner">
+        <div class="banner-col">
+          <div class="banner-label">What you pay, month 1</div>
+          <div class="banner-stat">$1,600</div>
+          <div class="banner-sub">1 full-time VA</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">Revenue recovered</div>
+          <div class="banner-stat">$15,000</div>
+          <div class="banner-sub">from 400 ignored DMs, month 1 alone</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">ROI, month 1</div>
+          <div class="banner-stat white">9.4×</div>
+          <div class="banner-sub">return on first month's investment</div>
+        </div>
+      </div>
+      <div class="panel-content">
+
+        <!-- CASE 1: DMs -->
+        <div class="panel-top-row">
+          <div>
+            <div class="va-type">DM Manager VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">Business coach, $600K/year. Had 400 unread DMs. Knew some were leads. Had no time to find out.</h2>
+            <p class="story-body">She came to us drowning in messages. Her VA sorted every DM daily, booked real leads, and ignored the noise. Month one: 11 calls booked, 3 closed, $15K from messages that were just sitting there.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What her VA handled</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Manages DMs daily, filters real leads from noise</div>
+              <div class="task-row"><div class="check">✓</div>Books discovery calls, no founder involvement</div>
+              <div class="task-row"><div class="check">✓</div>Tracks warm leads, nudges cold ones</div>
+              <div class="task-row"><div class="check">✓</div>Responds to general questions, keeps convos alive</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Qualified lead flagged → booking link auto-sent via DM</div>
+              <div class="auto-row">No reply after 48hrs → gentle follow-up auto-triggered</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">11</div><div class="metric-d">calls booked month 1</div></div>
+            <div class="metric"><div class="metric-n g">3</div><div class="metric-d">new clients closed</div></div>
+            <div class="metric"><div class="metric-n g">$15K</div><div class="metric-d">from ignored DMs</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 2: Bookkeeping -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Bookkeeping VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">Business coach, $30K/month. Doing his own books. Every Sunday night in spreadsheets instead of resting.</h2>
+            <p class="story-body">He wasn't bad at bookkeeping. He was using $300/hour time to do $20/hour work. His VA now handles all of it. Clean books, monthly reports, invoices sent, late payments chased. Nothing on his plate.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What his VA handled</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Categorizes expenses and reconciles accounts weekly</div>
+              <div class="task-row"><div class="check">✓</div>Sends client invoices, tracks payments, chases late ones</div>
+              <div class="task-row"><div class="check">✓</div>Prepares monthly P&L summary for his accountant</div>
+              <div class="task-row"><div class="check">✓</div>Flags unusual expenses before they become problems</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Monthly P&L auto-compiled into clean report for review</div>
+              <div class="auto-row">Invoice unpaid after 7 days → auto-reminder sent to client</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">6 hrs/wk</div><div class="metric-d">back on his calendar</div></div>
+            <div class="metric"><div class="metric-n g">0</div><div class="metric-d">Sunday nights in spreadsheets</div></div>
+          </div>
+        </div>
+
+        <!-- EA VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Executive Assistant VA</div>
+            <div class="story-tag">The strongest hire</div>
+            <h2 class="story-headline">7-figure coach running 3 programs, a team of 5, a podcast, and speaking gigs. Was running all of it from her phone.</h2>
+            <p class="story-body">No EA meant no filter. Every DM, scheduling request, and team question went straight to her. She was doing $600K/year in coaching revenue and spending 3 hours a day on logistics. Her Jarvis EA handles the entire executive layer now.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the EA VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Manages coaching and speaking calendar across time zones</div>
+              <div class="task-row"><div class="check">✓</div>Triages all inboxes and DMs, surfaces real priorities</div>
+              <div class="task-row"><div class="check">✓</div>Coordinates with podcast guests and event organizers</div>
+              <div class="task-row"><div class="check">✓</div>Tracks all commitments and follows up so nothing drops</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Speaker inquiry → intake form auto-sent</div>
+              <div class="auto-row">Team standup agenda auto-compiled weekly</div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-bottom">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">6 hrs/wk</div><div class="metric-d">back on his calendar</div></div>
+            <div class="metric"><div class="metric-n g">0</div><div class="metric-d">Sunday nights in spreadsheets</div></div>
+            <div class="metric"><div class="metric-n">both</div><div class="metric-d">still active clients</div></div>
+          </div>
+          <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="cta-btn">Book a Free Call →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FINANCE -->
+    <div class="tab-panel" id="panel-finance">
+      <div class="panel-banner">
+        <div class="banner-col">
+          <div class="banner-label">What you pay</div>
+          <div class="banner-stat">$1,600</div>
+          <div class="banner-sub">per month, 1 full-time VA</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">Prep hours eliminated per week</div>
+          <div class="banner-stat">14 hrs</div>
+          <div class="banner-sub">2 hrs per meeting × 7 meetings</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">Meetings unlocked</div>
+          <div class="banner-stat white">3 → 7</div>
+          <div class="banner-sub">same working hours, same effort</div>
+        </div>
+      </div>
+      <div class="panel-content">
+
+        <!-- CASE 1: Advisor -->
+        <div class="panel-top-row">
+          <div>
+            <div class="va-type">Executive Assistant VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">Financial advisor, $50M AUM. Capped at 3 meetings a week because of prep time.</h2>
+            <p class="story-body">His problem wasn't getting clients. It was the 2 hours before every review meeting: pulling summaries, updating the CMA, reviewing last session's notes. His VA now does all of it the day before. He went from 3 meetings a week to 7. Same effort.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What his VA handled</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Pulls account summaries the day before every review</div>
+              <div class="task-row"><div class="check">✓</div>Reviews previous notes, prepares briefing doc</div>
+              <div class="task-row"><div class="check">✓</div>Updates CMA and formats everything so he walks in ready</div>
+              <div class="task-row"><div class="check">✓</div>Handles scheduling, confirmations, post-meeting follow-ups</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Meeting confirmed → briefing doc auto-compiled from template</div>
+              <div class="auto-row">Post-meeting notes auto-logged and synced to CRM</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">3 → 7</div><div class="metric-d">meetings/week</div></div>
+            <div class="metric"><div class="metric-n g">14 hrs</div><div class="metric-d">prep time saved/week</div></div>
+            <div class="metric"><div class="metric-n">2×</div><div class="metric-d">capacity, same effort</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 2: CPA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">CPA Support VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">CPA firm. Tax season meant 80-hour weeks for the partners. The work wasn't hard. It was just constant.</h2>
+            <p class="story-body">Document collection, client reminders, data entry, extension tracking. None of it required a CPA. All of it was landing on one. His Jarvis VA took over the entire client admin layer. Partners billed more hours. Nothing slipped.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What his VA handled</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Chases clients for documents and signatures</div>
+              <div class="task-row"><div class="check">✓</div>Tracks extension deadlines, sends reminders before they're missed</div>
+              <div class="task-row"><div class="check">✓</div>Handles data entry and organizes client files</div>
+              <div class="task-row"><div class="check">✓</div>Prepares client status reports so partners see everything at a glance</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Deadline tracker auto-updated and flagged 2 weeks out</div>
+              <div class="auto-row">Client document checklist dashboard built for VA daily review</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">0</div><div class="metric-d">partner hours on client admin</div></div>
+            <div class="metric"><div class="metric-n g">100%</div><div class="metric-d">deadlines tracked</div></div>
+          </div>
+        </div>
+
+        <!-- EA VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Executive Assistant VA</div>
+            <div class="story-tag">The strongest hire</div>
+            <h2 class="story-headline">RIA firm president. 12 advisors, 40+ clients, compliance deadlines, quarterly reviews. Was managing the practice from a personal Outlook calendar.</h2>
+            <p class="story-body">Compliance calendar, staff reviews, client event planning, conference submissions. None of it tracked consistently. His Jarvis EA now manages his entire executive calendar, preps him for every meeting, and keeps the firm's operational schedule from slipping.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the EA VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Manages executive calendar, protects client-facing time</div>
+              <div class="task-row"><div class="check">✓</div>Tracks all compliance and regulatory deadlines</div>
+              <div class="task-row"><div class="check">✓</div>Coordinates firm events, conferences, and team performance reviews</div>
+              <div class="task-row"><div class="check">✓</div>Preps briefing notes before every board, staff, or client meeting</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Compliance deadline calendar auto-flagged 30 days out</div>
+              <div class="auto-row">Conference submission tracker auto-updated</div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-bottom">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">0</div><div class="metric-d">partner hours on client admin</div></div>
+            <div class="metric"><div class="metric-n g">100%</div><div class="metric-d">deadlines tracked</div></div>
+            <div class="metric"><div class="metric-n">tax season</div><div class="metric-d">under control</div></div>
+          </div>
+          <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="cta-btn">Book a Free Call →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- FITNESS -->
+    <div class="tab-panel" id="panel-fitness">
+      <div class="panel-banner">
+        <div class="banner-col">
+          <div class="banner-label">What you pay</div>
+          <div class="banner-stat">$1,600</div>
+          <div class="banner-sub">per month, 1 full-time VA</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">Hours reclaimed per week</div>
+          <div class="banner-stat">20+ hrs</div>
+          <div class="banner-sub">back on coaching and content</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">Admin tasks she still handles</div>
+          <div class="banner-stat white">0</div>
+          <div class="banner-sub">inbox, invoicing, scheduling — all gone</div>
+        </div>
+      </div>
+      <div class="panel-content">
+
+        <!-- CASE 1: Ops VA -->
+        <div class="panel-top-row">
+          <div>
+            <div class="va-type">Operations VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">Online fitness coach. Wanted to coach and create content. Was running operations instead.</h2>
+            <p class="story-body">Admin, scheduling, client comms, invoicing. All of it landed on her. Every hour she spent on ops was an hour she wasn't coaching or creating. Her VA took over every operational task. She got her time back completely.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What her VA handled</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Inbox, scheduling, client follow-ups</div>
+              <div class="task-row"><div class="check">✓</div>Invoicing, payment tracking, renewals</div>
+              <div class="task-row"><div class="check">✓</div>SOPs built so nothing depends on her</div>
+              <div class="task-row"><div class="check">✓</div>Client onboarding handled start to finish</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">New client signed → onboarding sequence auto-triggered</div>
+              <div class="auto-row">Invoice overdue → auto-reminder sent, VA follows up manually</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">100%</div><div class="metric-d">of her time on coaching + content</div></div>
+            <div class="metric"><div class="metric-n g">0</div><div class="metric-d">ops tasks she touches anymore</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 2: Setter + Closer -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Appointment Setter VA + Sales Closer VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">Online fitness coach selling a program. Had leads. Had no one to set appointments or close them.</h2>
+            <p class="story-body">He was the product, the marketer, the appointment setter, and the closer all at once. We placed a dedicated appointment setter and a closer. He stopped selling his own program and started scaling it.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What his team handled</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Appointment setter works leads and DMs daily</div>
+              <div class="task-row"><div class="check">✓</div>Closer handles all discovery calls and closes</div>
+              <div class="task-row"><div class="check">✓</div>Pipeline tracked in CRM, nothing falls through</div>
+              <div class="task-row"><div class="check">✓</div>Weekly sales report delivered to founder</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Lead books call → confirmation + prep sequence auto-sent</div>
+              <div class="auto-row">No-show → reschedule link auto-triggered within 1 hour</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">0 hrs</div><div class="metric-d">founder time selling his own program</div></div>
+            <div class="metric"><div class="metric-n g">2 VAs</div><div class="metric-d">setter + closer, placed by Jarvis</div></div>
+          </div>
+        </div>
+
+        <!-- EA VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Executive Assistant VA</div>
+            <div class="story-tag">The strongest hire</div>
+            <h2 class="story-headline">Fitness business owner scaling from 1 studio to 3. Was managing 20 staff from his iPhone with no real system.</h2>
+            <p class="story-body">Vendor calls, lease negotiations, team scheduling, partnership outreach, equipment orders. All of it reactive. His Jarvis EA gave him a real system: everything routes through her first. He sees only what requires his decision.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the EA VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Manages executive calendar across all 3 locations</div>
+              <div class="task-row"><div class="check">✓</div>Coordinates vendor and partnership communications</div>
+              <div class="task-row"><div class="check">✓</div>Preps briefing notes for expansion and lease meetings</div>
+              <div class="task-row"><div class="check">✓</div>Tracks all open action items from team meetings</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Team meeting notes auto-compiled into action item tracker</div>
+              <div class="auto-row">Vendor follow-ups auto-scheduled after each call</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">0 hrs</div><div class="metric-d">founder time selling his own program</div></div>
+            <div class="metric"><div class="metric-n g">2 VAs</div><div class="metric-d">setter + closer, placed by Jarvis</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 4: Video Editing VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Video Editing VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">Online fitness coach creating content daily. Had 3 weeks of unedited footage sitting on her drive. Good content going nowhere.</h2>
+            <p class="story-body">She was recording consistently. The problem was editing. Every video needed cuts, captions, music, and a thumbnail before it could go out. She was weeks behind. Her Jarvis editing VA cleared the backlog in 10 days and has been keeping up ever since. Content goes out on schedule. She just records.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What her VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Edits raw footage into Reels, TikToks, and YouTube Shorts</div>
+              <div class="task-row"><div class="check">✓</div>Adds captions, music, and branded intros</div>
+              <div class="task-row"><div class="check">✓</div>Creates thumbnails for each video</div>
+              <div class="task-row"><div class="check">✓</div>Maintains the content library organized by topic and platform</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Raw footage uploaded → edit brief auto-generated with platform specs</div>
+              <div class="auto-row">Published content auto-logged in content tracker</div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-bottom">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">0 hrs</div><div class="metric-d">founder time selling his own program</div></div>
+            <div class="metric"><div class="metric-n g">2 VAs</div><div class="metric-d">setter + closer, placed by Jarvis</div></div>
+          </div>
+          <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="cta-btn">Book a Free Call →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- HEALTHCARE -->
+    <div class="tab-panel" id="panel-clinic">
+      <div class="panel-banner">
+        <div class="banner-col">
+          <div class="banner-label">What you pay per year</div>
+          <div class="banner-stat">$19,200</div>
+          <div class="banner-sub">$1,600/mo × 12 months</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">Revenue recovered per year</div>
+          <div class="banner-stat">$100,000</div>
+          <div class="banner-sub">no-show rate: 30% → 8%</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">ROI</div>
+          <div class="banner-stat white">5.2×</div>
+          <div class="banner-sub">per year, every year after</div>
+        </div>
+      </div>
+      <div class="panel-content">
+        <div class="panel-top-row">
+          <div>
+            <div class="va-type">Patient Coordinator VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">Private optometry clinic, $800K/year. 30% no-show rate, and nobody fixing it.</h2>
+            <p class="story-body">Front desk was constantly overwhelmed. Reminders went out late, insurance verification fell through, billing got delayed after every appointment. His VA now handles all of it. No-show rate dropped from 30% to 8%. That's $100K recovered per year.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What his VA handled</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Sends reminder texts 48hrs and 2hrs before every appointment</div>
+              <div class="task-row"><div class="check">✓</div>Follows up on no-shows to reschedule immediately</div>
+              <div class="task-row"><div class="check">✓</div>Verifies insurance the day before so front desk walks in ready</div>
+              <div class="task-row"><div class="check">✓</div>Tracks billing follow-ups so nothing slips post-visit</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Appointment booked → reminder sequence auto-scheduled</div>
+              <div class="auto-row">No-show flagged → reschedule task auto-assigned to VA</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">30 → 8%</div><div class="metric-d">no-show rate</div></div>
+            <div class="metric"><div class="metric-n g">+3-4</div><div class="metric-d">appts filled/week</div></div>
+            <div class="metric"><div class="metric-n g">$100K</div><div class="metric-d">recovered/year</div></div>
+          </div>
+        </div>
+
+        <!-- EA VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Executive Assistant VA</div>
+            <div class="story-tag">The strongest hire</div>
+            <h2 class="story-headline">Clinic director running 6 providers, 2 locations, and her own patient panel. Was still scheduling everything herself.</h2>
+            <p class="story-body">Staff scheduling, vendor meetings, insurance contract renewals, regulatory deadlines, board meetings. All of it routed directly to her. Her Jarvis EA took over the entire admin and coordination layer. She now sees only what requires a physician's judgment.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the EA VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Manages executive calendar across both locations</div>
+              <div class="task-row"><div class="check">✓</div>Coordinates staff scheduling and vendor meetings</div>
+              <div class="task-row"><div class="check">✓</div>Tracks insurance contract and regulatory renewal deadlines</div>
+              <div class="task-row"><div class="check">✓</div>Preps briefing docs before board and staff meetings</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Regulatory deadline tracker auto-flagged 30 days out</div>
+              <div class="auto-row">Staff schedule conflicts auto-flagged before they escalate</div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-bottom">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">30 → 8%</div><div class="metric-d">no-show rate</div></div>
+            <div class="metric"><div class="metric-n g">+3-4</div><div class="metric-d">appts filled/week</div></div>
+            <div class="metric"><div class="metric-n g">$100K</div><div class="metric-d">recovered/year</div></div>
+          </div>
+          <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="cta-btn">Book a Free Call →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- REAL ESTATE -->
+    <div class="tab-panel" id="panel-realestate">
+      <div class="panel-banner">
+        <div class="banner-col">
+          <div class="banner-label">What you pay per year</div>
+          <div class="banner-stat">$19,200</div>
+          <div class="banner-sub">$1,600/mo × 12 months</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">Additional deals closed</div>
+          <div class="banner-stat">+12 deals</div>
+          <div class="banner-sub">~$96K in extra commissions</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">ROI</div>
+          <div class="banner-stat white">5×</div>
+          <div class="banner-sub">without working more hours</div>
+        </div>
+      </div>
+      <div class="panel-content">
+        <div class="panel-top-row">
+          <div>
+            <div class="va-type">Lead Response VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">Real estate agent, 30 transactions/year. Losing deals while showing houses.</h2>
+            <p class="story-body">Zillow leads come in and if you don't respond in 5 minutes, they're gone. She was showing a house when leads came in. Her VA now responds to every new lead within 2 minutes. She closed 12 more deals last year without working more hours.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What her VA handled</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Responds to every lead within 2 minutes, 7 days a week</div>
+              <div class="task-row"><div class="check">✓</div>Qualifies with 3 screening questions before passing up</div>
+              <div class="task-row"><div class="check">✓</div>Books calls onto calendar, zero back-and-forth</div>
+              <div class="task-row"><div class="check">✓</div>Updates CRM and flags hot leads for same-day follow-up</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">New lead → instant CRM entry + VA notification</div>
+              <div class="auto-row">No response after 24hrs → follow-up sequence auto-triggered</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">2 min</div><div class="metric-d">avg lead response</div></div>
+            <div class="metric"><div class="metric-n g">+40%</div><div class="metric-d">lead conversion rate</div></div>
+            <div class="metric"><div class="metric-n g">+12</div><div class="metric-d">deals closed last year</div></div>
+          </div>
+        </div>
+
+        <!-- EA VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Executive Assistant VA</div>
+            <div class="story-tag">The strongest hire</div>
+            <h2 class="story-headline">Real estate team leader with 15 agents. Recruiting, coaching, listing appointments, investor meetings. Every week something fell through.</h2>
+            <p class="story-body">No EA meant no tracking. Recruiting calls that needed follow-up, agent coaching sessions that got pushed, listing logistics that slipped. His Jarvis EA manages the executive layer so he shows up prepared to everything and nothing drops.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the EA VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Manages executive calendar, coordinates recruiting and coaching sessions</div>
+              <div class="task-row"><div class="check">✓</div>Preps briefing notes on prospects before recruiting calls</div>
+              <div class="task-row"><div class="check">✓</div>Tracks agent pipeline and flags who needs attention</div>
+              <div class="task-row"><div class="check">✓</div>Coordinates listing logistics and transaction milestones</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">New agent inquiry → research brief auto-compiled</div>
+              <div class="auto-row">Weekly team pipeline report auto-generated for leader review</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">2 min</div><div class="metric-d">avg lead response</div></div>
+            <div class="metric"><div class="metric-n g">+40%</div><div class="metric-d">lead conversion rate</div></div>
+            <div class="metric"><div class="metric-n g">+12</div><div class="metric-d">deals closed last year</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 3: Client Management VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Client Management VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">Real estate agent closing 30+ deals a year. Was losing referrals because nobody followed up after the closing.</h2>
+            <p class="story-body">The deal closes. Everyone celebrates. Then nothing. No 30-day check-in, no anniversary message, no referral ask. The relationship goes cold and the next deal goes to someone else. Her Jarvis client management VA runs the entire post-closing relationship layer. Referrals started coming in within 60 days.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What her VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Sends 30/60/90-day post-closing check-in messages</div>
+              <div class="task-row"><div class="check">✓</div>Manages annual birthday and home anniversary touchpoints</div>
+              <div class="task-row"><div class="check">✓</div>Sends referral ask at the right moment in the relationship</div>
+              <div class="task-row"><div class="check">✓</div>Keeps the client database current and organized</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Closing date logged → check-in sequence auto-triggered at 30/60/90 days</div>
+              <div class="auto-row">Home anniversary date → personalized message auto-drafted for VA to send</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">referrals</div><div class="metric-d">started within 60 days</div></div>
+            <div class="metric"><div class="metric-n g">0</div><div class="metric-d">post-close touchpoints missed</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 4: Video Editing VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Video Editing VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">Real estate agent recording property tours, neighborhood guides, and market updates. Had the content. Had no one to turn it into posts.</h2>
+            <p class="story-body">She was recording consistently but nothing was getting edited. Property tours sat on her phone for days. Neighborhood guides never made it to Instagram. Her Jarvis editing VA cleared the backlog, built a posting rhythm, and now every listing gets a polished Reel within 48 hours.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What her VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Edits property tour and listing walkthrough videos</div>
+              <div class="task-row"><div class="check">✓</div>Creates neighborhood guide and market update Reels</div>
+              <div class="task-row"><div class="check">✓</div>Adds captions, music, and branded overlays</div>
+              <div class="task-row"><div class="check">✓</div>Formats content for Instagram, YouTube, and TikTok</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">New listing goes live → edit brief auto-created for VA</div>
+              <div class="auto-row">Completed Reel auto-logged in content calendar</div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-bottom">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">48 hrs</div><div class="metric-d">listing Reel turnaround</div></div>
+            <div class="metric"><div class="metric-n g">0</div><div class="metric-d">footage sitting unedited</div></div>
+            <div class="metric"><div class="metric-n">3 VAs</div><div class="metric-d">lead response, client mgmt, editing</div></div>
+          </div>
+          <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="cta-btn">Book a Free Call →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AUTO SERVICE -->
+    <div class="tab-panel" id="panel-auto">
+      <div class="panel-banner">
+        <div class="banner-col">
+          <div class="banner-label">What you pay</div>
+          <div class="banner-stat">$800</div>
+          <div class="banner-sub">part-time VA, 4 hrs/day</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">No-show rate reduction</div>
+          <div class="banner-stat">60%</div>
+          <div class="banner-sub">appointments recovered every month</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">Lead response time</div>
+          <div class="banner-stat white">&lt;5 min</div>
+          <div class="banner-sub">before they open the next tab</div>
+        </div>
+      </div>
+      <div class="panel-content">
+        <div class="panel-top-row">
+          <div>
+            <div class="va-type">Lead Response VA</div>
+            <div class="story-tag">The pattern we see</div>
+            <h2 class="story-headline">Most auto service businesses are losing deals because no one responds fast enough. Leads go cold in 5 minutes.</h2>
+            <p class="story-body">A customer submits an inquiry online and moves on before anyone picks up. The team is on the floor. Nobody's watching the inbox. A Jarvis VA changes that: instant response, qualification, appointment booked before they forget about you.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Responds to every online inquiry within minutes</div>
+              <div class="task-row"><div class="check">✓</div>Qualifies the lead and books the service appointment</div>
+              <div class="task-row"><div class="check">✓</div>Sends reminders 24hrs and 2hrs before every appointment</div>
+              <div class="task-row"><div class="check">✓</div>Follows up on no-shows and cold leads to reschedule</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Online form submit → instant VA alert + CRM entry</div>
+              <div class="auto-row">No-show → reschedule task auto-assigned same day</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">&lt;5 min</div><div class="metric-d">lead response time</div></div>
+            <div class="metric"><div class="metric-n g">60% lower</div><div class="metric-d">no-show rate</div></div>
+            <div class="metric"><div class="metric-n g">more deals</div><div class="metric-d">from existing leads</div></div>
+          </div>
+        </div>
+
+        <!-- EA VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Executive Assistant VA</div>
+            <div class="story-tag">The strongest hire</div>
+            <h2 class="story-headline">Dealership GM managing sales, service, F&amp;I, and 40 staff. Every request reached him directly. Calendar was a free-for-all.</h2>
+            <p class="story-body">Manufacturer meetings, staff reviews, vendor negotiations, floor management. No EA meant no filter. His Jarvis EA manages the entire executive layer: every request goes through her first. He shows up to the right meetings, prepared, every time.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the EA VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Manages executive calendar and prioritizes daily agenda</div>
+              <div class="task-row"><div class="check">✓</div>Coordinates manufacturer and vendor meeting prep</div>
+              <div class="task-row"><div class="check">✓</div>Briefs him on staff issues before performance reviews</div>
+              <div class="task-row"><div class="check">✓</div>Tracks open action items from all department meetings</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Daily priority briefing auto-compiled each morning</div>
+              <div class="auto-row">Manufacturer deadline tracker auto-maintained</div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-bottom">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">&lt;5 min</div><div class="metric-d">lead response time</div></div>
+            <div class="metric"><div class="metric-n g">60% lower</div><div class="metric-d">no-show rate</div></div>
+            <div class="metric"><div class="metric-n g">more deals</div><div class="metric-d">from existing leads</div></div>
+          </div>
+          <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="cta-btn">Book a Free Call →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONSTRUCTION -->
+    <div class="tab-panel" id="panel-construction">
+      <div class="panel-banner">
+        <div class="banner-col">
+          <div class="banner-label">What you pay per year</div>
+          <div class="banner-stat">$19,200</div>
+          <div class="banner-sub">$1,600/mo × 12 months</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">Revenue growth in 12 months</div>
+          <div class="banner-stat">+$1.2M</div>
+          <div class="banner-sub">$3M → $4.2M, same team size</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">ROI</div>
+          <div class="banner-stat white">62×</div>
+          <div class="banner-sub">on 12 months of investment</div>
+        </div>
+      </div>
+      <div class="panel-content">
+        <div class="panel-top-row">
+          <div>
+            <div class="va-type">Admin & Compliance VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">$3M/year contractor. Every Monday, 3 hours gone before the real work started.</h2>
+            <p class="story-body">He was doing $3M in general contracting. Every Monday morning: 3 hours chasing subcontractors for insurance certificates and unpaid invoices. His VA now handles all of it. He hasn't touched that pile since. He used that time to close new bids and grew from $3M to $4.2M in 12 months.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What his VA handled</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Sends insurance reminders before they expire</div>
+              <div class="task-row"><div class="check">✓</div>Follows up on invoices twice, automatically</div>
+              <div class="task-row"><div class="check">✓</div>Flags overdue items so he only sees what needs a call</div>
+              <div class="task-row"><div class="check">✓</div>Keeps vendor compliance docs tracked in one place</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Invoice aging dashboard auto-updated every Monday</div>
+              <div class="auto-row">Certificate expiry alerts triggered 30 days out automatically</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">150 hrs</div><div class="metric-d">back per year</div></div>
+            <div class="metric"><div class="metric-n g">$4.2M</div><div class="metric-d">from $3M baseline</div></div>
+            <div class="metric"><div class="metric-n">12 mo</div><div class="metric-d">to get there</div></div>
+          </div>
+        </div>
+
+        <!-- EA VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Executive Assistant VA</div>
+            <div class="story-tag">The strongest hire</div>
+            <h2 class="story-headline">GC firm president managing 8 project managers, a bid pipeline, and a subcontractor network. Was the only person with the full picture.</h2>
+            <p class="story-body">Project reviews, bid submission deadlines, subcontractor follow-ups, client update calls. All of it lived in his head or his inbox. His Jarvis EA manages the executive layer: calendar, communications, briefings, and follow-ups. Nothing lives only in his head anymore.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the EA VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Manages executive calendar and bid deadline tracking</div>
+              <div class="task-row"><div class="check">✓</div>Coordinates project review meetings with PMs</div>
+              <div class="task-row"><div class="check">✓</div>Preps briefing docs from PM reports before every client call</div>
+              <div class="task-row"><div class="check">✓</div>Tracks subcontractor follow-ups and all open action items</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Bid deadline calendar auto-flagged 7 days out</div>
+              <div class="auto-row">Project status reports auto-compiled from PM weekly submissions</div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-bottom">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">150 hrs</div><div class="metric-d">back per year</div></div>
+            <div class="metric"><div class="metric-n g">$4.2M</div><div class="metric-d">from $3M baseline</div></div>
+            <div class="metric"><div class="metric-n">12 mo</div><div class="metric-d">to get there</div></div>
+          </div>
+          <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="cta-btn">Book a Free Call →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- LAW FIRM -->
+    <div class="tab-panel" id="panel-lawfirm">
+      <div class="panel-banner">
+        <div class="banner-col">
+          <div class="banner-label">What you pay</div>
+          <div class="banner-stat">$1,600</div>
+          <div class="banner-sub">per month, 1 full-time VA</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">Non-billable hours eliminated</div>
+          <div class="banner-stat">15+ hrs</div>
+          <div class="banner-sub">per week back on billable work</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">Admin tasks attorneys still do</div>
+          <div class="banner-stat white">0</div>
+          <div class="banner-sub">intake, scheduling, document prep — gone</div>
+        </div>
+      </div>
+      <div class="panel-content">
+
+        <!-- CASE 1: Legal Secretary -->
+        <div class="panel-top-row">
+          <div>
+            <div class="va-type">Legal Secretary VA</div>
+            <div class="story-tag">The pattern we see</div>
+            <h2 class="story-headline">Most law firms have attorneys doing work that doesn't require a law degree. Every hour spent on admin is a billable hour lost.</h2>
+            <p class="story-body">Client intake calls, appointment scheduling, document assembly, follow-up emails. None of it requires a JD. All of it was landing on the attorney. A Jarvis legal VA handles the entire admin layer so attorneys stay focused on billable work.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Handles client intake: collects info, sends agreements</div>
+              <div class="task-row"><div class="check">✓</div>Manages scheduling, confirmations, calendar conflicts</div>
+              <div class="task-row"><div class="check">✓</div>Prepares and organizes documents before every meeting</div>
+              <div class="task-row"><div class="check">✓</div>Follows up with clients on outstanding items</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">New client inquiry → intake form auto-sent, VA follows up</div>
+              <div class="auto-row">Deadline tracker dashboard built for VA daily review</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">15+ hrs</div><div class="metric-d">billable hours recovered/week</div></div>
+            <div class="metric"><div class="metric-n g">0</div><div class="metric-d">admin tasks on attorney's plate</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 2: Research VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Legal Research VA</div>
+            <div class="story-tag">The pattern we see</div>
+            <h2 class="story-headline">Case research, case summaries, deposition prep. The attorney's time. The associate's bill rate. A VA does the groundwork for a fraction of the cost.</h2>
+            <p class="story-body">Background research, case law summaries, deposition prep packs. A trained Jarvis VA handles the research layer. The attorney reviews, decides, and acts. The junior hours stay on complex work.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Pulls case background and summarizes key facts</div>
+              <div class="task-row"><div class="check">✓</div>Organizes deposition prep materials</div>
+              <div class="task-row"><div class="check">✓</div>Tracks case timelines and flags upcoming deadlines</div>
+              <div class="task-row"><div class="check">✓</div>Compiles research briefs in standard firm format</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Case opened → research checklist auto-generated for VA</div>
+              <div class="auto-row">Deadline calendar auto-synced and visible to all team members</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">faster</div><div class="metric-d">case prep turnaround</div></div>
+            <div class="metric"><div class="metric-n g">lower</div><div class="metric-d">cost vs. associate hours</div></div>
+            <div class="metric"><div class="metric-n">attorneys</div><div class="metric-d">on billable work only</div></div>
+          </div>
+        </div>
+
+        <!-- EA VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Executive Assistant VA</div>
+            <div class="story-tag">The strongest hire</div>
+            <h2 class="story-headline">Managing partner with a full caseload and firm management responsibilities. Was running both from the same calendar with no separation.</h2>
+            <p class="story-body">Client development meetings, partner reviews, bar association commitments, practice group leadership. All of it alongside active cases. His Jarvis EA manages the entire non-legal executive layer so he focuses on practicing law.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the EA VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Manages executive calendar, separates billable and non-billable commitments</div>
+              <div class="task-row"><div class="check">✓</div>Coordinates partner and practice group meetings</div>
+              <div class="task-row"><div class="check">✓</div>Preps briefing docs before every business development call</div>
+              <div class="task-row"><div class="check">✓</div>Tracks firm administrative deadlines and CLE commitments</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">CLE deadline tracker auto-maintained and flagged</div>
+              <div class="auto-row">Monthly billing summary auto-compiled for partner review</div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-bottom">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">faster</div><div class="metric-d">case prep turnaround</div></div>
+            <div class="metric"><div class="metric-n g">lower</div><div class="metric-d">cost vs. associate hours</div></div>
+            <div class="metric"><div class="metric-n">attorneys</div><div class="metric-d">on billable work only</div></div>
+          </div>
+          <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="cta-btn">Book a Free Call →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- AGENCY -->
+    <div class="tab-panel" id="panel-agency">
+      <div class="panel-banner">
+        <div class="banner-col">
+          <div class="banner-label">What you pay</div>
+          <div class="banner-stat">$1,600</div>
+          <div class="banner-sub">per VA, per month</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">Client reporting hours saved</div>
+          <div class="banner-stat">10+ hrs</div>
+          <div class="banner-sub">per week, across all clients</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">VA roles agencies hire</div>
+          <div class="banner-stat white">4 types</div>
+          <div class="banner-sub">reporting, ads, account mgmt, design</div>
+        </div>
+      </div>
+      <div class="panel-content">
+
+        <!-- CASE 1: Reporting VA -->
+        <div class="panel-top-row">
+          <div>
+            <div class="va-type">Marketing Reporting VA</div>
+            <div class="story-tag">The pattern we see</div>
+            <h2 class="story-headline">Agency with 20 clients. Someone has to pull data, format reports, and send them every week. That someone is usually a strategist who should be doing strategy.</h2>
+            <p class="story-body">Weekly reports for 20 clients. Each one takes 30-45 minutes to pull and format. That's 10-15 hours a week on reporting alone. A Jarvis reporting VA handles all of it. Strategists stay on strategy.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Pulls performance data from all platforms weekly</div>
+              <div class="task-row"><div class="check">✓</div>Formats reports in agency template, client-ready</div>
+              <div class="task-row"><div class="check">✓</div>Flags anomalies and underperforming campaigns</div>
+              <div class="task-row"><div class="check">✓</div>Sends reports on schedule, every time</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">All client dashboards centralized in one live view for VA</div>
+              <div class="auto-row">Report sent → auto-logged in client tracker</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">10+ hrs</div><div class="metric-d">saved/week on reporting</div></div>
+            <div class="metric"><div class="metric-n g">100%</div><div class="metric-d">on-time delivery rate</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 2: Ads VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Ads Management VA</div>
+            <div class="story-tag">The pattern we see</div>
+            <h2 class="story-headline">Agency running ads for 10+ clients. Budget pacing, creative swaps, comment moderation. It's ops work dressed up as strategy.</h2>
+            <p class="story-body">Checking budgets, pausing underperformers, pulling screenshots for reports, moderating ad comments. A trained Ads VA handles the daily operational layer across all accounts so the media buyer focuses on strategy and new tests.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Daily budget pacing checks across all client accounts</div>
+              <div class="task-row"><div class="check">✓</div>Swaps creatives, pauses underperformers on instruction</div>
+              <div class="task-row"><div class="check">✓</div>Moderates ad comments, escalates issues</div>
+              <div class="task-row"><div class="check">✓</div>Pulls screenshots and ad data for weekly reports</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Budget threshold hit → VA alert auto-triggered</div>
+              <div class="auto-row">All account performance piped into one daily dashboard</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">daily</div><div class="metric-d">account monitoring covered</div></div>
+            <div class="metric"><div class="metric-n g">0 hrs</div><div class="metric-d">media buyer time on ops</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 3: Account Manager VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Account Manager VA</div>
+            <div class="story-tag">The pattern we see</div>
+            <h2 class="story-headline">Client comms, status updates, meeting notes, follow-ups. The work that keeps clients happy but doesn't require a senior hire.</h2>
+            <p class="story-body">Meeting recaps, project status updates, client check-in emails, action item tracking. All client-facing work that doesn't require strategy. A Jarvis AM VA handles the entire communication layer so account leads focus on decisions, not logistics.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Sends weekly client status updates</div>
+              <div class="task-row"><div class="check">✓</div>Writes and distributes meeting recaps within 24hrs</div>
+              <div class="task-row"><div class="check">✓</div>Tracks open action items and follows up with team</div>
+              <div class="task-row"><div class="check">✓</div>Manages client communication calendar</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Meeting ends → recap template auto-populated for VA to complete</div>
+              <div class="auto-row">Action item tracker auto-updated and shared with client weekly</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">faster</div><div class="metric-d">client response time</div></div>
+            <div class="metric"><div class="metric-n g">0</div><div class="metric-d">dropped follow-ups</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 4: Graphic Design VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Graphic Design VA</div>
+            <div class="story-tag">The pattern we see</div>
+            <h2 class="story-headline">Agencies producing content for 10+ clients need design output at scale. A trained Jarvis design VA delivers assets on brief, on time.</h2>
+            <p class="story-body">Social graphics, ad creatives, presentation decks, email banners. Repeatable production work that stacks up fast. A Jarvis design VA works inside your brand templates, delivers daily, and frees your senior designers for concepting and direction.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Produces social graphics and ad creatives from templates</div>
+              <div class="task-row"><div class="check">✓</div>Builds presentation decks to brief</div>
+              <div class="task-row"><div class="check">✓</div>Resizes and adapts assets for each platform</div>
+              <div class="task-row"><div class="check">✓</div>Organizes files and maintains the asset library</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">New brief submitted → design task auto-created and assigned to VA</div>
+              <div class="auto-row">Asset delivered → auto-filed in client folder by campaign</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">daily</div><div class="metric-d">asset output at scale</div></div>
+            <div class="metric"><div class="metric-n g">senior</div><div class="metric-d">designers freed for strategy</div></div>
+          </div>
+        </div>
+
+        <!-- EA VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Executive Assistant VA</div>
+            <div class="story-tag">The strongest hire</div>
+            <h2 class="story-headline">Agency CEO managing new business, client relationships, team operations, and their own creative work. Was doing all four with no filter.</h2>
+            <p class="story-body">New business calls, client QBRs, team 1-on-1s, vendor relationships, conference speaking. A 7-figure agency with no EA. Every request reached the CEO directly. His Jarvis EA filters, prepares, and coordinates everything. He focuses on decisions, not logistics.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the EA VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Manages executive calendar, protects strategy and creative blocks</div>
+              <div class="task-row"><div class="check">✓</div>Preps briefing docs before every new business and QBR call</div>
+              <div class="task-row"><div class="check">✓</div>Triages executive inbox, drafts replies for review</div>
+              <div class="task-row"><div class="check">✓</div>Coordinates team scheduling and all internal meetings</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">New business inquiry → prospect research brief auto-compiled before the call</div>
+              <div class="auto-row">Weekly exec dashboard auto-sent with pipeline, team, and client status</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">daily</div><div class="metric-d">asset output at scale</div></div>
+            <div class="metric"><div class="metric-n g">senior</div><div class="metric-d">designers freed for strategy</div></div>
+            <div class="metric"><div class="metric-n">4 roles</div><div class="metric-d">one agency team built by Jarvis</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 6: Video Editing VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Video Editing VA</div>
+            <div class="story-tag">The pattern we see</div>
+            <h2 class="story-headline">Social media agency producing video for 15 clients. Raw footage piling up every week. Editors hired as full-time staff are expensive. Turnaround is always the bottleneck.</h2>
+            <p class="story-body">Every client wants Reels, TikToks, and YouTube Shorts. Each one needs cuts, captions, music, brand overlays, and platform resizes. A Jarvis editing VA handles the full production layer across all clients. Turnaround fast. Cost a fraction of a full-time hire.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Edits Reels, TikToks, and YouTube Shorts across all client accounts</div>
+              <div class="task-row"><div class="check">✓</div>Adds captions, brand overlays, and music per client brief</div>
+              <div class="task-row"><div class="check">✓</div>Resizes and formats each asset for every platform</div>
+              <div class="task-row"><div class="check">✓</div>Delivers organized, named files ready to post</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Client uploads raw footage → edit brief auto-assigned to VA</div>
+              <div class="auto-row">Completed edit logged in client asset tracker</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">fast</div><div class="metric-d">turnaround across all clients</div></div>
+            <div class="metric"><div class="metric-n g">fraction</div><div class="metric-d">of full-time editor cost</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 7: Posting & Scheduling VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Posting & Scheduling VA</div>
+            <div class="story-tag">The pattern we see</div>
+            <h2 class="story-headline">Social media agency. Someone has to actually publish 200 posts a month across 15 client accounts. That someone should not be your strategist.</h2>
+            <p class="story-body">Content approved, captions written, creative ready. But someone still has to log into every account, schedule every post, and make sure nothing gets missed. A Jarvis posting VA handles all of it. Every post goes out on time. Every account stays active. Strategists stay on strategy.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Schedules and publishes content across all client accounts on time</div>
+              <div class="task-row"><div class="check">✓</div>Manages posting calendars for each client</div>
+              <div class="task-row"><div class="check">✓</div>Monitors posts in first 24hrs and flags engagement anomalies</div>
+              <div class="task-row"><div class="check">✓</div>Sends weekly posting report to account lead</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Content approved → auto-added to posting queue for VA</div>
+              <div class="auto-row">Publishing log auto-updated and shared with account lead weekly</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">200+</div><div class="metric-d">posts published/month</div></div>
+            <div class="metric"><div class="metric-n g">0 hrs</div><div class="metric-d">strategist time on publishing</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 8: Account Manager VA (social agency) -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Account Manager VA</div>
+            <div class="story-tag">The pattern we see</div>
+            <h2 class="story-headline">Social media agency with 20 clients. Status updates, meeting recaps, action item tracking. The work that keeps clients happy but doesn't require a senior strategist.</h2>
+            <p class="story-body">Client check-in emails, meeting summaries, follow-up reminders, approval requests. All of it landing on the account lead between strategy sessions. A Jarvis AM VA handles the entire client communication layer. Account leads focus on work that moves the needle, not inbox management.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Sends weekly client status updates and reporting summaries</div>
+              <div class="task-row"><div class="check">✓</div>Writes and delivers meeting recaps within 24 hours</div>
+              <div class="task-row"><div class="check">✓</div>Tracks open approvals and follows up with clients on outstanding items</div>
+              <div class="task-row"><div class="check">✓</div>Manages the client communication calendar for each account</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Meeting ends → recap template auto-populated for VA to complete</div>
+              <div class="auto-row">Pending approval aging → client reminder auto-triggered after 48hrs</div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-bottom">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">daily</div><div class="metric-d">asset output at scale</div></div>
+            <div class="metric"><div class="metric-n g">senior</div><div class="metric-d">designers freed for strategy</div></div>
+            <div class="metric"><div class="metric-n">7 roles</div><div class="metric-d">one agency team built by Jarvis</div></div>
+          </div>
+          <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="cta-btn">Book a Free Call →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- SAAS -->
+    <div class="tab-panel" id="panel-saas">
+      <div class="panel-banner">
+        <div class="banner-col">
+          <div class="banner-label">What you pay</div>
+          <div class="banner-stat">$1,600</div>
+          <div class="banner-sub">per month, 1 full-time VA</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">Founder hours reclaimed per week</div>
+          <div class="banner-stat">20+ hrs</div>
+          <div class="banner-sub">back on product and growth</div>
+        </div>
+        <div class="banner-divider"></div>
+        <div class="banner-col">
+          <div class="banner-label">Ops tasks the founder still does</div>
+          <div class="banner-stat white">0</div>
+          <div class="banner-sub">ads, data, scheduling — handled</div>
+        </div>
+      </div>
+      <div class="panel-content">
+
+        <!-- CASE 1: Paid Ads VA -->
+        <div class="panel-top-row">
+          <div>
+            <div class="va-type">Paid Ads VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">SaaS founder running paid acquisition on Google, Meta, and LinkedIn. Was managing campaigns himself between product meetings.</h2>
+            <p class="story-body">Every week the campaigns needed attention — budget pacing, underperforming ad sets, creative refreshes, bid adjustments. None of it required the founder. All of it was landing on him. His Jarvis Ads VA took full ownership of every campaign. He stopped thinking about CAC and started thinking about the product.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What his VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Manages campaigns across Google, Meta, and LinkedIn daily</div>
+              <div class="task-row"><div class="check">✓</div>Monitors budget pacing, pauses underperformers, tests new creatives</div>
+              <div class="task-row"><div class="check">✓</div>Pulls weekly performance report with CAC, ROAS, and trial volume</div>
+              <div class="task-row"><div class="check">✓</div>Flags spend anomalies before they become budget problems</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Campaign data auto-pulled into weekly performance dashboard</div>
+              <div class="auto-row">Spend threshold hit → founder alert auto-sent</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">0 hrs</div><div class="metric-d">founder time on ad ops</div></div>
+            <div class="metric"><div class="metric-n g">3 channels</div><div class="metric-d">Google, Meta, LinkedIn covered</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 2: Airtable & Ops VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Airtable & Ops VA</div>
+            <div class="story-tag">A real client</div>
+            <h2 class="story-headline">SaaS operations lead. Customer data scattered across 4 tools. Onboarding tracked in a spreadsheet nobody trusted. Churn flags caught too late.</h2>
+            <p class="story-body">No single source of truth meant every Monday started with reconciliation. His Jarvis VA built the Airtable infrastructure: customer database, onboarding tracker, churn risk flags, team ops board. Everything connected. Everything visible. He stopped firefighting and started managing.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What his VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Builds and maintains Airtable bases for customer data and onboarding</div>
+              <div class="task-row"><div class="check">✓</div>Keeps records synced across tools, eliminates manual data entry</div>
+              <div class="task-row"><div class="check">✓</div>Sets up automations so churn risk flags surface automatically</div>
+              <div class="task-row"><div class="check">✓</div>Delivers weekly ops summary — what's on track, what needs attention</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">CRM data auto-synced into Airtable on trigger</div>
+              <div class="auto-row">Churn risk threshold hit → Slack alert auto-sent to CS team</div>
+            </div>
+          </div>
+        </div>
+        <div class="case-divider">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">1 source</div><div class="metric-d">of truth for all ops data</div></div>
+            <div class="metric"><div class="metric-n g">0</div><div class="metric-d">churn flags caught too late</div></div>
+          </div>
+        </div>
+
+        <!-- CASE 3: Executive Assistant VA -->
+        <div class="panel-top-row" style="margin-top:44px">
+          <div>
+            <div class="va-type">Executive Assistant VA</div>
+            <div class="story-tag">The strongest hire</div>
+            <h2 class="story-headline">SaaS CEO managing product, investors, hiring, customer calls, and the board. Was booking his own meetings and triaging his own inbox at $3M ARR.</h2>
+            <p class="story-body">Every calendar invite, every investor follow-up, every team scheduling request went directly to the CEO. No filter. His Jarvis EA changed that. She manages his entire executive layer: inbox triage, calendar, meeting prep, follow-ups. He focuses on decisions. She handles everything else.</p>
+          </div>
+          <div>
+            <div class="tasks-label">What the EA VA handles</div>
+            <div class="task-list">
+              <div class="task-row"><div class="check">✓</div>Triages inbox, surfaces only what needs CEO decision</div>
+              <div class="task-row"><div class="check">✓</div>Manages calendar, protects deep work and board prep blocks</div>
+              <div class="task-row"><div class="check">✓</div>Preps briefing notes before every investor, customer, and board call</div>
+              <div class="task-row"><div class="check">✓</div>Tracks all commitments and follow-ups so nothing drops</div>
+            </div>
+            <div class="auto-block">
+              <div class="auto-tag">⚡ Your VA also automates this with AI</div>
+              <div class="auto-row">Investor inquiry → research brief auto-compiled before the call</div>
+              <div class="auto-row">Weekly exec dashboard auto-sent with pipeline, hiring, and key metrics</div>
+            </div>
+          </div>
+        </div>
+        <div class="panel-bottom">
+          <div class="metrics">
+            <div class="metric"><div class="metric-n g">0 hrs</div><div class="metric-d">founder time on ads</div></div>
+            <div class="metric"><div class="metric-n g">1 source</div><div class="metric-d">of truth for all ops data</div></div>
+            <div class="metric"><div class="metric-n">3 VAs</div><div class="metric-d">one for each growth lever</div></div>
+          </div>
+          <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="cta-btn">Book a Free Call →</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- WHY SECTION -->
+<section class="why-section">
+  <div style="max-width:1120px;margin:0 auto">
+    <div style="text-align:center;margin-bottom:48px">
+      <div style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--lime);margin-bottom:14px">Why Jarvis</div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(28px,3vw,42px);font-weight:800;color:#111;line-height:1.1;letter-spacing:-1px;margin-bottom:14px">A full-time US hire costs $80,000/year.<br>A Jarvis VA costs <em style="font-family:'Instrument Serif',serif;font-style:italic;color:var(--lime)">$1,600/month.</em></h2>
+      <p style="font-size:16px;color:rgba(0,0,0,.5);max-width:540px;margin:0 auto">And you get more flexibility, zero overhead, and a pre-trained VA ready to work on day one.</p>
+    </div>
+    <div class="benefit-grid">
+      <div class="benefit-tile">
+        <div class="benefit-title">No insurance. No benefits.</div>
+        <p class="benefit-body">US hires come with health insurance, payroll taxes, and compliance overhead. A Jarvis VA is a flat monthly rate. Nothing hidden, nothing extra.</p>
+      </div>
+      <div class="benefit-tile">
+        <div class="benefit-title">No severance. No awkward exits.</div>
+        <p class="benefit-body">If your VA isn't the right fit, we replace them within 48 hours at no cost. Month-to-month. No contracts, no lawyers, no severance packages.</p>
+      </div>
+      <div class="benefit-tile">
+        <div class="benefit-title">Pre-trained before day one.</div>
+        <p class="benefit-body">Your VA isn't learning on the job. They're briefed on your tools, your workflows, and your business before they start. Most are operational in 48 hours.</p>
+      </div>
+      <div class="benefit-tile">
+        <div class="benefit-title">Replace in 48 hours.</div>
+        <p class="benefit-body">Your VA gets sick? We cover it. Not working out? We swap within 48 hours. You never lose momentum because of a single hire decision.</p>
+      </div>
+      <div class="benefit-tile">
+        <div class="benefit-title">Month-to-month. No lock-in.</div>
+        <p class="benefit-body">No annual contracts. No cancellation fees. Stay because it's working, not because you signed something. Most clients stay 12+ months anyway.</p>
+      </div>
+      <div class="benefit-tile">
+        <div class="benefit-title">One point of contact.</div>
+        <p class="benefit-body">You deal with Jarvis, not a VA marketplace. We handle hiring, onboarding, performance, and replacement. You just tell us what you need done.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS SECTION -->
+<section class="process-section">
+  <div class="process-inner">
+    <div>
+      <div style="font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--lime);margin-bottom:16px">How it works</div>
+      <h2 style="font-family:'Bricolage Grotesque',sans-serif;font-size:clamp(26px,3vw,40px);font-weight:800;color:#fff;line-height:1.1;letter-spacing:-1px;margin-bottom:20px">From first call to<br><em style="font-family:'Instrument Serif',serif;font-style:italic;color:var(--lime)">fully delegated</em><br>in one week.</h2>
+      <p style="font-size:15px;color:rgba(255,255,255,.45);line-height:1.75;margin-bottom:36px">Most business owners overthink the hiring process. We've simplified it into five steps. You'll be fully operational before your first week is over.</p>
+      <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="process-cta">Book a Free 15-Min Call →</a>
+    </div>
+    <div class="process-steps">
+      <div class="process-step">
+        <div class="step-num">01</div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:6px">15-minute discovery call</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.45);line-height:1.65">We map out exactly what you need, what type of VA fits best, and what you should hand off first.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">02</div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:6px">Matched within 48 hours</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.45);line-height:1.65">We match you with a pre-vetted VA from our trained roster. You meet them before they start.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">03</div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:6px">Briefed before day one</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.45);line-height:1.65">Your VA is briefed on your tools, tone, and workflows before they show up. No ramp-up time, no hand-holding.</div>
+        </div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">04</div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:6px">Shadow week</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.45);line-height:1.65">Week one is a supervised handoff. You check their work, give feedback, build trust. Most clients go fully hands-off by day seven.</div>
+        </div>
+      </div>
+      <div class="process-step" style="border-bottom:none">
+        <div class="step-num">05</div>
+        <div>
+          <div style="font-size:16px;font-weight:700;color:#fff;margin-bottom:6px">You stop doing $10/hour work</div>
+          <div style="font-size:14px;color:rgba(255,255,255,.45);line-height:1.65">By week two, you're getting a daily summary instead of living in your inbox. Your highest-leverage hours go back to growing the business.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+function showTab(id, btn) {
+  document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById('panel-' + id).classList.add('active');
+}
+</script>
+</body>
+</html>

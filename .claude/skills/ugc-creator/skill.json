@@ -1,0 +1,39 @@
+{
+  "skill_id": "ugc-creator",
+  "version": "1.0.0",
+  "description": "Hyper-realistic AI UGC studio — generates consistent, photorealistic UGC image and video prompts for social media campaigns",
+  "modules": [
+    "actors/{actor-id}.json",
+    "engines/realism.json",
+    "profiles/camera-profiles.json",
+    "systems/prompt-layers.json",
+    "shot-types/ugc-shots.json",
+    "integrations/kling-fal.json",
+    "systems/consistency-protocol.json"
+  ],
+  "entry_commands": [
+    {
+      "command": "ugc create-actor",
+      "description": "Generate a new actor identity card interactively"
+    },
+    {
+      "command": "ugc generate-shot",
+      "description": "Build a full 6-layer prompt for a given actor and shot type"
+    },
+    {
+      "command": "ugc generate-video",
+      "description": "Generate anchor frame then call Kling 3.0 via fal.ai for video output"
+    },
+    {
+      "command": "ugc validate-prompt",
+      "description": "Check a prompt against all hard-enforcement consistency rules"
+    }
+  ],
+  "hard_rules_summary": [
+    "All 10 realism anchors required in every prompt",
+    "prompt_seed must be locked per actor across all shots",
+    "All 6 prompt layers must be present in order",
+    "FAL_KEY must never be hardcoded",
+    "Video prompts use motion descriptors only — no appearance description"
+  ]
+}

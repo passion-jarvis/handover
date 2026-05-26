@@ -1,0 +1,148 @@
+- generic [ref=e1]:
+  - banner [ref=e2]:
+    - navigation [ref=e202]:
+      - link [ref=e203] [cursor=pointer]:
+        - /url: /
+        - img [ref=e5]
+      - generic [ref=e8]:
+        - link [ref=e204] [cursor=pointer]:
+          - /url: /
+          - text: Explore
+        - button [ref=e205] [cursor=pointer]: Image
+        - button [ref=e206] [cursor=pointer]: Video
+        - button [ref=e207] [cursor=pointer]: Audio
+        - link [ref=e208] [cursor=pointer]:
+          - /url: /generate
+          - text: Chat
+          - generic [ref=e17]: New
+        - button [ref=e209] [cursor=pointer]: Edit
+        - button [ref=e210] [cursor=pointer]: Character
+        - link [ref=e211] [cursor=pointer]:
+          - /url: /moodboard
+          - text: Moodboard
+        - link [ref=e212] [cursor=pointer]:
+          - /url: /cinema-studio
+          - text: Cinema Studio
+          - generic [ref=e25]: "2.5"
+        - link [ref=e213] [cursor=pointer]:
+          - /url: /original-series
+          - text: Original Series
+          - generic [ref=e27]: New
+        - link [ref=e214] [cursor=pointer]:
+          - /url: /apps
+          - text: Apps
+        - link [ref=e215] [cursor=pointer]:
+          - /url: /chat
+          - text: Assist
+        - button [ref=e216] [cursor=pointer]: Gallery
+      - generic [ref=e33]:
+        - link [ref=e217] [cursor=pointer]:
+          - /url: /pricing
+          - generic [ref=e35]:
+            - img [ref=e150]
+            - text: Upgrade
+            - generic [ref=e38]: 30% OFF
+        - separator [ref=e39]
+        - generic [ref=e153]:
+          - button [ref=e218] [cursor=pointer]:
+            - img [ref=e156]
+          - link [ref=e219] [cursor=pointer]:
+            - /url: /asset/all
+            - img [ref=e220]
+            - generic [ref=e161]: Assets
+          - button [ref=e221] [cursor=pointer]:
+            - generic [ref=e165]
+  - main [ref=e50]:
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - tablist [ref=e56]:
+            - tab [selected] [ref=e223] [cursor=pointer]
+            - tab [ref=e224] [cursor=pointer]
+          - slider [ref=e68]
+        - generic [ref=e171]:
+          - generic [ref=e174]:
+            - img [ref=e225]
+            - generic [ref=e177] [cursor=pointer]
+          - generic [ref=e180]:
+            - img [ref=e226]
+            - generic [ref=e183] [cursor=pointer]
+          - generic [ref=e186]:
+            - img [ref=e227]
+            - generic [ref=e189] [cursor=pointer]
+      - group [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e75]:
+            - button [ref=e76] [cursor=pointer]
+            - generic [ref=e79]
+          - generic [ref=e81]:
+            - group [ref=e83]
+            - generic [ref=e95]
+            - group [ref=e107]
+            - button [ref=e230] [cursor=pointer]
+            - button [ref=e130] [cursor=pointer]
+            - generic [ref=e133]
+            - generic [ref=e136] [cursor=pointer]
+        - complementary [ref=e139]:
+          - button [ref=e233] [cursor=pointer]:
+            - generic [ref=e142]
+  - alert [ref=e148]
+  - dialog [ref=e236]:
+    - button "Dismiss" [ref=e238] [cursor=pointer]
+    - generic [ref=e239]: Aspect ratio
+    - listbox [ref=e240]:
+      - group [ref=e241]:
+        - option "Auto" [ref=e242]:
+          - generic [ref=e243]:
+            - img [ref=e245]
+            - generic [ref=e249]: Auto
+        - option "1:1" [ref=e250]:
+          - generic [ref=e251]:
+            - img [ref=e253]
+            - generic [ref=e257]: 1:1
+        - option "3:4" [active] [selected] [ref=e258]:
+          - generic [ref=e259]:
+            - img [ref=e261]
+            - generic [ref=e263]
+        - option "4:3" [ref=e268]:
+          - generic [ref=e269]:
+            - img [ref=e271]
+            - generic [ref=e275]: 4:3
+        - option "2:3" [ref=e276]:
+          - generic [ref=e277]:
+            - img [ref=e279]
+            - generic [ref=e283]: 2:3
+        - option "3:2" [ref=e284]:
+          - generic [ref=e285]:
+            - img [ref=e287]
+            - generic [ref=e291]: 3:2
+        - option "9:16" [ref=e292]:
+          - generic [ref=e293]:
+            - img [ref=e295]
+            - generic [ref=e299]: 9:16
+        - option "16:9" [ref=e300]:
+          - generic [ref=e301]:
+            - img [ref=e303]
+            - generic [ref=e307]: 16:9
+        - option "5:4" [ref=e308]:
+          - generic [ref=e309]:
+            - img [ref=e311]
+            - generic [ref=e315]: 5:4
+        - option "4:5" [ref=e316]:
+          - generic [ref=e317]:
+            - img [ref=e319]
+            - generic [ref=e323]: 4:5
+        - option "21:9" [ref=e324]:
+          - generic [ref=e325]:
+            - img [ref=e327]
+            - generic [ref=e331]: 21:9
+    - button "Dismiss" [ref=e333] [cursor=pointer]
+  - generic:
+    - img
+  - generic:
+    - img
+  - generic:
+    - img
+  - generic [ref=e335]:
+    - text: Adds two FREE Seedream generations in parallel
+    - tooltip [ref=e336]: Adds two FREE Seedream generations in parallel

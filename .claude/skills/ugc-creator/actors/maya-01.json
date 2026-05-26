@@ -1,0 +1,51 @@
+{
+  "actor_id": "maya-01",
+  "face": {
+    "shape": "oval",
+    "symmetry": "slight-asymmetry",
+    "forehead": "medium",
+    "cheekbones": "prominent"
+  },
+  "eyes": {
+    "shape": "almond",
+    "color": "#6B4F3A",
+    "spacing": "average",
+    "lashes": "full"
+  },
+  "skin": {
+    "tone_hex": "#C68642",
+    "undertone": "warm",
+    "texture": "normal",
+    "conditions": ["freckles"]
+  },
+  "hair": {
+    "color": "#2C1B0E",
+    "texture": "wavy",
+    "length": "shoulder",
+    "style_default": "loosely tousled, parted slightly off-center"
+  },
+  "jawline": "soft",
+  "distinguishing_marks": ["small mole above lip-left", "faint freckle cluster on right cheek"],
+  "outfit_variations": [
+    {
+      "outfit_id": "casual-01",
+      "description": "Relaxed everyday look — off-white ribbed crop top, light wash distressed denim jeans",
+      "colors": ["#F5F0E8", "#A8C4D4"],
+      "fabric_keywords": ["ribbed cotton", "distressed denim"]
+    },
+    {
+      "outfit_id": "cozy-02",
+      "description": "At-home cozy look — oversized dusty rose hoodie, biker shorts",
+      "colors": ["#C9A0A0", "#2B2B2B"],
+      "fabric_keywords": ["fleece hoodie", "athletic spandex"]
+    },
+    {
+      "outfit_id": "elevated-03",
+      "description": "Polished casual — sage green linen button-down half-tucked, cream wide-leg trousers",
+      "colors": ["#8FAF8F", "#F2EDE3"],
+      "fabric_keywords": ["linen", "wide-leg cotton twill"]
+    }
+  ],
+  "prompt_seed": 482917,
+  "negative_anchors": ["smooth plastic skin", "perfect symmetry", "airbrushed face", "studio lighting halo", "heavy makeup"]
+}

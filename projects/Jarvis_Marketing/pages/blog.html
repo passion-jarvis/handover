@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Blog | Jarvis VA — Insights for Business Owners</title>
+<meta name="description" content="Real stories and guides for business owners who are tired of doing everything themselves. Virtual assistants, AI automation, and how to delegate the right way.">
+<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Arimo',sans-serif;color:#242424;background:#fff;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+
+/* HERO */
+.hero{background:#0a0a0a;padding:80px 32px 60px;text-align:center;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 0%,rgba(202,230,0,.1) 0%,transparent 70%);pointer-events:none}
+.hero-inner{position:relative;z-index:1;max-width:700px;margin:0 auto}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(202,230,0,.12);border:1px solid rgba(202,230,0,.25);border-radius:100px;padding:7px 16px;font-size:12px;font-weight:600;color:#CAE600;margin-bottom:24px;letter-spacing:.5px;text-transform:uppercase}
+.hero h1{font-size:clamp(32px,4vw,52px);font-weight:400;color:#fff;line-height:1.1;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:#CAE600}
+.hero p{font-size:17px;color:rgba(255,255,255,.5);line-height:1.7}
+
+/* FILTERS */
+.filters{padding:32px 32px 0;display:flex;flex-wrap:wrap;gap:10px}
+.filter-btn{padding:8px 18px;border:1.5px solid #e4e4e4;border-radius:100px;background:#fff;cursor:pointer;font-family:'Arimo',sans-serif;font-size:13px;font-weight:500;color:#666;transition:all .15s}
+.filter-btn:hover,.filter-btn.active{border-color:#CAE600;background:#CAE600;color:#000;font-weight:600}
+
+/* FEATURED ARTICLE */
+.featured{padding:40px 32px 0}
+.featured-card{display:grid;grid-template-columns:1fr 1fr;border:1px solid #e4e4e4;border-radius:20px;overflow:hidden;text-decoration:none;color:inherit;transition:box-shadow .2s}
+.featured-card:hover{box-shadow:0 8px 40px rgba(0,0,0,.1)}
+.featured-img{width:100%;height:100%;min-height:320px;object-fit:cover;display:block}
+.featured-body{padding:40px 40px 36px;display:flex;flex-direction:column;justify-content:space-between}
+.featured-tag{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#CAE600;margin-bottom:16px}
+.featured-title{font-size:clamp(22px,2.5vw,30px);font-weight:600;line-height:1.25;color:#111;margin-bottom:16px}
+.featured-excerpt{font-size:15px;color:rgba(0,0,0,.5);line-height:1.7;margin-bottom:24px}
+.featured-meta{display:flex;align-items:center;gap:16px;font-size:13px;color:#aaa}
+.featured-read{font-size:14px;font-weight:600;color:#CAE600}
+
+/* ARTICLE GRID */
+.articles{padding:40px 32px 80px}
+.articles-label{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:24px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+
+.article-card{border:1px solid #e4e4e4;border-radius:16px;overflow:hidden;text-decoration:none;color:inherit;transition:box-shadow .2s,border-color .2s;display:flex;flex-direction:column}
+.article-card:hover{box-shadow:0 6px 28px rgba(0,0,0,.08);border-color:#CAE600}
+.article-card.coming-soon{opacity:.5;pointer-events:none}
+
+.card-img{width:100%;height:200px;object-fit:cover;display:block;background:#f5f5f5}
+.card-body{padding:24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.card-tag{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#CAE600}
+.card-title{font-size:17px;font-weight:600;line-height:1.35;color:#111}
+.card-excerpt{font-size:14px;color:rgba(0,0,0,.5);line-height:1.65;flex:1}
+.card-meta{display:flex;align-items:center;justify-content:space-between;margin-top:8px}
+.card-read{font-size:12px;color:#aaa}
+.card-cta{font-size:13px;font-weight:600;color:#CAE600}
+.coming-badge{font-size:11px;font-weight:600;color:#aaa;background:#f5f5f5;padding:3px 10px;border-radius:20px}
+
+/* CTA */
+.blog-cta{background:#0a0a0a;padding:72px 32px;text-align:center}
+.blog-cta h2{font-size:clamp(26px,3vw,40px);font-weight:400;color:#fff;margin-bottom:14px}
+.blog-cta h2 em{font-style:italic;color:#CAE600}
+.blog-cta p{font-size:16px;color:#888;max-width:440px;margin:0 auto 32px}
+.btn{display:inline-block;background:#CAE600;color:#000;font-size:15px;font-weight:600;padding:16px 32px;border-radius:100px;text-decoration:none;transition:background .15s}
+.btn:hover{background:#b5cc00}
+
+@media(max-width:720px){
+  .featured-card{grid-template-columns:1fr}
+  .featured-img{min-height:220px}
+}
+</style>
+</head>
+<body>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">Jarvis Blog</div>
+    <h1>The parts of your business<br>you should <em>stop doing yourself</em></h1>
+    <p>Real stories, frameworks, and guides for business owners who are ready to delegate.</p>
+  </div>
+</section>
+
+<div class="filters">
+  <button class="filter-btn active">All</button>
+  <button class="filter-btn">AI vs VA</button>
+  <button class="filter-btn">Delegation guides</button>
+  <button class="filter-btn">Industry use cases</button>
+  <button class="filter-btn">Client stories</button>
+</div>
+
+<!-- FEATURED -->
+<section class="featured">
+  <a href="/pages/blog/ai-vs-virtual-assistant" class="featured-card">
+    <img class="featured-img" src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=800&q=80&fit=crop" alt="AI vs Virtual Assistant">
+    <div class="featured-body">
+      <div>
+        <div class="featured-tag">AI vs VA</div>
+        <div class="featured-title">Can AI Replace a Virtual Assistant? Here's What Actually Happens When You Try.</div>
+        <div class="featured-excerpt">Business owners are replacing VAs with ChatGPT. Some tasks work. Most don't. Here's exactly where AI hits the ceiling, with real examples from clients who tried both.</div>
+      </div>
+      <div>
+        <div class="featured-meta">
+          <span>April 22, 2026</span>
+          <span>8 min read</span>
+        </div>
+        <div class="featured-read" style="margin-top:12px">Read article →</div>
+      </div>
+    </div>
+  </a>
+</section>
+
+<!-- ARTICLE GRID -->
+<section class="articles">
+  <div class="articles-label">All articles</div>
+  <div class="grid">
+
+    <!-- PUBLISHED -->
+    <a href="/pages/blog/ai-vs-virtual-assistant" class="article-card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1677442135703-1787eea5ce01?w=600&q=80&fit=crop" alt="">
+      <div class="card-body">
+        <div class="card-tag">AI vs VA</div>
+        <div class="card-title">Can AI Replace a Virtual Assistant? Here's What Actually Happens When You Try.</div>
+        <div class="card-excerpt">ChatGPT can draft. It can categorize. It cannot close a deal, calm an upset client, or decide what matters. Here's the breakdown.</div>
+        <div class="card-meta">
+          <span class="card-read">8 min read</span>
+          <span class="card-cta">Read →</span>
+        </div>
+      </div>
+    </a>
+
+    <a href="/blogs/blogs/virtual-assistant-real-estate" class="article-card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80&fit=crop" alt="Real estate">
+      <div class="card-body">
+        <div class="card-tag">Industry</div>
+        <div class="card-title">Virtual Assistant for Real Estate Agents: How to Respond to Every Lead in 2 Minutes</div>
+        <div class="card-excerpt">Zillow leads have a 5-minute window. One agent went from missing deals during showings to closing 12 more transactions a year — without extra hours.</div>
+        <div class="card-meta"><span class="card-read">6 min read</span><span class="card-cta">Read →</span></div>
+      </div>
+    </a>
+
+    <a href="/blogs/blogs/delegate-your-inbox" class="article-card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1484807352052-23338990c6c6?w=600&q=80&fit=crop" alt="Inbox">
+      <div class="card-body">
+        <div class="card-tag">Delegation guide</div>
+        <div class="card-title">How to Delegate Your Inbox to a VA Without Losing Control</div>
+        <div class="card-excerpt">The exact 5-step handoff: access, rules, shadow period, escalation triggers, and daily summary mode. Most founders are at zero inbox hours in 2 weeks.</div>
+        <div class="card-meta"><span class="card-read">7 min read</span><span class="card-cta">Read →</span></div>
+      </div>
+    </a>
+
+    <a href="/blogs/blogs/300-dollar-vs-20-dollar-mistake" class="article-card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600&q=80&fit=crop" alt="Founder working">
+      <div class="card-body">
+        <div class="card-tag">Delegation guide</div>
+        <div class="card-title">The $300/Hour vs $20/Hour Mistake Every Founder Makes</div>
+        <div class="card-excerpt">Most founders doing $10K-$50K/month are spending 3-4 hours a day on work that costs $20/hour to outsource. Here's the math and the fix.</div>
+        <div class="card-meta"><span class="card-read">5 min read</span><span class="card-cta">Read →</span></div>
+      </div>
+    </a>
+
+    <a href="/blogs/blogs/virtual-assistant-financial-advisors" class="article-card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=600&q=80&fit=crop" alt="Financial advisor">
+      <div class="card-body">
+        <div class="card-tag">Industry</div>
+        <div class="card-title">Virtual Assistant for Financial Advisors: How to Double Your Client Review Meetings</div>
+        <div class="card-excerpt">Every review meeting takes 2 hours to prep. A VA does it the day before. One advisor went from 3 meetings a week to 7 — same effort, more than double the output.</div>
+        <div class="card-meta"><span class="card-read">6 min read</span><span class="card-cta">Read →</span></div>
+      </div>
+    </a>
+
+    <a href="/blogs/blogs/virtual-assistant-business-coaches" class="article-card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1499750310107-5fef28a66643?w=600&q=80&fit=crop" alt="Business coach">
+      <div class="card-body">
+        <div class="card-tag">Industry</div>
+        <div class="card-title">Virtual Assistant for Business Coaches: From 400 Unread DMs to 11 Booked Calls</div>
+        <div class="card-excerpt">Some of those DMs are leads. Here's how one coach recovered $15K from ignored messages in month one — and why bookkeeping VAs are the second most common hire.</div>
+        <div class="card-meta"><span class="card-read">6 min read</span><span class="card-cta">Read →</span></div>
+      </div>
+    </a>
+
+    <a href="/blogs/blogs/virtual-assistant-contractors" class="article-card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80&fit=crop" alt="Construction">
+      <div class="card-body">
+        <div class="card-tag">Industry</div>
+        <div class="card-title">Virtual Assistant for Contractors: Stop Chasing Insurance Certificates Every Monday</div>
+        <div class="card-excerpt">3 hours every Monday on subcontractor admin. That's 150 hours a year. One GC got it back and grew from $3M to $4.2M in 12 months.</div>
+        <div class="card-meta"><span class="card-read">5 min read</span><span class="card-cta">Read →</span></div>
+      </div>
+    </a>
+
+    <a href="/blogs/blogs/automate-vs-delegate-framework" class="article-card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=80&fit=crop" alt="Decision framework">
+      <div class="card-body">
+        <div class="card-tag">AI vs VA</div>
+        <div class="card-title">What to Automate vs What to Delegate: The Exact Decision Framework</div>
+        <div class="card-excerpt">Not every task needs a VA. Not every task can be automated. One question decides every task — with 30 real examples sorted into the right bucket.</div>
+        <div class="card-meta"><span class="card-read">9 min read</span><span class="card-cta">Read →</span></div>
+      </div>
+      </div>
+    </div>
+
+    <a href="/blogs/blogs/virtual-assistant-ecommerce" class="article-card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&q=80&fit=crop" alt="E-commerce">
+      <div class="card-body">
+        <div class="card-tag">Industry</div>
+        <div class="card-title">Virtual Assistant for E-Commerce: How a Shopify Founder Went From 4 Hours in Her Inbox to Zero</div>
+        <div class="card-excerpt">40-50 customer emails every morning. She went from $1.2M to $1.8M in 8 months by handing all of it to a VA and launching two new products instead.</div>
+        <div class="card-meta"><span class="card-read">6 min read</span><span class="card-cta">Read →</span></div>
+      </div>
+    </a>
+
+    <a href="/blogs/blogs/what-to-delegate-first" class="article-card">
+      <img class="card-img" src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80&fit=crop" alt="Delegation">
+      <div class="card-body">
+        <div class="card-tag">Delegation guide</div>
+        <div class="card-title">What to Delegate First: A Checklist for Business Owners at $10K+/Month</div>
+        <div class="card-excerpt">The first hire is always the hardest. The exact tier-by-tier checklist we use with every new client — Tier 1 goes live on day one.</div>
+        <div class="card-meta"><span class="card-read">5 min read</span><span class="card-cta">Read →</span></div>
+      </div>
+    </a>
+
+  </div>
+</section>
+
+<section class="blog-cta">
+  <div class="wrap">
+    <h2>Ready to stop doing<br><em>the $20/hour work yourself?</em></h2>
+    <p>15-minute call. We'll map out exactly what your VA would handle from day one.</p>
+    <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="btn">Book a Free Call</a>
+  </div>
+</section>
+
+</body>
+</html>

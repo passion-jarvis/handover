@@ -1,0 +1,56 @@
+{
+  "profiles": [
+    {
+      "profile_id": "selfie-front-cam",
+      "display_name": "iPhone Front Camera Selfie",
+      "technical_params": {
+        "focal_length_equiv": "23mm",
+        "aperture": "f/1.9",
+        "processing_style": "Smart HDR, slight skin smoothing, face-brightening AI",
+        "distortion": "mild barrel, face slightly wider than reality",
+        "depth_of_field": "shallow, background softly blurred",
+        "noise_profile": "low in good light, visible chroma noise in dim"
+      },
+      "injection_phrase": "iPhone front camera selfie, 23mm equiv, f/1.9, Smart HDR processing, slight face-widening barrel distortion, shallow DOF background blur"
+    },
+    {
+      "profile_id": "rear-cam",
+      "display_name": "iPhone Rear Main Camera",
+      "technical_params": {
+        "focal_length_equiv": "26mm",
+        "aperture": "f/1.5",
+        "processing_style": "Photonic Engine, high dynamic range, natural skin tones",
+        "distortion": "minimal",
+        "depth_of_field": "variable, Portrait Mode optional",
+        "noise_profile": "extremely low, fine grain only in shadows"
+      },
+      "injection_phrase": "iPhone 15 Pro rear main camera, 26mm equiv, f/1.5, Photonic Engine, natural tones, minimal distortion, fine shadow grain"
+    },
+    {
+      "profile_id": "mirror-selfie",
+      "display_name": "Mirror Selfie (Rear Cam)",
+      "technical_params": {
+        "focal_length_equiv": "26mm",
+        "aperture": "f/1.5",
+        "processing_style": "phone visible in frame, slight reflection artifacts on mirror surface",
+        "distortion": "mirror edge darkening, slight smudge or fingerprint on mirror",
+        "depth_of_field": "full body usually in focus",
+        "noise_profile": "depends on bathroom/bedroom lighting"
+      },
+      "injection_phrase": "mirror selfie shot with iPhone visible in hand, slight mirror smudge, edge darkening, full-body framing, bathroom or bedroom setting"
+    },
+    {
+      "profile_id": "overhead-flatlay",
+      "display_name": "Overhead Flatlay",
+      "technical_params": {
+        "focal_length_equiv": "26mm",
+        "aperture": "f/1.5",
+        "processing_style": "top-down 90-degree angle, product arrangement visible",
+        "distortion": "mild perspective distortion from height",
+        "depth_of_field": "deep, most items in focus",
+        "noise_profile": "clean with diffused natural light preferred"
+      },
+      "injection_phrase": "overhead flatlay 90-degree top-down iPhone shot, diffused natural window light, mild perspective distortion, deep focus across all elements"
+    }
+  ]
+}

@@ -1,0 +1,253 @@
+{
+  "version": "v4",
+  "generated": "2026-03-23T17:38:04.630Z",
+  "model": "fal-ai/flux-pro/v1.1",
+  "note": "Visuals only — no text. Text to be added in Canva.",
+  "summary": {
+    "total": 40,
+    "done": 40,
+    "errors": 0
+  },
+  "assets": [
+    {
+      "id": "c1-time-prison-01",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c1-time-prison/c1-time-prison-01.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358fd/zjDOtC-hDPFbVJDi0NqId_a169a0db708e4b90917f1a11b801c7cd.jpg"
+    },
+    {
+      "id": "c1-time-prison-02",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c1-time-prison/c1-time-prison-02.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358fd/i5TVIKn0rlcXhXjI7TEBA_2b780f1c41d54db397ae1bf01585f43f.jpg"
+    },
+    {
+      "id": "c1-time-prison-03",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c1-time-prison/c1-time-prison-03.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358fd/qyvO5IqdmIkUCQJHEE-xA_5bd95ff5bd3840ec9eed9c62eb9505d8.jpg"
+    },
+    {
+      "id": "c1-time-prison-04",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c1-time-prison/c1-time-prison-04.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358fd/6juZAeCO5QOkyyvXuZpMR_6a1a8bce942b4799b751130172b62ca9.jpg"
+    },
+    {
+      "id": "c1-time-prison-05",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c1-time-prison/c1-time-prison-05.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358fd/Zi_uWQXL_1mSTqC7Q6cKu_0a0481252e8e42b6a774a16dead7a9ae.jpg"
+    },
+    {
+      "id": "c1-time-prison-06",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c1-time-prison/c1-time-prison-06.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358fe/JeYvT9gxPxT-aF9ITv78N_ca4ea311ed464c81a9d2da80549fc0b1.jpg"
+    },
+    {
+      "id": "c1-time-prison-07",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c1-time-prison/c1-time-prison-07.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358fe/AwUUWCm71OWHgEt5lczSB_2acfac6ddea24f35985c5ff56f78d61b.jpg"
+    },
+    {
+      "id": "c1-time-prison-08",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c1-time-prison/c1-time-prison-08.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358fe/EAujiDRlmow2MptOxxaY2_5c2a16914d5a45e2a3871667288a0732.jpg"
+    },
+    {
+      "id": "c1-time-prison-09",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c1-time-prison/c1-time-prison-09.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358fe/51hbOB-FpRqbCqAqltulY_071a4f5183b9433f8b80aea8730ab140.jpg"
+    },
+    {
+      "id": "c1-time-prison-10",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c1-time-prison/c1-time-prison-10.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358fe/TAYjH2i_82-RnhhDG3ZLW_38d20a810efb4ec191e0390b4d07cfe1.jpg"
+    },
+    {
+      "id": "c2-10hr-trap-01",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c2-10hr-trap/c2-10hr-trap-01.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358ff/ojV5nuOm2vJnFDWyaW-JK_a964576afd854f35895f3dbc943611da.jpg"
+    },
+    {
+      "id": "c2-10hr-trap-02",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c2-10hr-trap/c2-10hr-trap-02.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935906/vG7SnZKCsj1jRMYjGC5YP_840394b383cc424287863519a1539ef8.jpg"
+    },
+    {
+      "id": "c2-10hr-trap-03",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c2-10hr-trap/c2-10hr-trap-03.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358ff/JQdkyFxHBwbfDmqbOpaku_e286d6ac6ef340a5aa37db7c154bfcda.jpg"
+    },
+    {
+      "id": "c2-10hr-trap-04",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c2-10hr-trap/c2-10hr-trap-04.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935906/pFxkrE1UtF-Wo0-_CLWMR_a21e4508a5944d83b5a3c26c7715107c.jpg"
+    },
+    {
+      "id": "c2-10hr-trap-05",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c2-10hr-trap/c2-10hr-trap-05.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935901/e_WBFe3jkFXBKBM7kJst2_928dc65553424894a23a44c1d2d2d501.jpg"
+    },
+    {
+      "id": "c2-10hr-trap-06",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c2-10hr-trap/c2-10hr-trap-06.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935907/uWsdxLBRSNFD0Ks85s-n-_4579ad58ed644e238df7471acfa0e55a.jpg"
+    },
+    {
+      "id": "c2-10hr-trap-07",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c2-10hr-trap/c2-10hr-trap-07.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935908/aDfNXgEo__qPOHd3MNtIc_ae9f8d56d961492c8c8c736b4270923e.jpg"
+    },
+    {
+      "id": "c2-10hr-trap-08",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c2-10hr-trap/c2-10hr-trap-08.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935907/OTyPZ9IdryAIo71b98xxA_27aff4ea31d445c5a5d2d3e4712958b2.jpg"
+    },
+    {
+      "id": "c2-10hr-trap-09",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c2-10hr-trap/c2-10hr-trap-09.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935907/5XkZoO1pb3nuILVLau53l_1632215388c041faa2031e7d77ad8268.jpg"
+    },
+    {
+      "id": "c2-10hr-trap-10",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c2-10hr-trap/c2-10hr-trap-10.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935907/wHXFbXHrfV5m31eunxSHP_d648bed11bc5456ca222e6f2d966ca3e.jpg"
+    },
+    {
+      "id": "c3-va-week-01",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c3-va-week/c3-va-week-01.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935909/e7SI7K6tvyJqXSf8cKT7G_032d9d8a63c84c1093e85710a4067660.jpg"
+    },
+    {
+      "id": "c3-va-week-02",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c3-va-week/c3-va-week-02.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935908/x0tx6hCkpJQpbbKDixBeH_7b4d75692d754f29b5be7e39dacb62e5.jpg"
+    },
+    {
+      "id": "c3-va-week-03",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c3-va-week/c3-va-week-03.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935908/9yREwIGudpozeDq4THBbd_f63eae190c93453f8e3bbd0cca80bb42.jpg"
+    },
+    {
+      "id": "c3-va-week-04",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c3-va-week/c3-va-week-04.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935908/QMQuQxp-NltYSf-3koOmk_08101d57a15342d389bb24e960efbfc4.jpg"
+    },
+    {
+      "id": "c3-va-week-05",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c3-va-week/c3-va-week-05.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935908/S2_U2weW2UACLROQhmKS4_0eea889b04da4b95abb144720796a65c.jpg"
+    },
+    {
+      "id": "c3-va-week-06",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c3-va-week/c3-va-week-06.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935909/aQ5TlErv8GnAQ5TWccxQM_618c4fbf97ed4b01b42c49c034328bfe.jpg"
+    },
+    {
+      "id": "c3-va-week-07",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c3-va-week/c3-va-week-07.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935909/6Lt90VPhaw3Pzrh4GPyTP_deee8a3e97c64ac5bfd14e756f45c820.jpg"
+    },
+    {
+      "id": "c3-va-week-08",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c3-va-week/c3-va-week-08.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935909/eL8S0mt9_e1WBs-SPwRFL_271ffb4c116c40bb91f440306c741a05.jpg"
+    },
+    {
+      "id": "c3-va-week-09",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c3-va-week/c3-va-week-09.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935909/V0qLJrD5LbkOwdNA3D0nm_40ca25aa8d7540328d4a8aaa54c2cfde.jpg"
+    },
+    {
+      "id": "c3-va-week-10",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c3-va-week/c3-va-week-10.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a935909/_9K3gLhqjnXEznNz3OqIo_055240d589fc48bbbd10ceb864e754ff.jpg"
+    },
+    {
+      "id": "c4-guarantee-01",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c4-guarantee/c4-guarantee-01.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a93590a/o-Ek7ls9sYFxJ7isVFlfp_271a6713783e4024ae29cf68eff7f59e.jpg"
+    },
+    {
+      "id": "c4-guarantee-02",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c4-guarantee/c4-guarantee-02.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a93590a/zqZuwRhg6HVZRxdbwvW5u_5f49693ba0e745e1be9335c33cff12d1.jpg"
+    },
+    {
+      "id": "c4-guarantee-03",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c4-guarantee/c4-guarantee-03.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a93590a/PBA0gPe5strgAPyyzDQAc_23b7a7a94162474d9021cdad43015bac.jpg"
+    },
+    {
+      "id": "c4-guarantee-04",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c4-guarantee/c4-guarantee-04.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a93590a/N5rA3eNYfU0TVLOh7ft0N_6c01098116814fefb90bf6ff0801b362.jpg"
+    },
+    {
+      "id": "c4-guarantee-05",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c4-guarantee/c4-guarantee-05.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a93590a/PXIb5SGvc03WiAzgYcFlY_464cf61221d34058b93a7a7b99d83f03.jpg"
+    },
+    {
+      "id": "c4-guarantee-06",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c4-guarantee/c4-guarantee-06.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a93590b/JykqxQQHtZPFQV4Aqk1hY_5ce2e60b700a42da83cc48962347d79d.jpg"
+    },
+    {
+      "id": "c4-guarantee-07",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c4-guarantee/c4-guarantee-07.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a93590b/L_ltjNeBLVhMNnlgl3mvX_1587c36d979b4a30ae7434b79c710a87.jpg"
+    },
+    {
+      "id": "c4-guarantee-08",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c4-guarantee/c4-guarantee-08.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a93590b/FKb0w7ZAgQHSYBv2rxTPh_aa839f2b17b14d29877c47646ceac05c.jpg"
+    },
+    {
+      "id": "c4-guarantee-09",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c4-guarantee/c4-guarantee-09.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a93590b/8Somh4iNtyE4xk248KU4U_39e9e34ed8724ad9a6b7a9b47a24b092.jpg"
+    },
+    {
+      "id": "c4-guarantee-10",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v3/c4-guarantee/c4-guarantee-10.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a93590c/XVAEl_3lmr0bvN4Ps2aok_9fe22fd1cbd948f39bc5ecba83a38283.jpg"
+    }
+  ]
+}

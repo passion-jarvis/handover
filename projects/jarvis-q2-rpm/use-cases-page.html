@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Use Cases | Jarvis VA</title>
+<link href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Arimo',sans-serif;color:#242424;background:#fff;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+
+/* HERO */
+.hero{padding:96px 24px 72px;text-align:center}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:#f5f5f5;border-radius:100px;padding:8px 18px;font-size:13px;font-weight:600;letter-spacing:.5px;color:#555;margin-bottom:28px}
+.hero-eyebrow span{width:7px;height:7px;border-radius:50%;background:#CAE600;display:inline-block}
+.hero h1{font-size:clamp(36px,5vw,62px);font-weight:400;line-height:1.08;letter-spacing:-.5px;margin-bottom:20px}
+.hero h1 em{font-style:italic;color:#CAE600}
+.hero p{font-size:clamp(16px,1.8vw,19px);color:rgba(0,0,0,.5);max-width:520px;margin:0 auto 36px;line-height:1.65}
+.hero-cta{display:inline-block;background:#CAE600;color:#000;font-size:15px;font-weight:600;padding:16px 32px;border-radius:100px;text-decoration:none}
+
+/* CASES SECTION */
+.cases{padding:0 24px 100px}
+
+/* CARD */
+.case-card{border:1px solid #e8e8e8;border-radius:20px;overflow:hidden;margin-bottom:24px;display:grid;grid-template-columns:1fr 1fr;transition:box-shadow .25s}
+.case-card:hover{box-shadow:0 12px 48px rgba(0,0,0,.08)}
+
+/* LEFT — SITUATION */
+.card-left{padding:48px 44px;display:flex;flex-direction:column;justify-content:space-between;gap:32px;background:#fff}
+.card-tag{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#888}
+.card-tag-dot{width:6px;height:6px;border-radius:50%;background:#CAE600;flex-shrink:0}
+
+.card-situation{flex:1}
+.card-situation-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#CAE600;margin-bottom:14px}
+.card-headline{font-size:clamp(22px,2.2vw,28px);font-weight:400;line-height:1.25;color:#242424;margin-bottom:18px}
+.card-body{font-size:15px;color:rgba(0,0,0,.55);line-height:1.7}
+
+/* RIGHT — VA + RESULTS */
+.card-right{padding:48px 44px;background:#f9f9f9;display:flex;flex-direction:column;gap:32px}
+
+.va-block-label{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#888;margin-bottom:14px}
+.va-tasks{display:flex;flex-direction:column;gap:10px}
+.va-task{display:flex;align-items:flex-start;gap:10px;font-size:15px;color:#242424;line-height:1.5}
+.va-task-icon{width:22px;height:22px;border-radius:50%;background:#CAE600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.va-task-icon svg{width:11px;height:11px}
+
+.results-strip{border-top:1px solid #e8e8e8;padding-top:28px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.result-item{text-align:center}
+.result-number{font-size:clamp(20px,2vw,26px);font-weight:700;color:#242424;line-height:1}
+.result-number.green{color:#1a7a1a}
+.result-desc{font-size:11px;color:#999;margin-top:5px;line-height:1.4}
+
+/* DIVIDER */
+.section-divider{text-align:center;padding:16px 0 48px;font-size:13px;color:#bbb;letter-spacing:1px}
+
+/* BOTTOM CTA */
+.bottom-cta{background:#111;padding:80px 24px;text-align:center;border-radius:24px;margin:0 24px 80px}
+.bottom-cta h2{font-size:clamp(28px,3.5vw,46px);font-weight:400;color:#fff;margin-bottom:16px;line-height:1.1}
+.bottom-cta h2 em{font-style:italic;color:#CAE600}
+.bottom-cta p{font-size:17px;color:#afafaf;max-width:440px;margin:0 auto 36px;line-height:1.6}
+.bottom-cta a{display:inline-block;background:#CAE600;color:#000;font-size:16px;font-weight:600;padding:18px 36px;border-radius:100px;text-decoration:none}
+
+/* RESPONSIVE */
+@media(max-width:768px){
+  .case-card{grid-template-columns:1fr}
+  .card-left,.card-right{padding:36px 28px}
+  .results-strip{grid-template-columns:repeat(3,1fr)}
+  .result-number{font-size:20px}
+  .hero{padding:72px 24px 56px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-eyebrow"><span></span>Use Cases</div>
+    <h1>Does any of this<br><em>sound familiar?</em></h1>
+    <p>Real situations. Real founders. Here's what happened when they stopped doing it themselves.</p>
+    <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation" class="hero-cta">See if Jarvis is a fit — free 15-min call</a>
+  </div>
+</section>
+
+<!-- CASES -->
+<div class="cases">
+  <div class="wrap">
+
+    <!-- CARD 1: Construction -->
+    <div class="case-card">
+      <div class="card-left">
+        <div>
+          <div class="card-tag"><span class="card-tag-dot"></span>General Contracting</div>
+        </div>
+        <div class="card-situation">
+          <div class="card-situation-label">The situation</div>
+          <h2 class="card-headline">Every Monday morning, 3 hours gone before the real work starts.</h2>
+          <p class="card-body">Chasing subcontractors for insurance certificates. Following up on unpaid invoices. Sending the same reminder for the third time. $3M/year business — and the owner was spending his first 3 hours every week on $10/hour admin work.</p>
+        </div>
+      </div>
+      <div class="card-right">
+        <div>
+          <div class="va-block-label">What the VA handles</div>
+          <div class="va-tasks">
+            <div class="va-task">
+              <div class="va-task-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Sends insurance certificate reminders before they expire
+            </div>
+            <div class="va-task">
+              <div class="va-task-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Follows up on unpaid invoices — twice, automatically
+            </div>
+            <div class="va-task">
+              <div class="va-task-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Flags anything overdue — owner only sees what needs a decision
+            </div>
+            <div class="va-task">
+              <div class="va-task-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Tracks vendor compliance documents in one place
+            </div>
+          </div>
+        </div>
+        <div class="results-strip">
+          <div class="result-item">
+            <div class="result-number green">150hrs</div>
+            <div class="result-desc">reclaimed per year</div>
+          </div>
+          <div class="result-item">
+            <div class="result-number green">$4.2M</div>
+            <div class="result-desc">revenue (from $3M)</div>
+          </div>
+          <div class="result-item">
+            <div class="result-number green">12mo</div>
+            <div class="result-desc">to see the result</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 2: Real Estate -->
+    <div class="case-card">
+      <div class="card-left">
+        <div>
+          <div class="card-tag"><span class="card-tag-dot"></span>Real Estate</div>
+        </div>
+        <div class="card-situation">
+          <div class="card-situation-label">The situation</div>
+          <h2 class="card-headline">You're showing a house. A new lead just came in. It's already going cold.</h2>
+          <p class="card-body">Zillow leads have a 5-minute window. After that, they're gone — already talking to someone else. She was a great agent losing deals not because of her skills, but because she couldn't be in two places at once. 30 transactions a year and she was still the only one answering the phone.</p>
+        </div>
+      </div>
+      <div class="card-right">
+        <div>
+          <div class="va-block-label">What the VA handles</div>
+          <div class="va-tasks">
+            <div class="va-task">
+              <div class="va-task-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Responds to every new lead within 2 minutes, 7 days a week
+            </div>
+            <div class="va-task">
+              <div class="va-task-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Qualifies leads with 3 screening questions before escalating
+            </div>
+            <div class="va-task">
+              <div class="va-task-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Books calls directly onto her calendar — no back-and-forth
+            </div>
+            <div class="va-task">
+              <div class="va-task-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Updates CRM and flags hot leads for immediate follow-up
+            </div>
+          </div>
+        </div>
+        <div class="results-strip">
+          <div class="result-item">
+            <div class="result-number green">2 min</div>
+            <div class="result-desc">avg lead response</div>
+          </div>
+          <div class="result-item">
+            <div class="result-number green">+40%</div>
+            <div class="result-desc">lead conversion rate</div>
+          </div>
+          <div class="result-item">
+            <div class="result-number green">+12</div>
+            <div class="result-desc">deals closed last year</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 3: Financial Advisor -->
+    <div class="case-card">
+      <div class="card-left">
+        <div>
+          <div class="card-tag"><span class="card-tag-dot"></span>Financial Advisory</div>
+        </div>
+        <div class="card-situation">
+          <div class="card-situation-label">The situation</div>
+          <h2 class="card-headline">2 hours of prep for every meeting. You're paying expert rates for admin work.</h2>
+          <p class="card-body">Managing $50M AUM. His problem wasn't finding clients — it was the 2 hours before each review meeting: pulling account summaries, reviewing last session's notes, updating the CMA. Every week, hours of his time going into prep that anyone trained could do. He was capped at 3 meetings a week because of it.</p>
+        </div>
+      </div>
+      <div class="card-right">
+        <div>
+          <div class="va-block-label">What the VA handles</div>
+          <div class="va-tasks">
+            <div class="va-task">
+              <div class="va-task-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Pulls account summaries the day before each review
+            </div>
+            <div class="va-task">
+              <div class="va-task-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Reviews previous meeting notes and prepares a briefing doc
+            </div>
+            <div class="va-task">
+              <div class="va-task-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Updates CMA and formats it — ready to present
+            </div>
+            <div class="va-task">
+              <div class="va-task-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Handles scheduling, confirmations, and follow-up emails post-meeting
+            </div>
+          </div>
+        </div>
+        <div class="results-strip">
+          <div class="result-item">
+            <div class="result-number green">3→7</div>
+            <div class="result-desc">meetings per week</div>
+          </div>
+          <div class="result-item">
+            <div class="result-number green">2hrs</div>
+            <div class="result-desc">saved per meeting</div>
+          </div>
+          <div class="result-item">
+            <div class="result-number">2×</div>
+            <div class="result-desc">output, same effort</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CARD 4: Coaching -->
+    <div class="case-card">
+      <div class="card-left">
+        <div>
+          <div class="card-tag"><span class="card-tag-dot"></span>Coaching & Consulting</div>
+        </div>
+        <div class="card-situation">
+          <div class="card-situation-label">The situation</div>
+          <h2 class="card-headline">400 unread DMs. You know some are leads. You'll never get to them.</h2>
+          <p class="card-body">$600K/year business coach. Her audience was engaged, people were reaching out — and she was leaving money in her inbox every single day. Not because she didn't care. Because there were only so many hours and her DMs were at the bottom of the list. Every unread message was a potential client who gave up waiting.</p>
+        </div>
+      </div>
+      <div class="card-right">
+        <div>
+          <div class="va-block-label">What the VA handles</div>
+          <div class="va-tasks">
+            <div class="va-task">
+              <div class="va-task-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Manages Instagram DMs daily — responds to general questions
+            </div>
+            <div class="va-task">
+              <div class="va-task-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Identifies and flags real leads for her personal follow-up
+            </div>
+            <div class="va-task">
+              <div class="va-task-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Books discovery calls directly — no founder involvement needed
+            </div>
+            <div class="va-task">
+              <div class="va-task-icon"><svg viewBox="0 0 12 12" fill="none"><polyline points="2,6 5,9 10,3" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+              Tracks DM pipeline — who's warm, who needs a nudge
+            </div>
+          </div>
+        </div>
+        <div class="results-strip">
+          <div class="result-item">
+            <div class="result-number green">11</div>
+            <div class="result-desc">calls booked in month 1</div>
+          </div>
+          <div class="result-item">
+            <div class="result-number green">3</div>
+            <div class="result-desc">new clients closed</div>
+          </div>
+          <div class="result-item">
+            <div class="result-number green">$15K</div>
+            <div class="result-desc">from ignored messages</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /wrap -->
+</div><!-- /cases -->
+
+<!-- BOTTOM CTA -->
+<div class="wrap">
+  <div class="bottom-cta">
+    <h2>Which one sounds<br><em>like your week?</em></h2>
+    <p>Tell us your biggest bottleneck in 15 minutes. We'll tell you exactly what your VA would handle from day one.</p>
+    <a href="https://link.gojarvis.ai/widget/bookings/jarvis-consultation">Book a Free Call</a>
+  </div>
+</div>
+
+</body>
+</html>

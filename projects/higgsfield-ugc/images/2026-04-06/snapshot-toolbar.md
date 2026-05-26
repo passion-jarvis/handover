@@ -1,0 +1,68 @@
+- generic [active] [ref=e1]:
+  - banner
+  - banner [ref=e2]:
+    - navigation "primary navigation" [ref=e3]:
+      - link "Higgsfield AI – AI Video & Image Generation Platform" [ref=e4] [cursor=pointer]:
+        - /url: /
+        - img [ref=e5]
+      - generic [ref=e8]:
+        - link "Explore" [ref=e9] [cursor=pointer]:
+          - /url: /
+        - button "Image" [ref=e11] [cursor=pointer]
+        - button "Video" [ref=e13] [cursor=pointer]
+        - button "Audio" [ref=e15] [cursor=pointer]
+        - link "Chat New" [ref=e16] [cursor=pointer]:
+          - /url: /generate
+          - text: Chat
+          - generic [ref=e17]: New
+        - button "Edit" [ref=e19] [cursor=pointer]
+        - button "Character" [ref=e21] [cursor=pointer]
+        - link "Moodboard" [ref=e22] [cursor=pointer]:
+          - /url: /moodboard
+        - link "Cinema Studio 2.5" [ref=e24] [cursor=pointer]:
+          - /url: /cinema-studio
+          - text: Cinema Studio
+          - generic [ref=e25]: "2.5"
+        - link "Original Series New" [ref=e26] [cursor=pointer]:
+          - /url: /original-series
+          - text: Original Series
+          - generic [ref=e27]: New
+        - link "Apps" [ref=e28] [cursor=pointer]:
+          - /url: /apps
+        - link "Assist" [ref=e29] [cursor=pointer]:
+          - /url: /chat
+        - button "Gallery" [ref=e31] [cursor=pointer]
+      - generic [ref=e33]:
+        - link "Upgrade 30% OFF" [ref=e149] [cursor=pointer]:
+          - /url: /pricing
+          - generic [ref=e35]
+        - separator [ref=e39]
+        - generic [ref=e153]:
+          - button "Notifications" [ref=e155] [cursor=pointer]
+          - link "Folder icon Assets" [ref=e158] [cursor=pointer]:
+            - /url: /asset/all
+          - button "user profile" [ref=e163] [cursor=pointer]
+  - main [ref=e50]:
+    - generic [ref=e52]:
+      - generic [ref=e53]:
+        - generic [ref=e54]:
+          - tablist [ref=e56]
+          - slider [ref=e68]
+        - generic [ref=e171]:
+          - generic [ref=e174]
+          - generic [ref=e180]
+          - generic [ref=e186]
+      - group [ref=e73]:
+        - generic [ref=e74]:
+          - generic [ref=e75]
+          - generic [ref=e81]
+        - complementary [ref=e139]:
+          - button "Generate 2" [ref=e140] [cursor=pointer]
+  - region "Notifications Alt+T"
+  - alert [ref=e148]
+  - generic:
+    - img
+  - generic:
+    - img
+  - generic:
+    - img

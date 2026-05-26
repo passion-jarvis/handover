@@ -1,0 +1,31 @@
+{
+  "provider": "fal.ai",
+  "model": "kling-v3",
+  "endpoint": "https://fal.run/fal-ai/kling-video/v1.6/standard/image-to-video",
+  "auth": "FAL_KEY env variable — never hardcode",
+  "default_params": {
+    "duration": "5",
+    "aspect_ratio": "9:16",
+    "cfg_scale": 0.5
+  },
+  "ugc_video_rules": [
+    "Always use image-to-video mode: generate anchor frame first (still image), then animate",
+    "Anchor frame must be generated using the full 6-layer prompt system before video call",
+    "cfg_scale must stay between 0.4-0.6 for natural motion — higher values cause over-animation",
+    "aspect_ratio must be 9:16 for all UGC vertical video formats",
+    "Prompt for video motion must describe movement only — character identity is locked in anchor frame",
+    "Do not describe appearance in video prompt — motion descriptors only (e.g., 'slowly raises product, smiles, tilts head slightly')"
+  ],
+  "motion_prompt_rules": {
+    "max_words": 40,
+    "allowed_descriptors": ["slow", "gentle", "natural", "subtle", "candid", "handheld"],
+    "banned_descriptors": ["dramatic", "cinematic zoom", "fast cut", "morphing", "transform"]
+  },
+  "example_call": {
+    "image_url": "{anchor_frame_url}",
+    "prompt": "gently raises product toward camera, soft smile, slight head tilt, natural handheld camera shake",
+    "duration": "5",
+    "aspect_ratio": "9:16",
+    "cfg_scale": 0.5
+  }
+}

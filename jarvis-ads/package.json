@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "@fal-ai/client": "^1.9.4",
+    "@remotion/cli": "^4.0.438",
+    "remotion": "^4.0.438"
+  }
+}

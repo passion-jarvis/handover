@@ -1,0 +1,48 @@
+{
+  "prompt_assembly_order": [1, 2, 3, 4, 5, 6],
+  "layers": [
+    {
+      "layer": 1,
+      "name": "Character Lock",
+      "purpose": "Anchor actor identity — must match actor JSON card exactly",
+      "required_fields": ["actor_id", "skin_tone_hex", "face_shape", "eye_color", "hair_description", "distinguishing_marks"],
+      "template": "[Actor: {actor_id}] {face_shape} face, {eye_color} {eye_shape} eyes, skin tone {skin_tone_hex}, {hair_length} {hair_texture} {hair_color} hair, {distinguishing_marks}"
+    },
+    {
+      "layer": 2,
+      "name": "Scenario",
+      "purpose": "Define what the actor is doing — must be UGC-native behavior",
+      "required_fields": ["action", "product_interaction", "emotional_state"],
+      "template": "{actor_id} is {action}, {product_interaction}, expression: {emotional_state}"
+    },
+    {
+      "layer": 3,
+      "name": "Environment",
+      "purpose": "Establish location, time of day, ambient context",
+      "required_fields": ["location", "time_of_day", "ambient_details"],
+      "template": "Setting: {location}, {time_of_day} light, {ambient_details}"
+    },
+    {
+      "layer": 4,
+      "name": "Camera",
+      "purpose": "Apply iPhone camera profile — must reference a profile from Module 3",
+      "required_fields": ["profile_id", "framing", "angle"],
+      "template": "{camera_profile.injection_phrase}, {framing}, shot from {angle}"
+    },
+    {
+      "layer": 5,
+      "name": "Realism Injection",
+      "purpose": "Insert all 10 realism anchors from Module 2 — no exceptions",
+      "required_fields": ["all_10_realism_anchors"],
+      "template": "Realism: {anchor_1}, {anchor_2}, {anchor_3}, {anchor_4}, {anchor_5}, {anchor_6}, {anchor_7}, {anchor_8}, {anchor_9}, {anchor_10}"
+    },
+    {
+      "layer": 6,
+      "name": "Negative Prompt",
+      "purpose": "Exclude AI artifacts, over-processing, and unrealistic renders",
+      "required_fields": ["global_negatives", "actor_negatives"],
+      "global_negatives": ["CGI skin", "plastic texture", "studio backdrop", "perfect symmetry", "airbrushed", "oversaturated", "uncanny valley", "fake bokeh", "HDR overdone", "watermark", "text overlay"],
+      "template": "Negative: {global_negatives}, {actor.negative_anchors}"
+    }
+  ]
+}

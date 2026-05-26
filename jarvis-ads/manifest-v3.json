@@ -1,0 +1,192 @@
+{
+  "version": "v3",
+  "generated": "2026-03-23T17:28:59.090Z",
+  "model": "fal-ai/flux-pro/v1.1",
+  "summary": {
+    "total": 30,
+    "done": 30,
+    "errors": 0
+  },
+  "assets": [
+    {
+      "id": "ad1-bottleneck-01",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad1-bottleneck/ad1-bottleneck-01.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d1/LNyxrbW4gH3TkSh6btckb_9352a05070f0482daa17840613cf84e7.jpg"
+    },
+    {
+      "id": "ad1-bottleneck-02",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad1-bottleneck/ad1-bottleneck-02.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d1/1WhZZUQQtxsdc95J7BX0__d566f998810941dca668c7660a577547.jpg"
+    },
+    {
+      "id": "ad1-bottleneck-03",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad1-bottleneck/ad1-bottleneck-03.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d1/vtz3Nd7A0ehF5Fglm0f2o_4b4befb0b77244488363d613a0389467.jpg"
+    },
+    {
+      "id": "ad1-bottleneck-04",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad1-bottleneck/ad1-bottleneck-04.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d1/bC70XFUMrZKIvpnIFPvET_9edf919c7c264cbf9e4926a1fbadc1ba.jpg"
+    },
+    {
+      "id": "ad1-bottleneck-05",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad1-bottleneck/ad1-bottleneck-05.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d1/yXCbvljpHThVpcvUsRpwP_29a0e2cf44254e30b2f345b12b93cd73.jpg"
+    },
+    {
+      "id": "ad1-bottleneck-06",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad1-bottleneck/ad1-bottleneck-06.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d2/rngDx27O2chYQq9-aywXu_8c9b4f726cd54c289c44116fbc82f035.jpg"
+    },
+    {
+      "id": "ad1-bottleneck-07",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad1-bottleneck/ad1-bottleneck-07.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d2/_FzUXdmvLoUkUFCOpk_Z8_5877033ece9941fbae0ba014a7ad9456.jpg"
+    },
+    {
+      "id": "ad1-bottleneck-08",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad1-bottleneck/ad1-bottleneck-08.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d2/MfIcWDW_RSO1rLgZkuDPr_b290530738b44b6db976719637024c6a.jpg"
+    },
+    {
+      "id": "ad1-bottleneck-09",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad1-bottleneck/ad1-bottleneck-09.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d2/U0Ezw6r9ag1dg4Q21_9cO_e37545ea7f834931bf8081b77cf4e41b.jpg"
+    },
+    {
+      "id": "ad1-bottleneck-10",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad1-bottleneck/ad1-bottleneck-10.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d2/7jbp6__VC0HYIxCnhsH2x_1508bd67d7814fe09ca3513a121d1d45.jpg"
+    },
+    {
+      "id": "ad2-10hr-brain-01",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad2-10hr-brain/ad2-10hr-brain-01.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d3/VXbNifyY5xwBH94X7w47V_ee11d4e3f96b449c8a3e98b15ef555c1.jpg"
+    },
+    {
+      "id": "ad2-10hr-brain-02",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad2-10hr-brain/ad2-10hr-brain-02.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d3/uQ4XlZoLYJuv-UyqRQ7aN_99094ea5bb864ee8bc338704bf7574c7.jpg"
+    },
+    {
+      "id": "ad2-10hr-brain-03",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad2-10hr-brain/ad2-10hr-brain-03.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d3/Vte1-4r2Ahk4NbQGxb8xC_c634d8114c334ae19a2b7f796cbe8eea.jpg"
+    },
+    {
+      "id": "ad2-10hr-brain-04",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad2-10hr-brain/ad2-10hr-brain-04.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d3/Qj_fM0r35d1OCK_xt_r_w_d4e2873199d74784b5a6a87c8299c3c0.jpg"
+    },
+    {
+      "id": "ad2-10hr-brain-05",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad2-10hr-brain/ad2-10hr-brain-05.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d3/vvtMjWlrQX2XC11g3mzbX_d60fc4dfd5444aea8ade437d0a255de8.jpg"
+    },
+    {
+      "id": "ad2-10hr-brain-06",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad2-10hr-brain/ad2-10hr-brain-06.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d3/xtObga9vsqlGPb77DFvyC_cc494f4e4db642a18f923a75170d12e1.jpg"
+    },
+    {
+      "id": "ad2-10hr-brain-07",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad2-10hr-brain/ad2-10hr-brain-07.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d4/33oQxSLk1JsKN2MKW84tA_f842f8712204419b98beee8a2a6aa0ae.jpg"
+    },
+    {
+      "id": "ad2-10hr-brain-08",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad2-10hr-brain/ad2-10hr-brain-08.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d4/dJwvUyy6X6gN__0uCasUV_23f2087048b240e0a20ccf62fb494461.jpg"
+    },
+    {
+      "id": "ad2-10hr-brain-09",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad2-10hr-brain/ad2-10hr-brain-09.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d3/5Ossa3BiSBj1ul5CQMO63_ed49c3486e574497999a1f38292b2639.jpg"
+    },
+    {
+      "id": "ad2-10hr-brain-10",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad2-10hr-brain/ad2-10hr-brain-10.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d4/F74crX9TA-IPcrxfBoG6f_21c1e5c41a09457d98d0c055a9e2621a.jpg"
+    },
+    {
+      "id": "ad3-identity-reframe-01",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad3-identity-reframe/ad3-identity-reframe-01.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d4/szufvBLFLnQ2-XZwyTTO6_730a9e9dc60b40d28a0b5d49b62cc079.jpg"
+    },
+    {
+      "id": "ad3-identity-reframe-02",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad3-identity-reframe/ad3-identity-reframe-02.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d4/dt0yLght1J9ogmnIJPuSF_bceb22c16f2c4cd7942381faca28cc95.jpg"
+    },
+    {
+      "id": "ad3-identity-reframe-03",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad3-identity-reframe/ad3-identity-reframe-03.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d4/YntJ2uNF2X_XnA2cF-h4f_f9856b920503421a8813a0656ff7c9f8.jpg"
+    },
+    {
+      "id": "ad3-identity-reframe-04",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad3-identity-reframe/ad3-identity-reframe-04.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d4/ObE-Aft9YnHbWwE7zCaoH_0e5ea089ac2649cc9d3640ab6b632e86.jpg"
+    },
+    {
+      "id": "ad3-identity-reframe-05",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad3-identity-reframe/ad3-identity-reframe-05.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d4/yZ5lqbuD-uKq5hZR0QLP8_de4b68fa0d0845d0a8fa2246fd23e29c.jpg"
+    },
+    {
+      "id": "ad3-identity-reframe-06",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad3-identity-reframe/ad3-identity-reframe-06.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d5/6Ny51bT-46b14KtB8HDbe_bd25f7fb086d4c7aaa7954f9e41a57c7.jpg"
+    },
+    {
+      "id": "ad3-identity-reframe-07",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad3-identity-reframe/ad3-identity-reframe-07.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d5/ykbchgXQ6_HwTImKpPqjV_869fc9ce20ab48d3999551252a694d5e.jpg"
+    },
+    {
+      "id": "ad3-identity-reframe-08",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad3-identity-reframe/ad3-identity-reframe-08.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d5/zqViOoq4jozF78lcKuj9k_92cbbf5c98bd436c83e78fce9318e377.jpg"
+    },
+    {
+      "id": "ad3-identity-reframe-09",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad3-identity-reframe/ad3-identity-reframe-09.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d5/z0HJfpQ8vxhYqGc4BJs06_a048a1b6ba37490c86fa423691b92b6d.jpg"
+    },
+    {
+      "id": "ad3-identity-reframe-10",
+      "dest": "/Users/passionchu/jarvis-ads/creatives-v2/ad3-identity-reframe/ad3-identity-reframe-10.jpg",
+      "status": "done",
+      "url": "https://v3b.fal.media/files/b/0a9358d5/P134VHlWe3fZwddeVVIjM_fb8c58c6b21c4f918b546c9bb5ae12a7.jpg"
+    }
+  ]
+}
